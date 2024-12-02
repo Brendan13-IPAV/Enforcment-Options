@@ -15,6 +15,29 @@
             max-width: 800px;
             margin: auto;
         }
+        .welcome-screen {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .welcome-content {
+            max-width: 800px;
+        }
+        .welcome-text {
+            color: #E5E8EC;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin: 2rem auto;
+            font-size: 1.1rem;
+        }
+        h1 {
+            color: #30AEB6;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
         .question-box {
             background: #313d48;
             padding: 20px;
@@ -67,17 +90,18 @@
             justify-content: space-between;
             margin-top: 20px;
         }
-        .nav-button {
+        .button, .nav-button {
             background: #30AEB6;
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
+            padding: 1rem 2rem;
+            border-radius: 8px;
             cursor: pointer;
-            font-weight: bold;
+            font-size: 1.1rem;
+            font-weight: 600;
             transition: opacity 0.2s;
         }
-        .nav-button:hover {
+        .button:hover, .nav-button:hover {
             opacity: 0.9;
         }
         .nav-button:disabled {
@@ -103,13 +127,11 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
         }
         .result-card:hover {
             transform: translateY(-2px);
-        }
-        .result-card p {
-            margin: 0;
-            font-weight: 500;
         }
         .result-card.not-applicable {
             opacity: 0.5;
@@ -134,129 +156,31 @@
         .toggle-button:hover {
             opacity: 0.9;
         }
-        h2 {
-            margin-top: 0;
-            margin-bottom: 1.5rem;
+        .results-subtext {
+            color: #E5E8EC;
+            opacity: 0.8;
+            margin-bottom: 2rem;
         }
-        h3 {
-            margin-top: 2rem;
+        .option-subtext {
+            color: #E5E8EC;
+            opacity: 0.8;
+            margin-top: -0.5rem;
             margin-bottom: 1rem;
         }
-        .subtext {
-            opacity: 0.8;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
+        .option-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
         }
-        .results-subtext {
-    color: #E5E8EC;
-    opacity: 0.8;
-    margin-bottom: 2rem;
-}
-
-.option-subtext {
-    color: #E5E8EC;
-    opacity: 0.8;
-    margin-top: -0.5rem;
-    margin-bottom: 1rem;
-}
-
-.option-title {
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.option-details {
-    background: rgba(0,0,0,0.05);
-    padding: 1rem;
-    border-radius: 4px;
-    margin: 0.5rem 0;
-}
-
-.detail-item {
-    margin: 0.25rem 0;
-    font-size: 0.9rem;
-}
-
-.result-card {
-    display: flex;
-    flex-direction: column;
-}
-        .results-subtext {
-    color: #E5E8EC;
-    opacity: 0.8;
-    margin-bottom: 2rem;
-}
-
-.option-subtext {
-    color: #E5E8EC;
-    opacity: 0.8;
-    margin-top: -0.5rem;
-    margin-bottom: 1rem;
-}
-
-.option-title {
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.option-details {
-    background: rgba(0,0,0,0.05);
-    padding: 1rem;
-    border-radius: 4px;
-    margin: 0.5rem 0;
-}
-
-.detail-item {
-    margin: 0.25rem 0;
-    font-size: 0.9rem;
-}
-
-.result-card {
-    display: flex;
-    flex-direction: column;
-}
-        .welcome-screen {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 20px;
-}
-
-.welcome-content {
-    max-width: 800px;
-}
-
-.welcome-text {
-    color: #E5E8EC;
-    opacity: 0.9;
-    line-height: 1.6;
-    margin: 2rem auto;
-    font-size: 1.1rem;
-}
-
-h1 {
-    color: #30AEB6;
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.button {
-    background: #30AEB6;
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: opacity 0.2s;
-}
-
-.button:hover {
-    opacity: 0.9;
-}
+        .option-details {
+            background: rgba(0,0,0,0.05);
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+        }
+        .detail-item {
+            margin: 0.25rem 0;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
@@ -266,168 +190,152 @@ h1 {
         </div>
         <div id="questionContainer" class="question-box"></div>
     </div>
+</body>
+</html>
+
 
     <script>
-        const questions = [
+   // Questions data
+const questions = [
+    {
+        id: 1,
+        text: "What is the nature of the infringement?",
+        subtext: "Consider how the IP is being used without authorization",
+        options: [
             {
-               // Question 1 Here
                 id: 1,
-                text: "What is the nature of the infringement?",
-                subtext: "Consider how the IP is being used without authorization",
-                options: [
-                    {
-                        id: 1,
-                        text: "Direct commercial use",
-                        explanation: "The infringer is directly profiting from your IP",
-                        scores: [1, 5, -2, 0, 2, 3, 1, 0, 2, -1],
-                        markNotApplicable: [4, 5],
-                        skipQuestions: [3, 4]
-                    },
-                    {
-                        id: 2,
-                        text: "Indirect/non-commercial use",
-                        explanation: "The infringement is not directly generating profit",
-                        scores: [-2, 2, 4, 1, 0, -1, 2, 1, 0, 3],
-                        markNotApplicable: [],
-                        skipQuestions: []
-                    }
-                ]
+                text: "Direct commercial use",
+                explanation: "The infringer is directly profiting from your IP",
+                scores: [1, 5, -2, 0, 2, 3],
+                markNotApplicable: [4, 5],
+                skipQuestions: [3, 4]
             },
-            {   
-            // Question 2 Here
+            {
                 id: 2,
-                text: "Question 2?",
-                subtext: "IP exists globally, but is made up of a patchwork of cooperating systems. Some actions are only available with rights registered in certain jurisdictions. This includes IP rights which are pending.",
-                options: [
-                    {
-                        id: 1,
-                        text: "Registered with IP Australia.",
-                        explanation: "Making this choice will prioritise actions which can be applied within Australia.",
-                        scores: [1, 5, -2, 0, 2, 3, 1, 0, 2, -1],
-                        markNotApplicable: [4, 5],
-                        skipQuestions: []
-                    },
-                    {
-                        id: 2,
-                        text: "Registered with foreign IP offices",
-                        explanation: "Selecting this means 3 possible options will be excluded as these options require the IP to be registered in Australia.",
-                        scores: [-2, 2, 4, 1, 0, -1, 2, 1, 0, 3],
-                        markNotApplicable: [1,3,4,5],
-                        skipQuestions: []
-                    },                    {
-                        id: 3,
-                        text: "Registered in both Australia and foreign IP offices.",
-                        explanation: ".Making this choice will prioritise actions that can have international outreach.",
-                        scores: [-2, 2, 4, 1, 0, -1, 2, 1, 0, 3],
-                        markNotApplicable: [],
-                        skipQuestions: []
-                    },                    {
-                        id: 4,
-                        text: " The IP is not formally registered.",
-                        explanation: "There are Common Law rights for IP in some situations, but with no registered IP rights, 9 possible options will not available to consider..",
-                        scores: [-2, 2, 4, 1, 0, -1, 2, 1, 0, 3],
-                        markNotApplicable: [],
-                        skipQuestions: []
-                    }
-                ]
+                text: "Indirect/non-commercial use",
+                explanation: "The infringement is not directly generating profit",
+                scores: [-2, 2, 4, 1, 0, -1],
+                markNotApplicable: [],
+                skipQuestions: []
             }
-            // Add more questions here
-        ];
+        ]
+    }
+];
 
-        let currentQuestion = 0;
-        let scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];  // Extended for more options
-        let notApplicableOptions = new Set();
-        let showNotApplicable = false;
-        let showAllOptions = false;
+// State management
+let state = {
+    started: false,
+    currentQuestion: 0,
+    scores: [0, 0, 0, 0, 0, 0],
+    notApplicableOptions: new Set(),
+    showNotApplicable: false,
+    showAllOptions: false
+};
 
-
-        function showQuestion(questionIndex) {
-            const question = questions[questionIndex];
-            const container = document.getElementById('questionContainer');
-            
-            document.getElementById('progress').style.width = 
-                `${((questionIndex + 1) / questions.length) * 100}%`;
-            
-            let html = `
-                <h2>${question.text}</h2>
-                <p class="subtext">${question.subtext}</p>
-            `;
-            
-            question.options.forEach((option, index) => {
-                html += `
-                    <button 
-                        class="option-button" 
-                        onclick="selectOption(${index})"
-                    >${option.text}</button>
-                    <div class="explanation">
-                        ${option.explanation}
-                    </div>
-                `;
-            });
-
-            html += `
-                <div class="nav-buttons">
-                    <button 
-                        class="nav-button" 
-                        onclick="navigate(-1)" 
-                        ${currentQuestion === 0 ? 'disabled' : ''}
-                    >Previous</button>
-                    <button 
-                        class="nav-button" 
-                        onclick="navigate(1)"
-                    >${currentQuestion === questions.length - 1 ? 'See Results' : 'Next'}</button>
+function init() {
+    const container = document.getElementById('questionContainer');
+    if (!state.started) {
+        container.innerHTML = `
+            <div class="welcome-screen">
+                <div class="welcome-content">
+                    <h1>My Rights have been infringed</h1>
+                    <p class="welcome-text">
+                        This tool is designed to help you narrow down and prioritise potential actions based on the information you provide about your situation. At the conclusion, you will receive a shortlist of options for your consideration, empowering you to make an informed decision.
+                    </p>
+                    <button class="button" onclick="startQuiz()">Begin Assessment</button>
                 </div>
-            `;
-            
-            container.innerHTML = html;
-        }
+            </div>
+        `;
+    }
+}
 
-        function selectOption(optionIndex) {
-            const question = questions[currentQuestion];
-            const option = question.options[optionIndex];
-            
-            // Clear previous selections and hide explanations
-            document.querySelectorAll('.option-button').forEach(btn => {
-                btn.classList.remove('selected');
-            });
-            document.querySelectorAll('.explanation').forEach(exp => {
-                exp.style.display = 'none';
-            });
-            
-            // Show selected option and its explanation
-            document.querySelectorAll('.option-button')[optionIndex].classList.add('selected');
-            document.querySelectorAll('.explanation')[optionIndex].style.display = 'block';
-            
-            // Update scores
-            option.scores.forEach((score, index) => {
-                scores[index] += score;
-            });
+function startQuiz() {
+    state.started = true;
+    showQuestion(0);
+}
 
-            // Handle not applicable options
-            if (option.markNotApplicable) {
-                option.markNotApplicable.forEach(optionId => {
-                    notApplicableOptions.add(optionId);
-                });
-            }
-        }
+function showQuestion(questionIndex) {
+    state.currentQuestion = questionIndex;
+    const question = questions[questionIndex];
+    const container = document.getElementById('questionContainer');
+    
+    document.getElementById('progress').style.width = 
+        `${((questionIndex + 1) / questions.length) * 100}%`;
+    
+    let html = `
+        <h2>${question.text}</h2>
+        <p class="subtext">${question.subtext}</p>
+    `;
+    
+    question.options.forEach((option, index) => {
+        html += `
+            <button 
+                class="option-button" 
+                onclick="selectOption(${index})"
+            >${option.text}</button>
+            <div class="explanation">
+                ${option.explanation}
+            </div>
+        `;
+    });
 
-        function navigate(direction) {
-            const newQuestion = currentQuestion + direction;
-            if (newQuestion >= 0 && newQuestion < questions.length) {
-                currentQuestion = newQuestion;
-                showQuestion(currentQuestion);
-            } else if (newQuestion >= questions.length) {
-                showResults();
-            }
-        }
+    html += `
+        <div class="nav-buttons">
+            <button 
+                class="nav-button" 
+                onclick="navigate(-1)" 
+                ${questionIndex === 0 ? 'disabled' : ''}
+            >Previous</button>
+            <button 
+                class="nav-button" 
+                onclick="navigate(1)"
+            >${questionIndex === questions.length - 1 ? 'See Results' : 'Next'}</button>
+        </div>
+    `;
+    
+    container.innerHTML = html;
+}
 
-       
-           function showResults() {
+function selectOption(optionIndex) {
+    const question = questions[state.currentQuestion];
+    const option = question.options[optionIndex];
+    
+    document.querySelectorAll('.option-button').forEach(btn => {
+        btn.classList.remove('selected');
+    });
+    document.querySelectorAll('.explanation').forEach(exp => {
+        exp.style.display = 'none';
+    });
+    
+    document.querySelectorAll('.option-button')[optionIndex].classList.add('selected');
+    document.querySelectorAll('.explanation')[optionIndex].style.display = 'block';
+    
+    option.scores.forEach((score, index) => {
+        state.scores[index] += score;
+    });
+
+    if (option.markNotApplicable) {
+        option.markNotApplicable.forEach(optionId => {
+            state.notApplicableOptions.add(optionId);
+        });
+    }
+}
+
+function navigate(direction) {
+    const newQuestion = state.currentQuestion + direction;
+    if (newQuestion >= 0 && newQuestion < questions.length) {
+        showQuestion(newQuestion);
+    } else if (newQuestion >= questions.length) {
+        showResults();
+    }
+}
+
+function showResults() {
     const validOptions = [
         { 
             id: 1, 
             text: "Send Cease and Desist Letter", 
-            score: scores[0],
+            score: state.scores[0],
             cost: "free",
             effort: "5-7 hours",
             resolution: "54%"
@@ -435,7 +343,7 @@ h1 {
         { 
             id: 2, 
             text: "File for Preliminary Injunction", 
-            score: scores[1],
+            score: state.scores[1],
             cost: "$5,000-10,000",
             effort: "20-30 hours",
             resolution: "78%"
@@ -443,7 +351,7 @@ h1 {
         { 
             id: 3, 
             text: "Initiate Settlement Discussion", 
-            score: scores[2],
+            score: state.scores[2],
             cost: "$1,000-3,000",
             effort: "10-15 hours",
             resolution: "65%"
@@ -451,7 +359,7 @@ h1 {
         { 
             id: 4, 
             text: "File a non use request for the TM", 
-            score: scores[3],
+            score: state.scores[3],
             cost: "$2,000-4,000",
             effort: "8-12 hours",
             resolution: "70%"
@@ -459,7 +367,7 @@ h1 {
         { 
             id: 5, 
             text: "Use Amazon Brand Registry", 
-            score: scores[4],
+            score: state.scores[4],
             cost: "free",
             effort: "3-5 hours",
             resolution: "85%"
@@ -467,54 +375,20 @@ h1 {
         { 
             id: 6, 
             text: "Hire a Lawyer immediately", 
-            score: scores[5],
+            score: state.scores[5],
             cost: "$5,000+",
             effort: "2-3 hours",
             resolution: "90%"
-        },
-        { 
-            id: 7, 
-            text: "Send Cease and Desist Letter", 
-            score: scores[0],
-            cost: "free",
-            effort: "5-7 hours",
-            resolution: "54%"
-        },
-        { 
-            id: 8, 
-            text: "File for Preliminary Injunction", 
-            score: scores[1],
-            cost: "$50k+",
-            effort: "20-30 hours",
-            resolution: "78%"
-        },
-        { 
-            id: 9, 
-            text: "Initiate Settlement Discussion", 
-            score: scores[2],
-            cost: "$1,000-3,000",
-            effort: "6 week",
-            resolution: "65%"
-        },
-        { 
-            id: 10, 
-            text: "File a non use request for the TM", 
-            score: scores[3],
-            cost: "$2,000-4,000",
-            effort: "2 years",
-            resolution: "70%"
         }
     ]
     .map(opt => ({
         ...opt,
-        notApplicable: notApplicableOptions.has(opt.id)
+        notApplicable: state.notApplicableOptions.has(opt.id)
     }))
     .sort((a, b) => b.score - a.score);
 
     const applicableOptions = validOptions.filter(opt => !opt.notApplicable);
     const naOptions = validOptions.filter(opt => opt.notApplicable);
-    const mainOptions = applicableOptions.slice(0, 6);
-    const otherOptions = applicableOptions.slice(6);
 
     const container = document.getElementById('questionContainer');
     container.innerHTML = `
@@ -533,7 +407,7 @@ h1 {
                             <div class="detail-item">Effort: ${option.effort}</div>
                             <div class="detail-item">Rate of resolution: ${option.resolution}</div>
                         </div>
-                        <span style="color: #F4F4F4">${option.score}</span>
+                        <span style="color: #1D252C">${option.score}</span>
                     </div>
                 `).join('')}
             </div>
@@ -548,7 +422,7 @@ h1 {
                             <div class="detail-item">Effort: ${option.effort}</div>
                             <div class="detail-item">Rate of resolution: ${option.resolution}</div>
                         </div>
-                        <span style="color: #F4F4F4">${option.score}</span>
+                        <span style="color: #1D252C">${option.score}</span>
                     </div>
                 `).join('')}
             </div>
@@ -562,17 +436,9 @@ h1 {
                         `Show ${naOptions.length} Not Applicable Options` : 
                         'No Not Applicable Options'}
                 </button>
-                ${otherOptions.length > 0 ? `
-                    <button 
-                        class="toggle-button" 
-                        onclick="toggleAllOptions()"
-                    >
-                        Explore ${otherOptions.length} other possible suggestions available
-                    </button>
-                ` : ''}
             </div>
 
-            ${showNotApplicable && naOptions.length > 0 ? `
+            ${state.showNotApplicable && naOptions.length > 0 ? `
                 <div style="margin-top: 20px;">
                     <h3 style="color: #9DA3A8">Not Applicable Options</h3>
                     <div class="results-grid">
@@ -584,26 +450,7 @@ h1 {
                                     <div class="detail-item">Effort: ${option.effort}</div>
                                     <div class="detail-item">Rate of resolution: ${option.resolution}</div>
                                 </div>
-                                <span style="color: #F4F4F4">${option.score}</span>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-            ` : ''}
-
-            ${showAllOptions && otherOptions.length > 0 ? `
-                <div style="margin-top: 20px;">
-                    <h3 style="color: #30AEB6">Additional Options</h3>
-                    <div class="results-grid">
-                        ${otherOptions.map(option => `
-                            <div class="result-card">
-                                <p class="option-title">${option.text}</p>
-                                <div class="option-details">
-                                    <div class="detail-item">Cost: ${option.cost}</div>
-                                    <div class="detail-item">Effort: ${option.effort}</div>
-                                    <div class="detail-item">Rate of resolution: ${option.resolution}</div>
-                                </div>
-                                <span style="color: #F4F4F4">${option.score}</span>
+                                <span style="color: #1D252C">${option.score}</span>
                             </div>
                         `).join('')}
                     </div>
@@ -613,46 +460,12 @@ h1 {
     `;
 }
 
-        function toggleNotApplicable() {
-            showNotApplicable = !showNotApplicable;
-            showResults();
-        }
-
-        function toggleAllOptions() {
-            showAllOptions = !showAllOptions;
-            showResults();
-        }
-
-        // Start the quiz
-        showQuestion(0);
-
-        function render() {
-    const app = document.getElementById('app');
-    if (!currentState.started) {
-        app.innerHTML = renderWelcome();
-    } else if (currentState.showResults) {
-        app.innerHTML = renderResults();
-    } else {
-        app.innerHTML = renderQuestion();
-    }
+function toggleNotApplicable() {
+    state.showNotApplicable = !state.showNotApplicable;
+    showResults();
 }
 
-function renderWelcome() {
-    return `
-        <div class="welcome-screen">
-            <div class="welcome-content">
-                <h1>My Rights have been infringed</h1>
-                <p class="welcome-text">
-                    This tool is designed to help you narrow down and prioritise potential actions based on the information you provide about your situation. At the conclusion, you will receive a shortlist of options for your consideration, empowering you to make an informed decision.
-                </p>
-                <button class="button" onclick="startQuiz()">Begin Assessment</button>
-            </div>
-        </div>
-    `;
-}
-
-// Initial render
-render();
-    </script>
+// Start the application
+init();
 </body>
 </html>
