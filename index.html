@@ -31,19 +31,20 @@
             border-radius: 4px;
             cursor: pointer;
             text-align: left;
+            font-size: 16px;
         }
         .option-button.selected {
             background: #30AEB6;
             color: white;
         }
-.explanation {
-    background: #3d4957;  /* lighter than the question box */
-    color: #84C98F;
-    margin: 10px 0 20px 0;
-    padding: 15px;
-    border-radius: 4px;
-    display: block;  /* always visible instead of none */
-}
+        .explanation {
+            background: #3d4957;
+            color: #84C98F;
+            margin: 10px 0 20px 0;
+            padding: 15px;
+            border-radius: 4px;
+            display: block;
+            font-size: 14px;
         }
         .progress-bar {
             background: #313d48;
@@ -57,42 +58,39 @@
             border-radius: 5px;
             transition: width 0.3s;
         }
-        .results-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.result-card {
-    background: #313d48;
-    padding: 1rem;
-    border-radius: 8px;
-}
-
-h3 {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-}
         .nav-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-.nav-button {
-    background: #30AEB6;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.nav-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .nav-button {
+            background: #30AEB6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .result-card {
+            background: #313d48;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -127,156 +125,123 @@ h3 {
                     }
                 ]
             }
+            // Add more questions here
         ];
 
         // Current state
         let currentQuestion = 0;
-        let scores = [0, 0, 0, 0, 0, 0]; // One score per enforcement option
+        let scores = [0, 0, 0, 0, 0, 0];
 
-        // Functions
-function showQuestion(questionIndex) {
-    const question = questions[questionIndex];
-    const container = document.getElementById('questionContainer');
-    
-    document.getElementById('progress').style.width = 
-        `${((questionIndex + 1) / questions.length) * 100}%`;
-    
-    let html = `
-        <h2>${question.text}</h2>
-        <p>${question.subtext}</p>
-    `;
-    
-    question.options.forEach((option, index) => {
-        html += `
-            <button 
-                class="option-button" 
-                onclick="selectOption(${index})"
-            >${option.text}</button>
-            <div id="exp_${index}" class="explanation">
-                ${option.explanation}
-            </div>
-        `;
-    });
-
-    // Add navigation buttons
-    html += `
-        <div class="nav-buttons">
-            <button 
-                class="nav-button" 
-                onclick="navigate(-1)" 
-                ${currentQuestion === 0 ? 'disabled' : ''}
-            >Previous</button>
-            <button 
-                class="nav-button" 
-                onclick="navigate(1)"
-            >${currentQuestion === questions.length - 1 ? 'See Results' : 'Next'}</button>
-        </div>
-    `;
-    
-    container.innerHTML = html;
-}
-        function navigate(direction) {
-    const newQuestion = currentQuestion + direction;
-    if (newQuestion >= 0 && newQuestion < questions.length) {
-        currentQuestion = newQuestion;
-        showQuestion(currentQuestion);
-    } else if (newQuestion >= questions.length) {
-        showResults();
-    }
-}
-
-function selectOption(optionIndex) {
-    const question = questions[currentQuestion];
-    const option = question.options[optionIndex];
-    
-    // Clear previous selections
-    document.querySelectorAll('.option-button').forEach(btn => {
-        btn.classList.remove('selected');
-    });
-    
-    // Show selection
-    document.querySelectorAll('.option-button')[optionIndex].classList.add('selected');
-    
-    // Update scores
-    option.scores.forEach((score, index) => {
-        scores[index] += score;
-    });
-}
+        function showQuestion(questionIndex) {
+            const question = questions[questionIndex];
+            const container = document.getElementById('questionContainer');
             
+            document.getElementById('progress').style.width = 
+                `${((questionIndex + 1) / questions.length) * 100}%`;
+            
+            let html = `
+                <h2>${question.text}</h2>
+                <p>${question.subtext}</p>
+            `;
+            
+            question.options.forEach((option, index) => {
+                html += `
+                    <button 
+                        class="option-button" 
+                        onclick="selectOption(${index})"
+                    >${option.text}</button>
+                    <div class="explanation">
+                        ${option.explanation}
+                    </div>
+                `;
+            });
 
+            html += `
+                <div class="nav-buttons">
+                    <button 
+                        class="nav-button" 
+                        onclick="navigate(-1)" 
+                        ${currentQuestion === 0 ? 'disabled' : ''}
+                    >Previous</button>
+                    <button 
+                        class="nav-button" 
+                        onclick="navigate(1)"
+                    >${currentQuestion === questions.length - 1 ? 'See Results' : 'Next'}</button>
+                </div>
+            `;
+            
+            container.innerHTML = html;
         }
 
-function showResults() {
-    const validOptions = [
-        { id: 1, text: "Send Cease and Desist Letter", score: scores[0], notApplicable: false },
-        { id: 2, text: "File for Preliminary Injunction", score: scores[1], notApplicable: false },
-        { id: 3, text: "Initiate Settlement Discussion", score: scores[2], notApplicable: false },
-        { id: 4, text: "File a non use request for the TM", score: scores[3], notApplicable: false },
-        { id: 5, text: "Use Amazon Brand Registry", score: scores[4], notApplicable: false },
-        { id: 6, text: "Hire a Lawyer immediately", score: scores[5], notApplicable: false }
-    ]
-    .filter(opt => !opt.notApplicable)
-    .sort((a, b) => b.score - a.score);
-
-    const groups = {
-        primary: validOptions.slice(0, 3),
-        secondary: validOptions.slice(3, 6),
-    };
-
-    const container = document.getElementById('questionContainer');
-    container.innerHTML = `
-        <div>
-            <h2>Recommended Enforcement Options</h2>
+        function selectOption(optionIndex) {
+            const question = questions[currentQuestion];
+            const option = question.options[optionIndex];
             
-            <h3 style="color: #30AEB6">Primary Options to Consider</h3>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem;">
-                ${groups.primary.map(option => `
-                    <div style="background: #313d48; padding: 1rem; border-radius: 8px;">
-                        <p>${option.text}</p>
-                        <span style="color: #1D252C">${option.score}</span>
-                    </div>
-                `).join('')}
-            </div>
-
-            <h3 style="color: #60106a">Secondary Options</h3>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem;">
-                ${groups.secondary.map(option => `
-                    <div style="background: #313d48; padding: 1rem; border-radius: 8px;">
-                        <p>${option.text}</p>
-                        <span style="color: #1D252C">${option.score}</span>
-                    </div>
-                `).join('')}
-            </div>
-        </div>
-    `;
-
-    container.innerHTML = `
-        <div>
-            <h2>Recommended Enforcement Options</h2>
+            document.querySelectorAll('.option-button').forEach(btn => {
+                btn.classList.remove('selected');
+            });
             
-            <h3 style="color: #30AEB6">Primary Options to Consider</h3>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem;">
-                ${groups.primary.map(option => `
-                    <div style="background: #313d48; padding: 1rem; border-radius: 8px;">
-                        <p>${option.text}</p>
-                        <span style="color: #1D252C">${option.score}</span>
-                    </div>
-                `).join('')}
-            </div>
+            document.querySelectorAll('.option-button')[optionIndex].classList.add('selected');
+            
+            option.scores.forEach((score, index) => {
+                scores[index] += score;
+            });
+        }
 
-            <h3 style="color: #30AEB6">Secondary Options</h3>  <!-- Changed from #60106a to #30AEB6 -->
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem;">
-                ${groups.secondary.map(option => `
-                    <div style="background: #313d48; padding: 1rem; border-radius: 8px;">
-                        <p>${option.text}</p>
-                        <span style="color: #1D252C">${option.score}</span>
-                    </div>
-                `).join('')}
-            </div>
-        </div>
-    `;
-}
+        function navigate(direction) {
+            const newQuestion = currentQuestion + direction;
+            if (newQuestion >= 0 && newQuestion < questions.length) {
+                currentQuestion = newQuestion;
+                showQuestion(currentQuestion);
+            } else if (newQuestion >= questions.length) {
+                showResults();
+            }
+        }
 
+        function showResults() {
+            const validOptions = [
+                { id: 1, text: "Send Cease and Desist Letter", score: scores[0], notApplicable: false },
+                { id: 2, text: "File for Preliminary Injunction", score: scores[1], notApplicable: false },
+                { id: 3, text: "Initiate Settlement Discussion", score: scores[2], notApplicable: false },
+                { id: 4, text: "File a non use request for the TM", score: scores[3], notApplicable: false },
+                { id: 5, text: "Use Amazon Brand Registry", score: scores[4], notApplicable: false },
+                { id: 6, text: "Hire a Lawyer immediately", score: scores[5], notApplicable: false }
+            ]
+            .filter(opt => !opt.notApplicable)
+            .sort((a, b) => b.score - a.score);
+
+            const groups = {
+                primary: validOptions.slice(0, 3),
+                secondary: validOptions.slice(3, 6),
+            };
+
+            const container = document.getElementById('questionContainer');
+            container.innerHTML = `
+                <div>
+                    <h2>Recommended Enforcement Options</h2>
+                    
+                    <h3 style="color: #30AEB6">Primary Options to Consider</h3>
+                    <div class="results-grid">
+                        ${groups.primary.map(option => `
+                            <div class="result-card">
+                                <p>${option.text}</p>
+                                <span style="color: #1D252C">${option.score}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <h3 style="color: #30AEB6">Secondary Options</h3>
+                    <div class="results-grid">
+                        ${groups.secondary.map(option => `
+                            <div class="result-card">
+                                <p>${option.text}</p>
+                                <span style="color: #1D252C">${option.score}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
 
         // Start the quiz
         showQuestion(0);
