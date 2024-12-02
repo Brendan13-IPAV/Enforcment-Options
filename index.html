@@ -1,391 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IP Enforcement Options Advisor</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>IP Enforcement Options</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* Style section remains the same */
-        :root {
-            --dark-primary: #1D252C;
-            --dark-secondary: #313d48;
-            --light-gray: #E5E8EC;
-            --teal: #30AEB6;
-            --purple: #60106a;
-            --green: #84C98F;
-        }
-
         body {
-            margin: 0;
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--dark-primary);
-            color: var(--light-gray);
+            background: #1D252C;
+            color: #E5E8EC;
+            margin: 0;
+            padding: 20px;
         }
-
         .container {
             max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
+            margin: auto;
         }
-
-        .welcome-screen {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .button {
-            background-color: var(--teal);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
+        .question-box {
+            background: #313d48;
+            padding: 20px;
             border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: opacity 0.2s;
+            margin: 20px 0;
         }
-
-        .button:hover {
-            opacity: 0.9;
-        }
-
-        .progress-bar {
-            height: 8px;
-            background-color: var(--dark-secondary);
-            border-radius: 4px;
-            margin-bottom: 2rem;
-        }
-
-        .progress {
-            height: 100%;
-            background-color: var(--teal);
-            border-radius: 4px;
-            transition: width 0.3s;
-        }
-
-        .question-card {
-            background-color: var(--dark-secondary);
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-        }
-
-        .options {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .option {
-            background-color: var(--light-gray);
-            color: var(--dark-primary);
-            padding: 1rem;
-            border-radius: 8px;
-            cursor: pointer;
-            border: none;
-            text-align: left;
+        .option-button {
+            display: block;
             width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background: #E5E8EC;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: left;
         }
-
-        .option.selected {
-            background-color: var(--teal);
+        .option-button.selected {
+            background: #30AEB6;
             color: white;
         }
-
         .explanation {
-            color: var(--green);
-            margin-top: 0.5rem;
-            padding-left: 1rem;
+            color: #84C98F;
+            margin-left: 10px;
             display: none;
         }
-
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-bottom: 2rem;
+        .progress-bar {
+            background: #313d48;
+            height: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
         }
-
-        .result-card {
-            background-color: var(--dark-secondary);
-            padding: 1rem;
-            border-radius: 8px;
-        }
-
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 2rem;
+        .progress {
+            background: #30AEB6;
+            height: 100%;
+            border-radius: 5px;
+            transition: width 0.3s;
         }
     </style>
 </head>
 <body>
-    <div id="app" class="container"></div>
+    <div class="container">
+        <div class="progress-bar">
+            <div id="progress" class="progress" style="width: 0%"></div>
+        </div>
+        <div id="questionContainer" class="question-box"></div>
+    </div>
 
     <script>
-        // Scoring system
-        const scoreMatrix = {
-            "1_1": [
-                { optionId: 1, score: 8 },
-                { optionId: 2, score: 5 },
-                { optionId: 3, score: -2 },
-                { optionId: 4, score: 1 },
-                { optionId: 5, score: 0 },
-                { optionId: 6, score: 0 }
-            ],
-            "1_2": [
-                { optionId: 1, score: -3 },
-                { optionId: 2, score: 4 },
-                { optionId: 3, score: 6 },
-                 { optionId: 4, score: 1 },
-                { optionId: 5, score: 0 },
-                { optionId: 6, score: 0 }
-            ]
-        };
-
+        // Questions data
         const questions = [
             {
                 id: 1,
                 text: "What is the nature of the infringement?",
-                subtext: "Consider how the intellectual property is being used without authorization",
+                subtext: "Consider how the IP is being used without authorization",
                 options: [
                     {
                         id: 1,
                         text: "Direct commercial use",
                         explanation: "The infringer is directly profiting from your IP",
-                        skipNext: false, // Will skip the next unanswered question
-                        markNotApplicable: [4, 5]
+                        scores: [1, 5, -2, 0, 2, 3],
+                        skipQuestions: [3, 4]
                     },
                     {
                         id: 2,
-                        text: "Indirect or non-commercial use",
-                        explanation: "The infringement is not directly generating profit"
-                    }
-                ]
-            },
-            {
-                id: 2,
-                text: "How expensive is it?",
-                subtext: "An approximate value for the intellectual property in question helps prioritise enforcement actions which are proportionate and cost-effective - whether that means prioritising escalated and costly actions for large cases or practical solutions for smaller infringements. For information on how to value IP, refer here.
-",
-                options: [
-                    {
-                        id: 1,
-                        text: "Less than AUD 10,000",
-                        explanation: "Not very expensive",
-                        skipNext: false, // Will skip the next unanswered question
-                        markNotApplicable: [4, 5]
-                    },
-                    {
-                        id: 2,
-                        text: "AUD 10,000 - 50,000",
-                        explanation: "Sort of expensive",
-                    },
-                        {
-                        id: 3,
-                        text: "AUD 50,000 - 100,0000",
-                        explanation: "Not cheap",
-                    },
-                                            {
-                        id: 4,
-                        text: "Over AUD 100,0000",
-                        explanation: "Costly",
+                        text: "Indirect/non-commercial use",
+                        explanation: "The infringement is not directly generating profit",
+                        scores: [-2, 2, 4, 1, 0, -1],
+                        skipQuestions: []
                     }
                 ]
             }
-            
-            // Add more questions here
         ];
 
-        const enforcementOptions = [
-            { id: 1, text: "Send Cease and Desist Letter", score: 0, notApplicable: false },
-            { id: 2, text: "File for Preliminary Injunction", score: 0, notApplicable: false },
-            { id: 3, text: "Initiate Settlement Discussion", score: 0, notApplicable: false },
-             { id: 4, text: "File a non use request for the TM", score: 0, notApplicable: false },
-            { id: 5, text: "Use Amazone Brand Registry", score: 0, notApplicable: false },
-            { id: 6, text: "Hire a Lawyer immediatly", score: 0, notApplicable: false }
-        ];
+        // Current state
+        let currentQuestion = 0;
+        let scores = [0, 0, 0, 0, 0, 0]; // One score per enforcement option
 
-        let currentState = {
-            started: false,
-            currentQuestion: 0,
-            answers: {},
-            skippedQuestions: new Set(),
-            options: [...enforcementOptions],
-            showResults: false
-        };
-
-        function updateScore(questionId, optionId) {
-            const scoreKey = `${questionId}_${optionId}`;
-            const scores = scoreMatrix[scoreKey] || [];
+        // Functions
+        function showQuestion(questionIndex) {
+            const question = questions[questionIndex];
+            const container = document.getElementById('questionContainer');
             
-            scores.forEach(({optionId, score}) => {
-                const option = currentState.options.find(opt => opt.id === optionId);
-                if (option) {
-                    option.score += score;
-                }
+            // Update progress bar
+            document.getElementById('progress').style.width = 
+                `${((questionIndex + 1) / questions.length) * 100}%`;
+            
+            let html = `
+                <h2>${question.text}</h2>
+                <p>${question.subtext}</p>
+            `;
+            
+            question.options.forEach((option, index) => {
+                html += `
+                    <button 
+                        class="option-button" 
+                        onclick="selectOption(${index})"
+                    >${option.text}</button>
+                    <div id="exp_${index}" class="explanation">
+                        ${option.explanation}
+                    </div>
+                `;
             });
-        }
-
-        function getNextUnansweredQuestion(currentIndex) {
-            for (let i = currentIndex + 1; i < questions.length; i++) {
-                if (!currentState.skippedQuestions.has(i) && !currentState.answers[questions[i].id]) {
-                    return i;
-                }
-            }
-            return questions.length; // If no more unanswered questions, go to results
-        }
-
-        function renderWelcome() {
-            return `
-                <div class="welcome-screen">
-                    <div>
-                        <h1>IP Enforcement Options Advisor</h1>
-                        <button class="button" onclick="startQuiz()">Begin Assessment</button>
-                    </div>
-                </div>
-            `;
-        }
-
-        function renderQuestion() {
-            const question = questions[currentState.currentQuestion];
-            const progress = ((currentState.currentQuestion + 1) / questions.length) * 100;
-
-            return `
-                <div>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: ${progress}%"></div>
-                    </div>
-                    <div class="question-card">
-                        <h2>${question.text}</h2>
-                        <p>${question.subtext}</p>
-                        <div class="options">
-                            ${question.options.map((option, index) => `
-                                <button 
-                                    class="option ${currentState.answers[question.id] === option.id ? 'selected' : ''}"
-                                    onclick="selectAnswer(${question.id}, ${option.id}, ${index})"
-                                >
-                                    ${option.text}
-                                </button>
-                                <div class="explanation" id="explanation_${index}">
-                                    ${option.explanation}
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                    <div class="nav-buttons">
-                        ${currentState.currentQuestion > 0 ? 
-                            `<button class="button" onclick="navigate(-1)">Previous</button>` : 
-                            '<div></div>'}
-                        <button class="button" onclick="navigate(1)">
-                            ${currentState.currentQuestion === questions.length - 1 ? 'See Results' : 'Next'}
-                        </button>
-                    </div>
-                </div>
-            `;
-        }
-
-        function renderResults() {
-            const validOptions = currentState.options
-                .filter(opt => !opt.notApplicable)
-                .sort((a, b) => b.score - a.score);
-
-            const groups = {
-                primary: validOptions.slice(0, 3),
-                secondary: validOptions.slice(3, 6),
-                tertiary: validOptions.slice(6, 9)
-            };
-
-            return `
-                <div>
-                    <h2>Recommended Enforcement Options</h2>
-                    
-                    <h3 style="color: var(--teal)">Primary Options to Consider</h3>
-                    <div class="results-grid">
-                        ${groups.primary.map(option => `
-                            <div class="result-card">
-                                <p>${option.text}</p>
-                                <span style="color: var(--dark-primary)">${option.score}</span>
-                            </div>
-                        `).join('')}
-                    </div>
-
-                    <h3 style="color: var(--purple)">Secondary Options</h3>
-                    <div class="results-grid">
-                        ${groups.secondary.map(option => `
-                            <div class="result-card">
-                                <p>${option.text}</p>
-                                <span style="color: var(--dark-primary)">${option.score}</span>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-            `;
-        }
-
-        function startQuiz() {
-            currentState.started = true;
-            render();
-        }
-
-        function selectAnswer(questionId, optionId, index) {
-            const question = questions[currentState.currentQuestion];
-            const selectedOption = question.options.find(opt => opt.id === optionId);
             
-            currentState.answers[questionId] = optionId;
-            updateScore(questionId, optionId);
-            
-            // Handle skip logic
-            if (selectedOption.skipNext) {
-                const nextQuestionIndex = currentState.currentQuestion + 1;
-                if (nextQuestionIndex < questions.length) {
-                    currentState.skippedQuestions.add(nextQuestionIndex);
-                }
-            }
-            
-            // Show explanation
-            document.querySelectorAll('.explanation').forEach(el => el.style.display = 'none');
-            document.getElementById(`explanation_${index}`).style.display = 'block';
-            
-            render();
+            container.innerHTML = html;
         }
 
-        function navigate(direction) {
-            if (direction > 0) {
-                const nextQuestion = getNextUnansweredQuestion(currentState.currentQuestion);
-                if (nextQuestion >= questions.length) {
-                    currentState.showResults = true;
+        function selectOption(optionIndex) {
+            const question = questions[currentQuestion];
+            const option = question.options[optionIndex];
+            
+            // Clear previous selections
+            document.querySelectorAll('.option-button').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            document.querySelectorAll('.explanation').forEach(exp => {
+                exp.style.display = 'none';
+            });
+            
+            // Show selection and explanation
+            document.querySelectorAll('.option-button')[optionIndex].classList.add('selected');
+            document.getElementById(`exp_${optionIndex}`).style.display = 'block';
+            
+            // Update scores
+            option.scores.forEach((score, index) => {
+                scores[index] += score;
+            });
+            
+            // Move to next question after a short delay
+            setTimeout(() => {
+                currentQuestion++;
+                if (currentQuestion < questions.length) {
+                    if (option.skipQuestions.includes(currentQuestion + 1)) {
+                        currentQuestion++;
+                    }
+                    showQuestion(currentQuestion);
                 } else {
-                    currentState.currentQuestion = nextQuestion;
+                    showResults();
                 }
-            } else {
-                // For going backwards, find the previous unanswered or answered question
-                let prevQuestion = currentState.currentQuestion - 1;
-                while (prevQuestion >= 0 && currentState.skippedQuestions.has(prevQuestion)) {
-                    prevQuestion--;
-                }
-                if (prevQuestion >= 0) {
-                    currentState.currentQuestion = prevQuestion;
-                }
-            }
-            render();
+            }, 1000);
         }
 
-        function render() {
-            const app = document.getElementById('app');
-            if (!currentState.started) {
-                app.innerHTML = renderWelcome();
-            } else if (currentState.showResults) {
-                app.innerHTML = renderResults();
-            } else {
-                app.innerHTML = renderQuestion();
-            }
+        function showResults() {
+            const container = document.getElementById('questionContainer');
+            container.innerHTML = `
+                <h2>Results</h2>
+                <p>Option 1 Score: ${scores[0]}</p>
+                <p>Option 2 Score: ${scores[1]}</p>
+                <p>Option 3 Score: ${scores[2]}</p>
+                <p>Option 4 Score: ${scores[3]}</p>
+                <p>Option 5 Score: ${scores[4]}</p>
+                <p>Option 6 Score: ${scores[5]}</p>
+            `;
         }
 
-        // Initial render
-        render();
+        // Start the quiz
+        showQuestion(0);
     </script>
 </body>
 </html>
