@@ -32,6 +32,10 @@
             cursor: pointer;
             text-align: left;
             font-size: 16px;
+            transition: background-color 0.2s;
+        }
+        .option-button:hover {
+            background: #d1d5d9;
         }
         .option-button.selected {
             background: #30AEB6;
@@ -71,6 +75,10 @@
             border-radius: 4px;
             cursor: pointer;
             font-weight: bold;
+            transition: opacity 0.2s;
+        }
+        .nav-button:hover {
+            opacity: 0.9;
         }
         .nav-button:disabled {
             opacity: 0.5;
@@ -94,6 +102,10 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .result-card:hover {
+            transform: translateY(-2px);
         }
         .result-card p {
             margin: 0;
@@ -107,6 +119,7 @@
             display: flex;
             gap: 10px;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
         .toggle-button {
             background: #30AEB6;
@@ -115,6 +128,24 @@
             padding: 10px 20px;
             border-radius: 4px;
             cursor: pointer;
+            transition: opacity 0.2s;
+            font-weight: 500;
+        }
+        .toggle-button:hover {
+            opacity: 0.9;
+        }
+        h2 {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+        h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .subtext {
+            opacity: 0.8;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
         }
     </style>
 </head>
@@ -137,7 +168,7 @@
                         id: 1,
                         text: "Direct commercial use",
                         explanation: "The infringer is directly profiting from your IP",
-                        scores: [1, 5, -2, 0, 2, 3],
+                        scores: [1, 5, -2, 0, 2, 3, 1, 0, 2, -1],
                         markNotApplicable: [4, 5],
                         skipQuestions: [3, 4]
                     },
@@ -145,7 +176,7 @@
                         id: 2,
                         text: "Indirect/non-commercial use",
                         explanation: "The infringement is not directly generating profit",
-                        scores: [-2, 2, 4, 1, 0, -1],
+                        scores: [-2, 2, 4, 1, 0, -1, 2, 1, 0, 3],
                         markNotApplicable: [],
                         skipQuestions: []
                     }
@@ -155,7 +186,7 @@
         ];
 
         let currentQuestion = 0;
-        let scores = [0, 0, 0, 0, 0, 0];
+        let scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];  // Extended for more options
         let notApplicableOptions = new Set();
         let showNotApplicable = false;
         let showAllOptions = false;
@@ -169,7 +200,7 @@
             
             let html = `
                 <h2>${question.text}</h2>
-                <p>${question.subtext}</p>
+                <p class="subtext">${question.subtext}</p>
             `;
             
             question.options.forEach((option, index) => {
@@ -247,7 +278,11 @@
                 { id: 3, text: "Initiate Settlement Discussion", score: scores[2] },
                 { id: 4, text: "File a non use request for the TM", score: scores[3] },
                 { id: 5, text: "Use Amazon Brand Registry", score: scores[4] },
-                { id: 6, text: "Hire a Lawyer immediately", score: scores[5] }
+                { id: 6, text: "Hire a Lawyer immediately", score: scores[5] },
+                { id: 7, text: "Additional Option 1", score: scores[6] },
+                { id: 8, text: "Additional Option 2", score: scores[7] },
+                { id: 9, text: "Additional Option 3", score: scores[8] },
+                { id: 10, text: "Additional Option 4", score: scores[9] }
             ]
             .map(opt => ({
                 ...opt,
@@ -257,21 +292,17 @@
 
             const applicableOptions = validOptions.filter(opt => !opt.notApplicable);
             const naOptions = validOptions.filter(opt => opt.notApplicable);
-
-            const groups = {
-                primary: applicableOptions.slice(0, 3),
-                secondary: applicableOptions.slice(3, 6),
-                notApplicable: naOptions
-            };
+            const mainOptions = applicableOptions.slice(0, 6);
+            const otherOptions = applicableOptions.slice(6);
 
             const container = document.getElementById('questionContainer');
             container.innerHTML = `
                 <div class="results-container">
                     <h2>Recommended Enforcement Options</h2>
                     
-                    <h3 style="color: #30AEB6">Primary Options to Consider</h3>
+                    <h3 style="color: #30AEB6">Highest-rated suggestions based on your responses</h3>
                     <div class="results-grid">
-                        ${groups.primary.map(option => `
+                        ${applicableOptions.slice(0, 3).map(option => `
                             <div class="result-card">
                                 <p>${option.text}</p>
                                 <span style="color: #1D252C">${option.score}</span>
@@ -279,9 +310,9 @@
                         `).join('')}
                     </div>
 
-                    <h3 style="color: #30AEB6">Secondary Options</h3>
+                    <h3 style="color: #30AEB6">You might also consider</h3>
                     <div class="results-grid">
-                        ${groups.secondary.map(option => `
+                        ${applicableOptions.slice(3, 6).map(option => `
                             <div class="result-card">
                                 <p>${option.text}</p>
                                 <span style="color: #1D252C">${option.score}</span>
@@ -294,18 +325,40 @@
                             class="toggle-button" 
                             onclick="toggleNotApplicable()"
                         >
-                            ${groups.notApplicable.length > 0 ? 
-                                `Show ${groups.notApplicable.length} Not Applicable Options` : 
+                            ${naOptions.length > 0 ? 
+                                `Show ${naOptions.length} Not Applicable Options` : 
                                 'No Not Applicable Options'}
                         </button>
+                        ${otherOptions.length > 0 ? `
+                            <button 
+                                class="toggle-button" 
+                                onclick="toggleAllOptions()"
+                            >
+                                Explore ${otherOptions.length} other possible suggestions available
+                            </button>
+                        ` : ''}
                     </div>
 
-                    ${showNotApplicable && groups.notApplicable.length > 0 ? `
+                    ${showNotApplicable && naOptions.length > 0 ? `
                         <div style="margin-top: 20px;">
                             <h3 style="color: #9DA3A8">Not Applicable Options</h3>
                             <div class="results-grid">
-                                ${groups.notApplicable.map(option => `
+                                ${naOptions.map(option => `
                                     <div class="result-card not-applicable">
+                                        <p>${option.text}</p>
+                                        <span style="color: #1D252C">${option.score}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    ${showAllOptions && otherOptions.length > 0 ? `
+                        <div style="margin-top: 20px;">
+                            <h3 style="color: #30AEB6">Additional Options</h3>
+                            <div class="results-grid">
+                                ${otherOptions.map(option => `
+                                    <div class="result-card">
                                         <p>${option.text}</p>
                                         <span style="color: #1D252C">${option.score}</span>
                                     </div>
@@ -319,6 +372,11 @@
 
         function toggleNotApplicable() {
             showNotApplicable = !showNotApplicable;
+            showResults();
+        }
+
+        function toggleAllOptions() {
+            showAllOptions = !showAllOptions;
             showResults();
         }
 
