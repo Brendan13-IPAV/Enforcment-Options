@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>IP Enforcement Options</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -43,7 +43,7 @@
             margin: 10px 0 20px 0;
             padding: 15px;
             border-radius: 4px;
-            display: block;
+            display: none;
             font-size: 14px;
         }
         .progress-bar {
@@ -76,6 +76,12 @@
             opacity: 0.5;
             cursor: not-allowed;
         }
+        .results-container {
+            background: #313d48;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
         .results-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -83,13 +89,32 @@
             margin-bottom: 2rem;
         }
         .result-card {
-            background: #313d48;
-            padding: 1rem;
+            background: #E5E8EC;
+            color: #1D252C;
+            padding: 20px;
             border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        h3 {
-            margin-top: 2rem;
-            margin-bottom: 1rem;
+        .result-card p {
+            margin: 0;
+            font-weight: 500;
+        }
+        .result-card.not-applicable {
+            opacity: 0.5;
+            background: #9DA3A8;
+        }
+        .toggle-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .toggle-button {
+            background: #30AEB6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -102,7 +127,6 @@
     </div>
 
     <script>
-        // Questions data
         const questions = [
             {
                 id: 1,
@@ -114,6 +138,7 @@
                         text: "Direct commercial use",
                         explanation: "The infringer is directly profiting from your IP",
                         scores: [1, 5, -2, 0, 2, 3],
+                        markNotApplicable: [4, 5],
                         skipQuestions: [3, 4]
                     },
                     {
@@ -121,6 +146,7 @@
                         text: "Indirect/non-commercial use",
                         explanation: "The infringement is not directly generating profit",
                         scores: [-2, 2, 4, 1, 0, -1],
+                        markNotApplicable: [],
                         skipQuestions: []
                     }
                 ]
@@ -128,9 +154,11 @@
             // Add more questions here
         ];
 
-        // Current state
         let currentQuestion = 0;
         let scores = [0, 0, 0, 0, 0, 0];
+        let notApplicableOptions = new Set();
+        let showNotApplicable = false;
+        let showAllOptions = false;
 
         function showQuestion(questionIndex) {
             const question = questions[questionIndex];
@@ -177,15 +205,29 @@
             const question = questions[currentQuestion];
             const option = question.options[optionIndex];
             
+            // Clear previous selections and hide explanations
             document.querySelectorAll('.option-button').forEach(btn => {
                 btn.classList.remove('selected');
             });
+            document.querySelectorAll('.explanation').forEach(exp => {
+                exp.style.display = 'none';
+            });
             
+            // Show selected option and its explanation
             document.querySelectorAll('.option-button')[optionIndex].classList.add('selected');
+            document.querySelectorAll('.explanation')[optionIndex].style.display = 'block';
             
+            // Update scores
             option.scores.forEach((score, index) => {
                 scores[index] += score;
             });
+
+            // Handle not applicable options
+            if (option.markNotApplicable) {
+                option.markNotApplicable.forEach(optionId => {
+                    notApplicableOptions.add(optionId);
+                });
+            }
         }
 
         function navigate(direction) {
@@ -200,24 +242,31 @@
 
         function showResults() {
             const validOptions = [
-                { id: 1, text: "Send Cease and Desist Letter", score: scores[0], notApplicable: false },
-                { id: 2, text: "File for Preliminary Injunction", score: scores[1], notApplicable: false },
-                { id: 3, text: "Initiate Settlement Discussion", score: scores[2], notApplicable: false },
-                { id: 4, text: "File a non use request for the TM", score: scores[3], notApplicable: false },
-                { id: 5, text: "Use Amazon Brand Registry", score: scores[4], notApplicable: false },
-                { id: 6, text: "Hire a Lawyer immediately", score: scores[5], notApplicable: false }
+                { id: 1, text: "Send Cease and Desist Letter", score: scores[0] },
+                { id: 2, text: "File for Preliminary Injunction", score: scores[1] },
+                { id: 3, text: "Initiate Settlement Discussion", score: scores[2] },
+                { id: 4, text: "File a non use request for the TM", score: scores[3] },
+                { id: 5, text: "Use Amazon Brand Registry", score: scores[4] },
+                { id: 6, text: "Hire a Lawyer immediately", score: scores[5] }
             ]
-            .filter(opt => !opt.notApplicable)
+            .map(opt => ({
+                ...opt,
+                notApplicable: notApplicableOptions.has(opt.id)
+            }))
             .sort((a, b) => b.score - a.score);
 
+            const applicableOptions = validOptions.filter(opt => !opt.notApplicable);
+            const naOptions = validOptions.filter(opt => opt.notApplicable);
+
             const groups = {
-                primary: validOptions.slice(0, 3),
-                secondary: validOptions.slice(3, 6),
+                primary: applicableOptions.slice(0, 3),
+                secondary: applicableOptions.slice(3, 6),
+                notApplicable: naOptions
             };
 
             const container = document.getElementById('questionContainer');
             container.innerHTML = `
-                <div>
+                <div class="results-container">
                     <h2>Recommended Enforcement Options</h2>
                     
                     <h3 style="color: #30AEB6">Primary Options to Consider</h3>
@@ -239,8 +288,38 @@
                             </div>
                         `).join('')}
                     </div>
+
+                    <div class="toggle-buttons">
+                        <button 
+                            class="toggle-button" 
+                            onclick="toggleNotApplicable()"
+                        >
+                            ${groups.notApplicable.length > 0 ? 
+                                `Show ${groups.notApplicable.length} Not Applicable Options` : 
+                                'No Not Applicable Options'}
+                        </button>
+                    </div>
+
+                    ${showNotApplicable && groups.notApplicable.length > 0 ? `
+                        <div style="margin-top: 20px;">
+                            <h3 style="color: #9DA3A8">Not Applicable Options</h3>
+                            <div class="results-grid">
+                                ${groups.notApplicable.map(option => `
+                                    <div class="result-card not-applicable">
+                                        <p>${option.text}</p>
+                                        <span style="color: #1D252C">${option.score}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
                 </div>
             `;
+        }
+
+        function toggleNotApplicable() {
+            showNotApplicable = !showNotApplicable;
+            showResults();
         }
 
         // Start the quiz
