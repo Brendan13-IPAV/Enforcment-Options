@@ -190,11 +190,10 @@
         </div>
         <div id="questionContainer" class="question-box"></div>
     </div>
-</body>
-</html>
-
 
     <script>
+
+        
    // Questions data
 const questions = [
     {
@@ -331,7 +330,7 @@ function navigate(direction) {
 }
 
 function showResults() {
-    const validOptions = [
+    const applicableOptions = [
         { 
             id: 1, 
             text: "Send Cease and Desist Letter", 
@@ -387,8 +386,8 @@ function showResults() {
     }))
     .sort((a, b) => b.score - a.score);
 
-    const applicableOptions = validOptions.filter(opt => !opt.notApplicable);
-    const naOptions = validOptions.filter(opt => opt.notApplicable);
+    const filtered = applicableOptions.filter(opt => !opt.notApplicable);
+    const naOptions = applicableOptions.filter(opt => opt.notApplicable);
 
     const container = document.getElementById('questionContainer');
     container.innerHTML = `
@@ -399,7 +398,7 @@ function showResults() {
             <h3 style="color: #30AEB6">Highest-rated suggestions based on your results</h3>
             <p class="option-subtext">You could do one or all of any of these options.</p>
             <div class="results-grid">
-                ${applicableOptions.slice(0, 3).map(option => `
+                ${filtered.slice(0, 3).map(option => `
                     <div class="result-card">
                         <p class="option-title">${option.text}</p>
                         <div class="option-details">
@@ -414,7 +413,7 @@ function showResults() {
 
             <h3 style="color: #30AEB6">Other suggestions to consider</h3>
             <div class="results-grid">
-                ${applicableOptions.slice(3, 6).map(option => `
+                ${filtered.slice(3, 6).map(option => `
                     <div class="result-card">
                         <p class="option-title">${option.text}</p>
                         <div class="option-details">
@@ -467,5 +466,6 @@ function toggleNotApplicable() {
 
 // Start the application
 init();
+          </script>
 </body>
 </html>
