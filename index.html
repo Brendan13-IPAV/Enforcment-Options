@@ -36,10 +36,14 @@
             background: #30AEB6;
             color: white;
         }
-        .explanation {
-            color: #84C98F;
-            margin-left: 10px;
-            display: none;
+.explanation {
+    background: #3d4957;  /* lighter than the question box */
+    color: #84C98F;
+    margin: 10px 0 20px 0;
+    padding: 15px;
+    border-radius: 4px;
+    display: block;  /* always visible instead of none */
+}
         }
         .progress-bar {
             background: #313d48;
@@ -181,26 +185,23 @@ function showQuestion(questionIndex) {
     }
 }
 
-        function selectOption(optionIndex) {
-            const question = questions[currentQuestion];
-            const option = question.options[optionIndex];
-            
-            // Clear previous selections
-            document.querySelectorAll('.option-button').forEach(btn => {
-                btn.classList.remove('selected');
-            });
-            document.querySelectorAll('.explanation').forEach(exp => {
-                exp.style.display = 'none';
-            });
-            
-            // Show selection and explanation
-            document.querySelectorAll('.option-button')[optionIndex].classList.add('selected');
-            document.getElementById(`exp_${optionIndex}`).style.display = 'block';
-            
-            // Update scores
-            option.scores.forEach((score, index) => {
-                scores[index] += score;
-            });
+function selectOption(optionIndex) {
+    const question = questions[currentQuestion];
+    const option = question.options[optionIndex];
+    
+    // Clear previous selections
+    document.querySelectorAll('.option-button').forEach(btn => {
+        btn.classList.remove('selected');
+    });
+    
+    // Show selection
+    document.querySelectorAll('.option-button')[optionIndex].classList.add('selected');
+    
+    // Update scores
+    option.scores.forEach((score, index) => {
+        scores[index] += score;
+    });
+}
             
 
         }
@@ -248,7 +249,34 @@ function showResults() {
             </div>
         </div>
     `;
+
+    container.innerHTML = `
+        <div>
+            <h2>Recommended Enforcement Options</h2>
+            
+            <h3 style="color: #30AEB6">Primary Options to Consider</h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem;">
+                ${groups.primary.map(option => `
+                    <div style="background: #313d48; padding: 1rem; border-radius: 8px;">
+                        <p>${option.text}</p>
+                        <span style="color: #1D252C">${option.score}</span>
+                    </div>
+                `).join('')}
+            </div>
+
+            <h3 style="color: #30AEB6">Secondary Options</h3>  <!-- Changed from #60106a to #30AEB6 -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem;">
+                ${groups.secondary.map(option => `
+                    <div style="background: #313d48; padding: 1rem; border-radius: 8px;">
+                        <p>${option.text}</p>
+                        <span style="color: #1D252C">${option.score}</span>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
 }
+
 
         // Start the quiz
         showQuestion(0);
