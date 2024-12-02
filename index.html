@@ -215,6 +215,48 @@
     display: flex;
     flex-direction: column;
 }
+        .welcome-screen {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.welcome-content {
+    max-width: 800px;
+}
+
+.welcome-text {
+    color: #E5E8EC;
+    opacity: 0.9;
+    line-height: 1.6;
+    margin: 2rem auto;
+    font-size: 1.1rem;
+}
+
+h1 {
+    color: #30AEB6;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.button {
+    background: #30AEB6;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.button:hover {
+    opacity: 0.9;
+}
     </style>
 </head>
 <body>
@@ -298,6 +340,19 @@
         let showNotApplicable = false;
         let showAllOptions = false;
 
+        function renderWelcome() {
+    return `
+        <div class="welcome-screen">
+            <div class="welcome-content">
+                <h1>My Rights have been infringed</h1>
+                <p class="welcome-text">
+                    This tool is designed to help you narrow down and prioritise potential actions based on the information you provide about your situation. At the conclusion, you will receive a shortlist of options for your consideration, empowering you to make an informed decision.
+                </p>
+                <button class="button" onclick="startQuiz()">Begin Assessment</button>
+            </div>
+        </div>
+    `;
+}
         function showQuestion(questionIndex) {
             const question = questions[questionIndex];
             const container = document.getElementById('questionContainer');
