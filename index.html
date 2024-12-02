@@ -342,6 +342,7 @@ function showResults() {
             cost: "free",
             effort: "5-7 hours",
             resolution: "54%",
+                                                hidden: false
         },
         { 
             id: 2, 
@@ -350,7 +351,7 @@ function showResults() {
             cost: "$5,000-10,000",
             effort: "20-30 hours",
             resolution: "78%",
-                                    hidden: true
+                                    hidden: false
         },
         { 
             id: 3,
@@ -360,7 +361,7 @@ function showResults() {
             cost: "$1,000-3,000",
             effort: "10-15 hours",
             resolution: "65%",
-                                    hidden: true
+                                    hidden: false
         },
         { 
             id: 4, 
@@ -369,7 +370,7 @@ function showResults() {
             cost: "$2,000-4,000",
             effort: "8-12 hours",
             resolution: "70%",
-                                    hidden: true
+                                    hidden: false
         },
         { 
             id: 5, 
@@ -377,7 +378,8 @@ function showResults() {
             score: state.scores[4],
             cost: "free",
             effort: "3-5 hours",
-            resolution: "85%"
+            resolution: "85%",
+            hidden: false
         },
         { 
             id: 6, 
@@ -385,7 +387,9 @@ function showResults() {
             score: state.scores[5],
             cost: "$5,000+",
             effort: "2-3 hours",
-            resolution: "90%"
+            resolution: "90%",
+            hidden: false
+            
         }
     ]
     .map(opt => ({
