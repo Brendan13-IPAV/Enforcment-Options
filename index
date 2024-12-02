@@ -1,230 +1,321 @@
-import React, { useState } from 'react';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Enforcement Options Advisor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-primary: #1D252C;
+            --dark-secondary: #313d48;
+            --light-gray: #E5E8EC;
+            --teal: #30AEB6;
+            --purple: #60106a;
+            --green: #84C98F;
+        }
 
-// Sample data structure - replace with your actual questions and options
-const questions = [
-  {
-    id: 1,
-    text: "What is the nature of the infringement?",
-    subtext: "Consider how the intellectual property is being used without authorization",
-    options: [
-      {
-        text: "Direct commercial use",
-        explanation: "The infringer is directly profiting from your IP",
-        scores: [
-          { optionId: 1, score: 1 },
-          { optionId: 2, score: 1 },
-          { optionId: 3, score: -1 }
-        ],
-        markNotApplicable: [4, 5],
-        skipQuestions: [3]
-      },
-      {
-        text: "Indirect or non-commercial use",
-        explanation: "The infringement is not directly generating profit",
-        scores: [
-          { optionId: 1, score: -1 },
-          { optionId: 2, score: 1 },
-          { optionId: 3, score: 1 }
-        ]
-      }
-    ]
-  },
-  // Add more questions following the same structure
-];
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-primary);
+            color: var(--light-gray);
+        }
 
-const enforcementOptions = [
-  { id: 1, text: "Send Cease and Desist Letter", score: 0, notApplicable: false },
-  { id: 2, text: "File for Preliminary Injunction", score: 0, notApplicable: false },
-  { id: 3, text: "Initiate Settlement Discussion", score: 0, notApplicable: false },
-  { id: 4, text: "File Civil Lawsuit", score: 0, notApplicable: false },
-  { id: 5, text: "Submit DMCA Takedown Notice", score: 0, notApplicable: false },
-  // Add more enforcement options
-];
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
 
-const App = () => {
-  const [started, setStarted] = useState(false);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState({});
-  const [options, setOptions] = useState(enforcementOptions);
-  const [showResults, setShowResults] = useState(false);
-  const [showNotApplicable, setShowNotApplicable] = useState(false);
-  const [showAllOptions, setShowAllOptions] = useState(false);
+        .welcome-screen {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
 
-  const handleStart = () => setStarted(true);
+        .button {
+            background-color: var(--teal);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
 
-  const handleAnswer = (questionId, selectedOption) => {
-    setAnswers(prev => ({ ...prev, [questionId]: selectedOption }));
-    
-    // Update scores
-    const newOptions = [...options];
-    selectedOption.scores.forEach(({ optionId, score }) => {
-      const option = newOptions.find(opt => opt.id === optionId);
-      if (option) option.score += score;
-    });
-    
-    // Mark options as not applicable
-    if (selectedOption.markNotApplicable) {
-      selectedOption.markNotApplicable.forEach(optionId => {
-        const option = newOptions.find(opt => opt.id === optionId);
-        if (option) option.notApplicable = true;
-      });
-    }
-    
-    setOptions(newOptions);
-  };
+        .button:hover {
+            opacity: 0.9;
+        }
 
-  const navigateQuestion = (direction) => {
-    const nextQuestion = currentQuestion + direction;
-    if (nextQuestion >= 0 && nextQuestion < questions.length) {
-      setCurrentQuestion(nextQuestion);
-    } else if (nextQuestion === questions.length) {
-      setShowResults(true);
-    }
-  };
+        .progress-bar {
+            height: 8px;
+            background-color: var(--dark-secondary);
+            border-radius: 4px;
+            margin-bottom: 2rem;
+        }
 
-  const getGroupedOptions = () => {
-    const validOptions = options
-      .filter(opt => !opt.notApplicable)
-      .sort((a, b) => b.score - a.score);
+        .progress {
+            height: 100%;
+            background-color: var(--teal);
+            border-radius: 4px;
+            transition: width 0.3s;
+        }
 
-    return {
-      primary: validOptions.slice(0, 3),
-      secondary: validOptions.slice(3, 6),
-      tertiary: validOptions.slice(6, 9),
-      remaining: validOptions.slice(9)
-    };
-  };
+        .question-card {
+            background-color: var(--dark-secondary);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
 
-  if (!started) {
-    return (
-      <div className="min-h-screen bg-[#1D252C] flex items-center justify-center p-4">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-[#E5E8EC] mb-6 font-['Montserrat']">
-            IP Enforcement Options Advisor
-          </h1>
-          <button
-            onClick={handleStart}
-            className="bg-[#30AEB6] hover:bg-[#30AEB6]/80 text-white font-bold py-3 px-6 rounded-lg transition-colors"
-          >
-            Begin Assessment
-          </button>
-        </div>
-      </div>
-    );
-  }
+        .options {
+            display: grid;
+            gap: 1rem;
+        }
 
-  if (showResults) {
-    const groups = getGroupedOptions();
-    
-    return (
-      <div className="min-h-screen bg-[#1D252C] p-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-[#E5E8EC] mb-8">Recommended Enforcement Options</h2>
-          
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-xl text-[#30AEB6] mb-4">Primary Options to Consider</h3>
-              <div className="grid grid-cols-3 gap-4">
-                {groups.primary.map(option => (
-                  <div key={option.id} className="bg-[#313d48] p-4 rounded-lg">
-                    <p className="text-[#E5E8EC]">{option.text}</p>
-                    <span className="text-[#1D252C]">{option.score}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+        .option {
+            background-color: var(--light-gray);
+            color: var(--dark-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            border: none;
+            text-align: left;
+            width: 100%;
+        }
 
-            <div>
-              <h3 className="text-xl text-[#60106a] mb-4">Secondary Options</h3>
-              <div className="grid grid-cols-3 gap-4">
-                {groups.secondary.map(option => (
-                  <div key={option.id} className="bg-[#313d48] p-4 rounded-lg">
-                    <p className="text-[#E5E8EC]">{option.text}</p>
-                    <span className="text-[#1D252C]">{option.score}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+        .option.selected {
+            background-color: var(--teal);
+            color: white;
+        }
 
-            <div className="flex gap-4 mt-8">
-              <button
-                onClick={() => setShowNotApplicable(!showNotApplicable)}
-                className="bg-[#313d48] text-[#E5E8EC] px-4 py-2 rounded"
-              >
-                {showNotApplicable ? 'Hide' : 'Show'} Not Applicable Options
-              </button>
-              
-              <button
-                onClick={() => setShowAllOptions(!showAllOptions)}
-                className="bg-[#313d48] text-[#E5E8EC] px-4 py-2 rounded"
-              >
-                See {options.filter(opt => !opt.notApplicable).length - 9} Other Options
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+        .explanation {
+            color: var(--green);
+            margin-top: 0.5rem;
+            padding-left: 1rem;
+            display: none;
+        }
 
-  const question = questions[currentQuestion];
-  const progress = ((currentQuestion + 1) / questions.length) * 100;
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
 
-  return (
-    <div className="min-h-screen bg-[#1D252C] p-8">
-      <div className="max-w-2xl mx-auto">
-        <div className="h-2 bg-[#313d48] rounded-full mb-8">
-          <div
-            className="h-full bg-[#30AEB6] rounded-full transition-all duration-300"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
+        .result-card {
+            background-color: var(--dark-secondary);
+            padding: 1rem;
+            border-radius: 8px;
+        }
 
-        <div className="bg-[#313d48] rounded-lg p-6 mb-8">
-          <h2 className="text-2xl font-bold text-[#E5E8EC] mb-2">{question.text}</h2>
-          <p className="text-[#E5E8EC]/80 mb-6">{question.subtext}</p>
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="container"></div>
 
-          <div className="space-y-4">
-            {question.options.map((option, idx) => (
-              <div key={idx} className="space-y-2">
-                <button
-                  onClick={() => handleAnswer(question.id, option)}
-                  className={`w-full text-left p-4 rounded ${
-                    answers[question.id] === option
-                      ? 'bg-[#30AEB6] text-white'
-                      : 'bg-[#E5E8EC] text-[#1D252C] hover:bg-[#E5E8EC]/80'
-                  }`}
-                >
-                  {option.text}
-                </button>
-                {answers[question.id] === option && (
-                  <p className="text-[#84C98F] pl-4">{option.explanation}</p>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
+    <script>
+        // Easily editable scoring system
+        const scoreMatrix = {
+            // Format: questionId_optionId: [{ optionId: score }, ...]
+            "1_1": [
+                { optionId: 1, score: 8 },  // High impact score example
+                { optionId: 2, score: 5 },
+                { optionId: 3, score: -2 }
+            ],
+            "1_2": [
+                { optionId: 1, score: -3 },
+                { optionId: 2, score: 4 },
+                { optionId: 3, score: 6 }
+            ],
+            // Add more question-option scores here
+        };
 
-        <div className="flex justify-between">
-          <button
-            onClick={() => navigateQuestion(-1)}
-            disabled={currentQuestion === 0}
-            className="flex items-center gap-2 px-4 py-2 bg-[#313d48] text-[#E5E8EC] rounded disabled:opacity-50"
-          >
-            <ArrowLeft size={20} /> Previous
-          </button>
-          
-          <button
-            onClick={() => navigateQuestion(1)}
-            className="flex items-center gap-2 px-4 py-2 bg-[#30AEB6] text-white rounded"
-          >
-            {currentQuestion === questions.length - 1 ? 'See Results' : 'Next'} <ArrowRight size={20} />
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
+        const questions = [
+            {
+                id: 1,
+                text: "What is the nature of the infringement?",
+                subtext: "Consider how the intellectual property is being used without authorization",
+                options: [
+                    {
+                        id: 1,
+                        text: "Direct commercial use",
+                        explanation: "The infringer is directly profiting from your IP",
+                        skipToQuestion: 3,
+                        markNotApplicable: [4, 5]
+                    },
+                    {
+                        id: 2,
+                        text: "Indirect or non-commercial use",
+                        explanation: "The infringement is not directly generating profit"
+                    }
+                ]
+            }
+            // Add more questions here
+        ];
 
-export default App;
+        const enforcementOptions = [
+            { id: 1, text: "Send Cease and Desist Letter", score: 0, notApplicable: false },
+            { id: 2, text: "File for Preliminary Injunction", score: 0, notApplicable: false },
+            { id: 3, text: "Initiate Settlement Discussion", score: 0, notApplicable: false },
+            // Add more options here
+        ];
+
+        let currentState = {
+            started: false,
+            currentQuestion: 0,
+            answers: {},
+            options: [...enforcementOptions],
+            showResults: false
+        };
+
+        function updateScore(questionId, optionId) {
+            const scoreKey = `${questionId}_${optionId}`;
+            const scores = scoreMatrix[scoreKey] || [];
+            
+            scores.forEach(({optionId, score}) => {
+                const option = currentState.options.find(opt => opt.id === optionId);
+                if (option) {
+                    option.score += score;
+                }
+            });
+        }
+
+        function renderWelcome() {
+            return `
+                <div class="welcome-screen">
+                    <div>
+                        <h1>IP Enforcement Options Advisor</h1>
+                        <button class="button" onclick="startQuiz()">Begin Assessment</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderQuestion() {
+            const question = questions[currentState.currentQuestion];
+            const progress = ((currentState.currentQuestion + 1) / questions.length) * 100;
+
+            return `
+                <div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: ${progress}%"></div>
+                    </div>
+                    <div class="question-card">
+                        <h2>${question.text}</h2>
+                        <p>${question.subtext}</p>
+                        <div class="options">
+                            ${question.options.map((option, index) => `
+                                <button 
+                                    class="option ${currentState.answers[question.id] === option.id ? 'selected' : ''}"
+                                    onclick="selectAnswer(${question.id}, ${option.id}, ${index})"
+                                >
+                                    ${option.text}
+                                </button>
+                                <div class="explanation" id="explanation_${index}">
+                                    ${option.explanation}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div class="nav-buttons">
+                        ${currentState.currentQuestion > 0 ? 
+                            `<button class="button" onclick="navigate(-1)">Previous</button>` : 
+                            '<div></div>'}
+                        <button class="button" onclick="navigate(1)">
+                            ${currentState.currentQuestion === questions.length - 1 ? 'See Results' : 'Next'}
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderResults() {
+            const validOptions = currentState.options
+                .filter(opt => !opt.notApplicable)
+                .sort((a, b) => b.score - a.score);
+
+            const groups = {
+                primary: validOptions.slice(0, 3),
+                secondary: validOptions.slice(3, 6),
+                tertiary: validOptions.slice(6, 9)
+            };
+
+            return `
+                <div>
+                    <h2>Recommended Enforcement Options</h2>
+                    
+                    <h3 style="color: var(--teal)">Primary Options to Consider</h3>
+                    <div class="results-grid">
+                        ${groups.primary.map(option => `
+                            <div class="result-card">
+                                <p>${option.text}</p>
+                                <span style="color: var(--dark-primary)">${option.score}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <h3 style="color: var(--purple)">Secondary Options</h3>
+                    <div class="results-grid">
+                        ${groups.secondary.map(option => `
+                            <div class="result-card">
+                                <p>${option.text}</p>
+                                <span style="color: var(--dark-primary)">${option.score}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function startQuiz() {
+            currentState.started = true;
+            render();
+        }
+
+        function selectAnswer(questionId, optionId, index) {
+            currentState.answers[questionId] = optionId;
+            updateScore(questionId, optionId);
+            
+            // Show explanation for selected option
+            document.querySelectorAll('.explanation').forEach(el => el.style.display = 'none');
+            document.getElementById(`explanation_${index}`).style.display = 'block';
+            
+            render();
+        }
+
+        function navigate(direction) {
+            const nextQuestion = currentState.currentQuestion + direction;
+            if (nextQuestion >= 0 && nextQuestion < questions.length) {
+                currentState.currentQuestion = nextQuestion;
+            } else if (nextQuestion === questions.length) {
+                currentState.showResults = true;
+            }
+            render();
+        }
+
+        function render() {
+            const app = document.getElementById('app');
+            if (!currentState.started) {
+                app.innerHTML = renderWelcome();
+            } else if (currentState.showResults) {
+                app.innerHTML = renderResults();
+            } else {
+                app.innerHTML = renderQuestion();
+            }
+        }
+
+        // Initial render
+        render();
+    </script>
+</body>
+</html>
