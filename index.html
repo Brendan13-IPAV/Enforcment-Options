@@ -350,14 +350,17 @@ function showResults() {
             cost: "$5,000-10,000",
             effort: "20-30 hours",
             resolution: "78%"
+                                    hidden: true
         },
         { 
-            id: 3, 
+            id: 3,
+
             text: "Initiate Settlement Discussion", 
             score: state.scores[2],
             cost: "$1,000-3,000",
             effort: "10-15 hours",
             resolution: "65%"
+                                    hidden: true
         },
         { 
             id: 4, 
@@ -366,6 +369,7 @@ function showResults() {
             cost: "$2,000-4,000",
             effort: "8-12 hours",
             resolution: "70%"
+                                    hidden: true
         },
         { 
             id: 5, 
@@ -389,9 +393,10 @@ function showResults() {
         notApplicable: state.notApplicableOptions.has(opt.id)
     }))
     .sort((a, b) => b.score - a.score);
+        const visibleOptions = applicableOptions.filter(opt => !opt.hidden);
 
-    const filtered = applicableOptions.filter(opt => !opt.notApplicable);
-    const naOptions = applicableOptions.filter(opt => opt.notApplicable);
+const filtered = visibleOptions.filter(opt => !opt.notApplicable);
+const naOptions = visibleOptions.filter(opt => opt.notApplicable);
 
     const container = document.getElementById('questionContainer');
     container.innerHTML = `
