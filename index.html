@@ -204,6 +204,7 @@ const questions = [
         id: 1,
         text: "What is the nature of the infringement?",
         subtext: "Consider how the IP is being used without authorization",
+        selectionType: "single",
         options: [
             {
                 id: 1,
@@ -227,6 +228,7 @@ const questions = [
         id: 2,
         text: "Q2 sklhf efjefj  aekfj ef kf",
         subtext: "oifa leaj fl eh lkh e",
+            selectionType: "multiple",
         options: [
             {
                 id: 1,
@@ -280,72 +282,122 @@ function startQuiz() {
     showQuestion(0);
 }
 
-function showQuestion(questionIndex) {
-    state.currentQuestion = questionIndex;
-    const question = questions[questionIndex];
-    const container = document.getElementById('questionContainer');
-    
-    document.getElementById('progress').style.width = 
-        `${((questionIndex + 1) / questions.length) * 100}%`;
-    
-    let html = `
-        <h2>${question.text}</h2>
-        <p class="subtext">${question.subtext}</p>
-    `;
-    
-    question.options.forEach((option, index) => {
-        html += `
-            <button 
-                class="option-button" 
-                onclick="selectOption(${index})"
-            >${option.text}</button>
-            <div class="explanation">
-                ${option.explanation}
-            </div>
-        `;
-    });
-
-    html += `
-        <div class="nav-buttons">
-            <button 
-                class="nav-button" 
-                onclick="navigate(-1)" 
-                ${questionIndex === 0 ? 'disabled' : ''}
-            >Previous</button>
-            <button 
-                class="nav-button" 
-                onclick="navigate(1)"
-            >${questionIndex === questions.length - 1 ? 'See Results' : 'Next'}</button>
+        function renderQuestion(question) {
+    const questionContainer = document.getElementById('questionContainer');
+    questionContainer.innerHTML = `
+        <h3>${question.text}</h3>
+        <p>${question.subtext}</p>
+        <div class="options">
+            ${question.options.map(option => `
+                <div class="option">
+                    <input type="${question.selectionType === 'multiple' ? 'checkbox' : 'radio'}" 
+                           name="question${question.id}" 
+                           value="${option.id}"
+                           id="option${option.id}">
+                    <label for="option${option.id}">
+                        ${option.text}
+                        <div class="explanation">${option.explanation}</div>
+                    </label>
+                </div>
+            `).join('')}
         </div>
     `;
-    
-    container.innerHTML = html;
 }
+        
+// function showQuestion(questionIndex) {
+//     state.currentQuestion = questionIndex;
+//     const question = questions[questionIndex];
+//     const container = document.getElementById('questionContainer');
+    
+//     document.getElementById('progress').style.width = 
+//         `${((questionIndex + 1) / questions.length) * 100}%`;
+    
+//     let html = `
+//         <h2>${question.text}</h2>
+//         <p class="subtext">${question.subtext}</p>
+//     `;
+    
+//     question.options.forEach((option, index) => {
+//         html += `
+//             <button 
+//                 class="option-button" 
+//                 onclick="selectOption(${index})"
+//             >${option.text}</button>
+//             <div class="explanation">
+//                 ${option.explanation}
+//             </div>
+//         `;
+//     });
 
-function selectOption(optionIndex) {
-    const question = questions[state.currentQuestion];
-    const option = question.options[optionIndex];
+//     html += `
+//         <div class="nav-buttons">
+//             <button 
+//                 class="nav-button" 
+//                 onclick="navigate(-1)" 
+//                 ${questionIndex === 0 ? 'disabled' : ''}
+//             >Previous</button>
+//             <button 
+//                 class="nav-button" 
+//                 onclick="navigate(1)"
+//             >${questionIndex === questions.length - 1 ? 'See Results' : 'Next'}</button>
+//         </div>
+//     `;
     
-    document.querySelectorAll('.option-button').forEach(btn => {
-        btn.classList.remove('selected');
-    });
-    document.querySelectorAll('.explanation').forEach(exp => {
-        exp.style.display = 'none';
-    });
-    
-    document.querySelectorAll('.option-button')[optionIndex].classList.add('selected');
-    document.querySelectorAll('.explanation')[optionIndex].style.display = 'block';
-    
-    option.scores.forEach((score, index) => {
-        state.scores[index] += score;
+//     container.innerHTML = html;
+// }
+function handleSelection(questionId) {
+    const question = questions.find(q => q.id === questionId);
+    const selectedInputs = document.querySelectorAll(`input[name="question${questionId}"]:checked`);
+    const selectedIds = Array.from(selectedInputs).map(input => parseInt(input.value));
+
+    // Calculate total scores
+    const totalScores = Array(6).fill(0); // Assuming scores array is length 6
+    const markNotApplicable = new Set();
+    const skipQuestions = new Set();
+
+    selectedIds.forEach(optionId => {
+        const option = question.options.find(opt => opt.id === optionId);
+        if (option) {
+            // Add scores
+            option.scores.forEach((score, index) => {
+                totalScores[index] += score;
+            });
+            
+            // Collect markNotApplicable and skipQuestions
+            option.markNotApplicable.forEach(q => markNotApplicable.add(q));
+            option.skipQuestions.forEach(q => skipQuestions.add(q));
+        }
     });
 
-    if (option.markNotApplicable) {
-        option.markNotApplicable.forEach(optionId => {
-            state.notApplicableOptions.add(optionId);
-        });
-    }
+    // Update your running total/progress here
+    updateScores(totalScores);
+    handleSkippedQuestions(Array.from(skipQuestions));
+    handleNotApplicable(Array.from(markNotApplicable));
 }
+// function selectOption(optionIndex) {
+//     const question = questions[state.currentQuestion];
+//     const option = question.options[optionIndex];
+    
+//     document.querySelectorAll('.option-button').forEach(btn => {
+//         btn.classList.remove('selected');
+//     });
+//     document.querySelectorAll('.explanation').forEach(exp => {
+//         exp.style.display = 'none';
+//     });
+    
+//     document.querySelectorAll('.option-button')[optionIndex].classList.add('selected');
+//     document.querySelectorAll('.explanation')[optionIndex].style.display = 'block';
+    
+//     option.scores.forEach((score, index) => {
+//         state.scores[index] += score;
+//     });
+
+//     if (option.markNotApplicable) {
+//         option.markNotApplicable.forEach(optionId => {
+//             state.notApplicableOptions.add(optionId);
+//         });
+//     }
+// }
 
 function navigate(direction) {
     const newQuestion = state.currentQuestion + direction;
@@ -355,7 +407,12 @@ function navigate(direction) {
         showResults();
     }
 }
-
+function addSelectionListeners(questionId) {
+    const inputs = document.querySelectorAll(`input[name="question${questionId}"]`);
+    inputs.forEach(input => {
+        input.addEventListener('change', () => handleSelection(questionId));
+    });
+}
 function showResults() {
     const applicableOptions = [
         { 
