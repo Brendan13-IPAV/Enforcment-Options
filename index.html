@@ -1851,43 +1851,28 @@ function toggleNotApplicable() {
     showResults();
 }
         // Function to get the count of additional valid options (not in top 6, not hidden, not N/A)
-function getAdditionalOptionsCount(options, scores) {
-    // Filter out hidden options and N/A options
+function toggleAdditionalOptions() {
+    const button = document.getElementById('showAdditionalBtn');
+    const isShowingAdditional = button.textContent.includes('Show');
+    
+    // Get valid options (not hidden, not N/A)
     const validOptions = options.filter(option => 
         !option.hidden && 
         option.resolution !== "N/A"
     );
 
-    // Sort by score (assuming higher score is better)
+    // Sort by score to identify options beyond top 6
     const sortedOptions = validOptions.sort((a, b) => 
         scores[b.id - 1] - scores[a.id - 1]
     );
 
-    // If we have more than 6 valid options, return the count of extras
-    return Math.max(0, sortedOptions.length - 6);
-}
-
-// Function to handle showing/hiding additional options
-function handleAdditionalOptions(show) {
-    const validOptions = options.filter(option => 
-        !option.hidden && 
-        option.resolution !== "N/A"
-    );
-
-    const sortedOptions = validOptions.sort((a, b) => 
-        scores[b.id - 1] - scores[a.id - 1]
-    );
-
-    // Get options beyond the top 6
     const additionalOptions = sortedOptions.slice(6);
-
-    // Get the question container
-    const container = document.getElementById('questionContainer');
-
-    if (show) {
-        // Add additional options to display
+    
+    if (isShowingAdditional) {
+        // Show the additional options
+        let content = '';
         additionalOptions.forEach(option => {
-            container.innerHTML += `
+            content += `
                 <div class="option-box">
                     <h3>${option.text}</h3>
                     <p>Cost: ${option.cost}</p>
@@ -1896,30 +1881,17 @@ function handleAdditionalOptions(show) {
                 </div>
             `;
         });
-
-        // Change button text
-        document.getElementById('showMoreBtn').textContent = 'Show Less Options';
+        
+        button.insertAdjacentHTML('beforebegin', content);
+        button.textContent = 'Hide Additional Options';
     } else {
-        // Remove additional options
-        const allOptions = container.getElementsByClassName('option-box');
-        // Remove everything after the first 6 options
-        while (allOptions.length > 6) {
-            allOptions[6].remove();
+        // Hide the additional options
+        const boxes = document.querySelectorAll('.option-box');
+        for (let i = 6; i < boxes.length; i++) {
+            boxes[i].remove();
         }
-        // Reset button text
-        document.getElementById('showMoreBtn').textContent = 
-            `Explore ${additionalOptions.length} Other Possible Options`;
+        button.textContent = `Show ${additionalOptions.length} Additional Options`;
     }
-}
-
-// Add this after your existing options are displayed
-const additionalCount = getAdditionalOptionsCount(options, scores);
-if (additionalCount > 0) {
-    document.getElementById('questionContainer').innerHTML += `
-        <button id="showMoreBtn" onclick="handleAdditionalOptions(this.textContent.includes('Explore'))" class="button">
-            Explore ${additionalCount} Other Possible Options
-        </button>
-    `;
 }
 
 // Start the application
