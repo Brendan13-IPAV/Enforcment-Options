@@ -1850,6 +1850,77 @@ function toggleNotApplicable() {
     state.showNotApplicable = !state.showNotApplicable;
     showResults();
 }
+        // Function to get the count of additional valid options (not in top 6, not hidden, not N/A)
+function getAdditionalOptionsCount(options, scores) {
+    // Filter out hidden options and N/A options
+    const validOptions = options.filter(option => 
+        !option.hidden && 
+        option.resolution !== "N/A"
+    );
+
+    // Sort by score (assuming higher score is better)
+    const sortedOptions = validOptions.sort((a, b) => 
+        scores[b.id - 1] - scores[a.id - 1]
+    );
+
+    // If we have more than 6 valid options, return the count of extras
+    return Math.max(0, sortedOptions.length - 6);
+}
+
+// Function to handle showing/hiding additional options
+function handleAdditionalOptions(show) {
+    const validOptions = options.filter(option => 
+        !option.hidden && 
+        option.resolution !== "N/A"
+    );
+
+    const sortedOptions = validOptions.sort((a, b) => 
+        scores[b.id - 1] - scores[a.id - 1]
+    );
+
+    // Get options beyond the top 6
+    const additionalOptions = sortedOptions.slice(6);
+
+    // Get the question container
+    const container = document.getElementById('questionContainer');
+
+    if (show) {
+        // Add additional options to display
+        additionalOptions.forEach(option => {
+            container.innerHTML += `
+                <div class="option-box">
+                    <h3>${option.text}</h3>
+                    <p>Cost: ${option.cost}</p>
+                    <p>Effort: ${option.effort}</p>
+                    <p>Resolution: ${option.resolution}</p>
+                </div>
+            `;
+        });
+
+        // Change button text
+        document.getElementById('showMoreBtn').textContent = 'Show Less Options';
+    } else {
+        // Remove additional options
+        const allOptions = container.getElementsByClassName('option-box');
+        // Remove everything after the first 6 options
+        while (allOptions.length > 6) {
+            allOptions[6].remove();
+        }
+        // Reset button text
+        document.getElementById('showMoreBtn').textContent = 
+            `Explore ${additionalOptions.length} Other Possible Options`;
+    }
+}
+
+// Add this after your existing options are displayed
+const additionalCount = getAdditionalOptionsCount(options, scores);
+if (additionalCount > 0) {
+    document.getElementById('questionContainer').innerHTML += `
+        <button id="showMoreBtn" onclick="handleAdditionalOptions(this.textContent.includes('Explore'))" class="button">
+            Explore ${additionalCount} Other Possible Options
+        </button>
+    `;
+}
 
 // Start the application
 init();
