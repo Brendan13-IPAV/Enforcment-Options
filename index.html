@@ -1097,6 +1097,13 @@ function selectOption(optionIndex) {
             state.notApplicableOptions.add(optionId);
         });
     }
+
+    // Add skip questions to state Set
+    if (option.skipQuestions) {
+        option.skipQuestions.forEach(questionNum => {
+            state.skipQuestions.add(questionNum);
+        });
+    }
 }
 
 function navigate(direction) {
@@ -1108,14 +1115,9 @@ function navigate(direction) {
         .findIndex(btn => btn.classList.contains('selected'));
     
     if (selectedOptionIndex !== -1 && direction > 0) {
-        const selectedOption = currentQuestion.options[selectedOptionIndex];
-        
-        // If moving forward and there are questions to skip
-        if (selectedOption.skipQuestions && selectedOption.skipQuestions.length > 0) {
-            // Skip the specified questions
-            while (selectedOption.skipQuestions.includes(nextIndex) && nextIndex < questions.length) {
-                nextIndex++;
-            }
+        // Keep skipping while the next question is in the skip set
+        while (state.skipQuestions.has(nextIndex) && nextIndex < questions.length) {
+            nextIndex++;
         }
     }
     
