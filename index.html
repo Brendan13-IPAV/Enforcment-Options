@@ -279,10 +279,13 @@ function init() {
 
 function startQuiz() {
     state.started = true;
-    renderQuestion(0);
+    renderQuestion(state.currentQuestion); // Pass the index
 }
 
-        function renderQuestion(question) {
+function renderQuestion(questionIndex) {
+    // Get the actual question object using the index
+    const question = questions[questionIndex];
+    
     const questionContainer = document.getElementById('questionContainer');
     questionContainer.innerHTML = `
         <h3>${question.text}</h3>
@@ -302,6 +305,9 @@ function startQuiz() {
             `).join('')}
         </div>
     `;
+
+    // Add event listeners to the new options
+    addSelectionListeners(question.id);
 }
         
 // function showQuestion(questionIndex) {
