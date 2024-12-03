@@ -202,45 +202,791 @@
 const questions = [
     {
         id: 1,
-        text: "What is the nature of the infringement?",
-        subtext: "Consider how the IP is being used without authorization",
+        text: "What is your primary objective?",
+        subtext: "To help prioritise options which align with your needs, we would like to know what your goal is. Please select your MAIN goal, noting that multiple aims may be achieved (to varying degrees) by pursuing suggested actions.",
         options: [
             {
                 id: 1,
-                text: "Direct commercial use",
-                explanation: "The infringer is directly profiting from your IP",
-                scores: [1, 5, -2, 0, 2, 3],
-                markNotApplicable: [4, 5],
-                skipQuestions: [3, 4]
+                text: "Obtain financial compensation related to the infringement.",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
             },
             {
                 id: 2,
-                text: "Indirect/non-commercial use",
-                explanation: "The infringement is not directly generating profit",
-                scores: [-2, 2, 4, 1, 0, -1],
+                text: "Stop the current infringement from continuing.",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 3,
+                text: "Raising concern over a potential infringement.",
+                explanation: "",
+                scores: [],
                 markNotApplicable: [],
                 skipQuestions: []
             }
         ]
     },
-        {
+    {
         id: 2,
-        text: "Q2 sklhf efjefj  aekfj ef kf",
-        subtext: "oifa leaj fl eh lkh e",
+        text: "Which country is the IP right being breached registered in?",
+        subtext: "IP exists globally, but is made up of a patchwork of cooperating systems. Some actions are only available with rights registered in certain jurisdictions. This includes IP rights which are pending.",
         options: [
             {
                 id: 1,
-                text: "Direct commercial use",
-                explanation: "The infringer is directly profiting from your IP",
-                scores: [1, 5, -2, 0, 2, 3],
-                markNotApplicable: [4, 5],
-                skipQuestions: [3, 4]
+                text: "Registered with IP Australia.",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
             },
             {
                 id: 2,
-                text: "Indirect/non-commercial use",
-                explanation: "The infringement is not directly generating profit",
-                scores: [-2, 2, 4, 1, 0, -1],
+                text: "Registered with foreign IP offices",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 3,
+                text: "Registered in both Australia and foreign IP offices.",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 4,
+                text: "The IP is not formally registered.",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            }
+        ]
+    },
+    {
+        id: 3,
+        text: "Which intellectual property rights are being infringed?",
+        subtext: "If multiple apply, we suggest that you repeat this and treat each matter separately to understand how the options differ depending on the right. The processes and resolutions recommended will vary significantly for each right for some situations.",
+        options: [
+            {
+                id: 1,
+                text: "Trade mark",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 2,
+                text: "Patent",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 3,
+                text: "Registered Design",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 4,
+                text: "Plant Breeders Right",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 5,
+                text: "Uncertain",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 6,
+                text: "Unregistered Rights (i.e. unregistered trade marks,.)",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 7,
+                text: "Other",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            }
+        ]
+    },
+    {
+        id: 4,
+        text: "Please indicate the current status of the registered right.",
+        subtext: "The lifecycle of you're your registered rights will affect the best options available to you.",
+        options: [
+            {
+                id: 1,
+                text: "Registered",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 2,
+                text: "Getting close to expiry date",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 3,
+                text: "No longer registered",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 4,
+                text: "Approved, but not yet registered",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 5,
+                text: "Under examination",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 6,
+                text: "Being challenged by someone",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            }
+        ]
+    },
+    {
+        id: 5,
+        text: "Which statement best describes geographical locations in which the parties are operating?",
+        subtext: "Regardless of where the IP rights are registered, the parties to the dispute may be operating in various locations and this factor may vary the appropriate courses of actions and resolution options.",
+        options: [
+            {
+                id: 1,
+                text: "All parties are Australian entities",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 2,
+                text: "Parties involved are a mix of Australian and international",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 3,
+                text: "All parties operate outside of Australia",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            }
+        ]
+    },
+    {
+        id: 6,
+        text: "What is the approximate value of the IP right?",
+        subtext: "An approximate value for the intellectual property in question helps prioritise enforcement actions which are proportionate and cost-effective - whether that means prioritising escalated and costly actions for large cases or practical solutions for smaller infringements. For information on how to value IP, refer here.",
+        options: [
+            {
+                id: 1,
+                text: "Less than AUD 10,000",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 2,
+                text: "AUD 10,000 - 50,000",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 3,
+                text: "AUD 50,000 - 100,000",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 4,
+                text: "Over AUD 100,000",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 5,
+                text: "Value cannot be determined at this time",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            }
+        ]
+    },
+    {
+        id: 7,
+        text: "Do you believe any of the following are true about the trade mark in question?",
+        subtext: "This question primarily applies to situations when the other party holds a trade mark (in addition to yours) In some rare situations, the validity (the right to be registered) can be challenged.",
+        options: [
+            {
+                id: 1,
+                text: "The trade mark unfairly stops others from using words, images or signs that everyone should be able to use in relation to the claimed goods and services",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 2,
+                text: "The trade mark is too similar to another trade mark that is registered, or has been operating in the market",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 3,
+                text: "The trade mark hasn't been used for the goods/services it's listed for.",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 4,
+                text: "The trade mark hasn't been used at all.",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 5,
+                text: "The trade mark has a connotation that might confuse or mislead customers in relation to the goods/services claimed",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 6,
+                text: "The trade mark is against Australian law, or contains prescribed signs",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 7,
+                text: "The words or images used in the trade mark are offensive or inappropriate.",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 8,
+                text: "The trade mark was filed in bad faith",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 9,
+                text: "None of these apply",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            }
+        ]
+    },
+    {
+        id: 8,
+        text: "Do you believe any of the following are true about the patent in question?",
+        subtext: "This question primarily applies to situations when the other party holds a patent (in addition to yours). In some rare situations, the validity (the right to be registered) can be challenged.",
+        options: [
+            {
+                id: 1,
+                text: "It's not new or inventive",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 2,
+                text: "The invention is not patentable subject matter",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 3,
+                text: "The details aren't clear or complete",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 4,
+                text: "It's misleading or not theirs",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 5,
+                text: "None of these.",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            }
+        ]
+    },
+    {
+        id: 9,
+        text: "How quickly is action required?",
+        subtext: "What do users need to know here? Insert that.",
+        options: [
+            {
+                id: 1,
+                text: "Fast",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 2,
+                text: "Medium",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 3,
+                text: "Slower",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            }
+        ]
+    },
+    {
+        id: 10,
+        text: "Have you identified any IP related infringement from someone selling on any of the following online marketplaces?",
+        subtext: "Some online marketplaces have ways to alert them to infringement happening on their platform, which can be used in conjunction with other enforcement strategies. (Select all which apply)",
+        options: [
+            {
+                id: 1,
+                text: "None",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 2,
+                text: "Amazon",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 3,
+                text: "Ebay",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 4,
+                text: "Meta (Facebook, Instagram)",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 5,
+                text: "Alibaba/AliExpress",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 6,
+                text: "Etsy",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 7,
+                text: "TikTok",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 8,
+                text: "Another, not listed here",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            }
+        ]
+    },
+    {
+        id: 11,
+        text: "Are allegedly infringing products being imported into Australia?",
+        subtext: "Are you trying to stop products that infringe your trade marks or copyright entering Australia?",
+        options: [
+            {
+                id: 1,
+                text: "Yes",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 2,
+                text: "No",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            }
+        ]
+    },
+  {
+        id: 12,
+        text: "In which region do the parties primarily operate? (Select all which apply)?",
+        subtext: "Some words go here",
+        options: [
+            {
+                id: 1,
+                text: "New Zealand",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 2,
+                text: "United States",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 3,
+                text: "ASEAN Countries",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 4,
+                text: "European Union",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 5,
+                text: "Australia Only",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 6,
+                text: "Other",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 7,
+                text: "UK",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 8,
+                text: "Japan",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 9,
+                text: "South Korea",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 10,
+                text: "China",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 11,
+                text: "Canada",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 12,
+                text: "India",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 13,
+                text: "South America",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            }
+        ]
+    },
+    {
+        id: 13,
+        text: "Which of the following has been attempted so far?",
+        subtext: "We will not suggest something you've already done, eg, and also we will make sure we suggest options that are the right escalation",
+        options: [
+            {
+                id: 1,
+                text: "Alternative dispute resolution (mediation, arbitration, negotiation)",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 2,
+                text: "I have responded to a letter of demand/cease & desist",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 3,
+                text: "I have sent a letter of demand/cease & desist",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 4,
+                text: "Informal communication between parties",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 5,
+                text: "Engagement with regulatory bodies (eg ASBFEO, TGA)",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 6,
+                text: "None",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 7,
+                text: "Reporting to online platforms",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 8,
+                text: "engaged a lawyer or attorney",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 9,
+                text: "IP Australia Oppositions and hearings procedures",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            }
+        ]
+    },
+    {
+        id: 14,
+        text: "Would you require confidentiality when resolving this issue?",
+        subtext: "Businesses sometimes need to keep certain actions confidential to protect intellectual property, maintain a competitive advantage, or manage public perception effectively. This can involve safeguarding trade secrets, pending patents, or sensitive business information that, if prematurely disclosed, could harm the company's interests.",
+        options: [
+            {
+                id: 1,
+                text: "Yes",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 2,
+                text: "No / not sure",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            }
+        ]
+    },
+    {
+        id: 15,
+        text: "How important to preserve a relationship with the other party?",
+        subtext: "The relationship you have with the alleged infringer helps determine options to consider which are most effective and help maintain good business relations.",
+        options: [
+            {
+                id: 1,
+                text: "There is an ongoing relationship which is likely to continue.",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 2,
+                text: "There was a previous relationship.",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 3,
+                text: "Open to establishing a relationship",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 4,
+                text: "No relationship now, and no expectation of one in the future.",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            }
+        ]
+    },
+    {
+        id: 16,
+        text: "Are you likely to consider negotiating in good faith to resolve this issue?",
+        subtext: "Negotiated solutions often provide faster, more cost-effective, and mutually beneficial outcomes compared to other options. Common approaches include license agreements; coexistence agreements; cross-licensing arrangements exchanging reciprocal IP rights; structured phase-out periods; technology transfer agreements; joint venture opportunities; or structured settlements combining financial and behavioral terms.",
+        options: [
+            {
+                id: 1,
+                text: "Likely",
+                explanation: "",
+                scores: [],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 2,
+                text: "Unlikely",
+                explanation: "",
+                scores: [],
                 markNotApplicable: [],
                 skipQuestions: []
             }
