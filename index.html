@@ -209,25 +209,25 @@ const questions = [
                 id: 1,
                 text: "Obtain financial compensation related to the infringement.",
                 explanation: "",
-                scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,-5,1,0,1,0,0,0,0,0],
+                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,1,1,0,1,1,0,0,1,1,1,1,0,1,0,0,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,1,1,0,-1,0,0,0,0,0,0],
                 markNotApplicable: [],
-                skipQuestions: []
+                skipQuestions: [11]  
             },
             {
                 id: 2,
                 text: "Stop the current infringement from continuing.",
                 explanation: "",
-                scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,-5,1,0,1,0,0,0,0,0],
+                scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,0,0,0,0,0],
                 markNotApplicable: [],
-                skipQuestions: []
+                skipQuestions: [11]
             },
             {
                 id: 3,
                 text: "Raising concern over a potential infringement.",
                 explanation: "",
-                scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,-5,1,0,1,0,0,0,0,0],
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,2,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,0,0,0,0,0],
                 markNotApplicable: [],
-                skipQuestions: []
+                skipQuestions: [11]
             }
         ]
     },
@@ -240,33 +240,33 @@ const questions = [
                 id: 1,
                 text: "Registered with IP Australia.",
                 explanation: "",
-                scores: [1,0,1,0,1,2],
+                scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,-5,0,0,0,0,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,-1,1,0,0,0,0,0],
                 markNotApplicable: [],
-                skipQuestions: []
+                skipQuestions: [11]
             },
             {
                 id: 2,
                 text: "Registered with foreign IP offices",
                 explanation: "",
-                scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
-                skipQuestions: []
+                scores: [-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,-1,-1,1,1,1,1,1,1,1,1,-1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,1,0,0,0,0,0],
+                markNotApplicable: [1,2,3,4,5,6,7,8,9,18,25,32],
+                skipQuestions: [11]
             },
             {
                 id: 3,
                 text: "Registered in both Australia and foreign IP offices.",
                 explanation: "",
-                scores: [1,0,1,0,1,2],
+                scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,-1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,-1,1,1,1,0,-1,1,0,0,0,0,0],
                 markNotApplicable: [],
-                skipQuestions: []
+                skipQuestions: [11]
             },
             {
                 id: 4,
                 text: "The IP is not formally registered.",
                 explanation: "",
-                scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
-                skipQuestions: []
+                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,1,-1,1,1,1,1,1,1,1,3,1,1,1,0,0,-1,1,1,1,1,1,1,1,1,1,-1,0,0,1,0,1,3,1,0,0,0,0],
+                markNotApplicable: [1,9,17,18,25,32,33],
+                skipQuestions: [11]
             }
         ]
     },
@@ -279,57 +279,59 @@ const questions = [
                 id: 1,
                 text: "Trade mark",
                 explanation: "",
-                scores: [],
-                markNotApplicable: [8],
+                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-10,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,-10,-10,-10,-10],
+                  markNotApplicable: [1,9,17,33,66,67,68,69],
+
                 skipQuestions: [7]
             },
             {
                 id: 2,
                 text: "Patent",
                 explanation: "",
-                scores: [],
-                markNotApplicable: [7],
+                scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,-1,-1,0,1,1,1,0,1,1,-10,-10,-10,-10],
+                markNotApplicable: [18,25,32,33,47,58,63,66,67,68,69],
+
                 skipQuestions: [6]
             },
             {
                 id: 3,
                 text: "Registered Design",
                 explanation: "",
-                scores: [],
-                markNotApplicable: [7,8],
+                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-10,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,-1,1,0,1,1,1,0,1,1,10,-10,10,-10],
+                markNotApplicable: [1,9,17,18,25,32,33,34,35,42,43,44,45,46,47,48,49,57,58,59,60,61,62,63,64,65,67,68,69],
                 skipQuestions: [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
             },
             {
                 id: 4,
                 text: "Plant Breeders Right",
                 explanation: "",
-                scores: [],
-                markNotApplicable: [7,8],
+                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-10,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,-1,-1,0,1,1,1,0,1,1,-10,10,-10,-10],
+                markNotApplicable: [1,9,17,18,25,32,33,34,35,42,43,44,45,46,47,48,49,57,58,59,60,61,62,63,64,65,66,68,69],
                skipQuestions: [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
             },
             {
                 id: 5,
                 text: "Uncertain",
                 explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-10,-10,-10,10],
+                markNotApplicable: [1,9,17,18,25,32,33,34,35,42,43,44,45,46,47,48,49,57,58,59,60,61,62,63,64,65,66,67,68,69],
+                skipQuestions: [6,7]
             },
             {
                 id: 6,
-                text: "Unregistered Rights (i.e. unregistered trade marks,.)",
+                text: "Unregistered Rights (i.e. unregistered trade marks, copyright)",
                 explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
+                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,-10,-10,1,-10],
+                markNotApplicable: [1,9,17,18,25,32,33,34,35,42,43,44,45,46,47,48,49,57,58,59,60,61,62,63,64,65,66,67,68,69],
+                skipQuestions: [6,7]
             },
             {
                 id: 7,
                 text: "Other",
                 explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
+                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,-1,-1,-1,1,0,0,0,0,0,-10,-10,-10,10],
+                markNotApplicable: [1,9,17,18,25,32,33,34,35,42,43,44,45,46,47,48,49,57,58,59,60,61,62,63,64,65,66,67,68],
+                skipQuestions: [6,7]
             }
         ]
     },
@@ -342,7 +344,7 @@ const questions = [
                 id: 1,
                 text: "Registered",
                 explanation: "",
-                scores: [1,0,1,0,1,2],
+                scores: [-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,0,1,1,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
             },
@@ -350,7 +352,7 @@ const questions = [
                 id: 2,
                 text: "Getting close to expiry date",
                 explanation: "",
-                scores: [1,0,1,0,1,2],
+                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,1,1,1,1,1,1,1,1,-1,-1,0,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
             },
@@ -358,15 +360,15 @@ const questions = [
                 id: 3,
                 text: "No longer registered",
                 explanation: "",
-                scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
-                skipQuestions: []
+                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,-1,1,1,1,1,1,1,1,1,-1,-1,0,1,1,1,0,1,0,0,0,0,0],
+                markNotApplicable: [1,9,18,25,32,48],
+                skipQuestions: [6,7]
             },
             {
                 id: 4,
                 text: "Approved, but not yet registered",
                 explanation: "",
-                scores: [1,0,1,0,1,2],
+                scores: [8,8,8,8,8,8,8,8,1,1,1,1,1,1,1,1,1,8,8,8,8,8,8,8,1,1,1,1,1,1,1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,0,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
             },
@@ -374,7 +376,7 @@ const questions = [
                 id: 5,
                 text: "Under examination",
                 explanation: "",
-                scores: [1,0,1,0,1,2],
+                scores: [1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,0,0,-1,1,1,1,1,1,1,1,1,1,-1,0,1,1,1,0,1,5,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
             },
@@ -397,15 +399,15 @@ const questions = [
                 id: 1,
                 text: "All parties are Australian entities",
                 explanation: "",
-                scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
+                scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,-5,1,0,1,0,0,0,0,0],
+                markNotApplicable: [60],
                 skipQuestions: [12]
             },
             {
                 id: 2,
                 text: "Parties involved are a mix of Australian and international",
                 explanation: "",
-                scores: [1,0,1,0,1,2],
+                scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,1,1,1,-1,0,0,1,1,1,1,1,1,1,1,1,-1,1,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
             },
@@ -413,13 +415,319 @@ const questions = [
                 id: 3,
                 text: "All parties operate outside of Australia",
                 explanation: "",
-                scores: [1,0,1,0,1,2],
+                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,-1,-1,1,1,1,1,1,-1,-1,-1,-1,1,-1,0,0,1,1,1,1,1,1,1,1,-1,1,-1,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
             }
         ]
     },
-     {
+    {
+        id: 6,
+        text: "What is the approximate value of the IP right?",
+        subtext: "An approximate value for the intellectual property in question helps prioritise enforcement actions which are proportionate and cost-effective - whether that means prioritising escalated and costly actions for large cases or practical solutions for smaller infringements. For information on how to value IP, refer here.",
+        options: [
+            {
+                id: 1,
+                text: "Less than AUD 10,000",
+                explanation: "",
+                scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,-1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,-1,-1,-1,-8,-8,-8,-8,-8,1,1,1,1,1,2,3,0,1,1,1,1,1,1,1,1,1,1,0,1,0,1,1,1,0,0,0,0,0],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 2,
+                text: "AUD 10,000 - 50,000",
+                explanation: "",
+                scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,-8,-8,-8,-8,-8,1,1,1,1,1,0,2,0,1,1,1,1,1,1,1,1,1,1,0,1,0,0,0,0,0,0,0,0,0],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 3,
+                text: "AUD 50,000 - 100,000",
+                explanation: "",
+                scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,1,0,1,1,1,1,1,1,1,1,1,1,0,1,0,0,-1,0,0,0,0,0,0],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 4,
+                text: "Over AUD 100,000",
+                explanation: "",
+                scores: [1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,1,0,1,1,1,1,1,1,1,1,1,1,0,1,0,0,-1,0,0,0,0,0,0],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 5,
+                text: "Value cannot be determined at this time",
+                explanation: "",
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                markNotApplicable: [],
+                skipQuestions: []
+            }
+        ]
+    },
+    {
+        id: 7,
+        text: "Do you believe any of the following are true about the trade mark in question?",
+        subtext: "This question primarily applies to situations when the other party holds a trade mark (in addition to yours) In some rare situations, the validity (the right to be registered) can be challenged.",
+        options: [
+            {
+                id: 1,
+                text: "The trade mark unfairly stops others from using words, images or signs that everyone should be able to use in relation to the claimed goods and services",
+                explanation: "",
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,1,1,1,1,1,1,5,1,1,1,1,1,1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0],
+                markNotApplicable: [66,67,68,69],
+                skipQuestions: []
+            },
+            {
+                id: 2,
+                text: "The trade mark is too similar to another trade mark that is registered, or has been operating in the market",
+                explanation: "",
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,1,1,1,1,1,1,5,1,1,1,1,1,1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,0,-1,1,1,1,1,1,1,1,1,0,0,0,1,1,0,0,0,0,0,0,0,0],
+                markNotApplicable: [66,67,68,69],
+                skipQuestions: []
+            },
+            {
+                id: 3,
+                text: "The trade mark hasn't been used for the goods/services it's listed for.",
+                explanation: "",
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,-1,-1,-1,-1,-1,5,1,1,1,1,1,1,-1,1,1,1,1,1,1,1,1,1,1,1,1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0],
+                markNotApplicable: [66,67,68,69],
+                skipQuestions: []
+            },
+            {
+                id: 4,
+                text: "The trade mark hasn't been used at all.",
+                explanation: "",
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,-1,-1,-1,-1,-1,5,1,1,1,1,1,1,5,1,1,1,1,1,1,1,1,1,1,1,1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0],
+                markNotApplicable: [66,67,68,69],
+                skipQuestions: []
+            },
+            {
+                id: 5,
+                text: "The trade mark has a connotation that might confuse or mislead customers in relation to the goods/services claimed",
+                explanation: "",
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,5,1,1,1,1,1,1,5,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0],
+                markNotApplicable: [66,67,68,69],
+                skipQuestions: []
+            },
+            {
+                id: 6,
+                text: "The trade mark is against Australian law, or contains prescribed signs",
+                explanation: "",
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,5,1,1,1,1,1,1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0],
+                markNotApplicable: [66,67,68,69],
+                skipQuestions: []
+            },
+            {
+                id: 7,
+                text: "The words or images used in the trade mark are offensive or inappropriate.",
+                explanation: "",
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,5,1,1,1,1,1,1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0],
+                markNotApplicable: [66,67,68,69],
+                skipQuestions: []
+            },
+            {
+                id: 8,
+                text: "The trade mark was filed in bad faith",
+                explanation: "",
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,5,1,1,1,1,1,1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0],
+                markNotApplicable: [66,67,68,69],
+                skipQuestions: []
+            },
+            {
+                id: 9,
+                text: "None of these apply",
+                explanation: "",
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,0,0,0,0,0],
+                markNotApplicable: [1,9,17,66,67,68,69],
+                skipQuestions: []
+            }
+        ]
+    },
+    {
+        id: 8,
+        text: "Do you believe any of the following are true about the patent in question?",
+        subtext: "This question primarily applies to situations when the other party holds a patent (in addition to yours). In some rare situations, the validity (the right to be registered) can be challenged.",
+        options: [
+            {
+                id: 1,
+                text: "It's not new or inventive",
+                explanation: "",
+                scores: [5,3,3,0,0,0,0,0,5,3,3,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],
+                markNotApplicable: [66,67,68,69],
+                skipQuestions: []
+            },
+            {
+                id: 2,
+                text: "The invention is not patentable subject matter",
+                explanation: "",
+                scores: [1,0,0,2,0,1,0,0,1,0,0,2,0,1,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0],
+                markNotApplicable: [66,67,68,69],
+                skipQuestions: []
+            },
+            {
+                id: 3,
+                text: "The details aren't clear or complete",
+                explanation: "",
+                scores: [1,0,0,0,2,0,0,0,1,0,0,0,2,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0],
+                markNotApplicable: [66,67,68,69],
+                skipQuestions: []
+            },
+            {
+                id: 4,
+                text: "It's misleading or not theirs",
+                explanation: "",
+                scores: [1,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,1,1,1,1,1,1,1,1,1,3,2,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0],
+                markNotApplicable: [66,67,68,69],
+                skipQuestions: []
+            },
+            {
+                id: 5,
+                text: "None of these.",
+                explanation: "",
+                scores: [1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0],
+                markNotApplicable: [1,9,17,66,67,68,69],
+                skipQuestions: []
+            }
+        ]
+    },
+    {
+        id: 9,
+        text: "How quickly is action required?",
+        subtext: "What do users need to know here? Insert that.",
+        options: [
+            {
+                id: 1,
+                text: "Fast",
+                explanation: "(eg delay will cause irrevocable harm) Examples; a seizure by the ABF which must be acted upon within 10 days, or a significant commercial event in which infringement will take place. Selecting this prioritises fast speed options, though may de-prioritise more permanent and binding options. ",
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-3,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,-1,-1,5,1,-1,-1,-1,-1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,-1,1,0,0,-1,-1,-1,-1,0,0,0,0,0],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 2,
+                text: "Medium",
+                explanation: "Typical resolves in under 12 months",
+                scores: [3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,-2,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,-1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,0,1,0,1,0,0,0,0,0,0,0,0,0],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 3,
+                text: "Slower",
+                explanation: "Typical resolves longer than 12 months",
+                scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,3,-1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,1,0,0,0,0,0],
+                markNotApplicable: [],
+                skipQuestions: []
+            }
+        ]
+    },
+    {
+        id: 10,
+        text: "Have you identified any IP related infringement from someone selling on any (of the following) online marketplaces?",
+        subtext: "Some online marketplaces have ways to alert them to infringement happening on their platform, which can be used in conjunction with other enforcement strategies.(Select all that apply - currently only able ot select one option)",
+        options: [
+            {
+                id: 1,
+                text: "None",
+                explanation: "",
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-10,-10,-10,-10,-10,-10,-10,-10,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                markNotApplicable: [49],
+                skipQuestions: []
+            },
+            {
+                id: 2,
+                text: "Amazon",
+                explanation: "",
+                scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,0,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 3,
+                text: "Ebay",
+                explanation: "",
+                scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,10,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 4,
+                text: "Meta (Facebook, Instagram)",
+                explanation: "",
+                scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,10,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 5,
+                text: "Alibaba/AliExpress",
+                explanation: "",
+                scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,0,10,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 6,
+                text: "Etsy",
+                explanation: "",
+                scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,0,0,10,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 7,
+                text: "TikTok",
+                explanation: "",
+                scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,0,0,0,10,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 8,
+                text: "Another, not listed here",
+                explanation: "",
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,10,10,10,10,10,10,10,0,0,1,1,1,0,1,0,0,0,0,0,0],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 9,
+                text: "Yes, an online marketplace.",
+                explanation: "",
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,10,10,10,10,10,10,10,0,0,1,1,1,0,1,0,0,0,0,0,0],
+                markNotApplicable: [],
+                skipQuestions: []
+            }
+        ]
+    },
+    {
+        id: 11,
+        text: "Are allegedly infringing products being imported into Australia?",
+        subtext: "Are you trying to stop products that infringe your trade marks or copyright entering Australia?",
+        options: [
+            {
+                id: 1,
+                text: "Yes",
+                explanation: "",
+                scores: [0,0,0,0,0,0,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,10,1,1,1,0,1,0,0,0,0,0,0],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
+            {
+                id: 2,
+                text: "No",
+                explanation: "",
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                markNotApplicable: [58],
+                skipQuestions: []
+            }
+        ]
+    },
+   {
         id: 12,
         text: "In which region do the parties primarily operate? (Select all which apply)?",
         subtext: "Some words go here",
@@ -531,305 +839,6 @@ const questions = [
         ]
     },
     {
-        id: 6,
-        text: "What is the approximate value of the IP right?",
-        subtext: "An approximate value for the intellectual property in question helps prioritise enforcement actions which are proportionate and cost-effective - whether that means prioritising escalated and costly actions for large cases or practical solutions for smaller infringements. For information on how to value IP, refer here.",
-        options: [
-            {
-                id: 1,
-                text: "Less than AUD 10,000",
-                explanation: "",
-                scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 2,
-                text: "AUD 10,000 - 50,000",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 3,
-                text: "AUD 50,000 - 100,000",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 4,
-                text: "Over AUD 100,000",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 5,
-                text: "Value cannot be determined at this time",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            }
-        ]
-    },
-    {
-        id: 7,
-        text: "Do you believe any of the following are true about the trade mark in question?",
-        subtext: "This question primarily applies to situations when the other party holds a trade mark (in addition to yours) In some rare situations, the validity (the right to be registered) can be challenged.",
-        options: [
-            {
-                id: 1,
-                text: "The trade mark unfairly stops others from using words, images or signs that everyone should be able to use in relation to the claimed goods and services",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 2,
-                text: "The trade mark is too similar to another trade mark that is registered, or has been operating in the market",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 3,
-                text: "The trade mark hasn't been used for the goods/services it's listed for.",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 4,
-                text: "The trade mark hasn't been used at all.",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 5,
-                text: "The trade mark has a connotation that might confuse or mislead customers in relation to the goods/services claimed",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 6,
-                text: "The trade mark is against Australian law, or contains prescribed signs",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 7,
-                text: "The words or images used in the trade mark are offensive or inappropriate.",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 8,
-                text: "The trade mark was filed in bad faith",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 9,
-                text: "None of these apply",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            }
-        ]
-    },
-    {
-        id: 8,
-        text: "Do you believe any of the following are true about the patent in question?",
-        subtext: "This question primarily applies to situations when the other party holds a patent (in addition to yours). In some rare situations, the validity (the right to be registered) can be challenged.",
-        options: [
-            {
-                id: 1,
-                text: "It's not new or inventive",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 2,
-                text: "The invention is not patentable subject matter",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 3,
-                text: "The details aren't clear or complete",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 4,
-                text: "It's misleading or not theirs",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 5,
-                text: "None of these.",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            }
-        ]
-    },
-    {
-        id: 9,
-        text: "How quickly is action required?",
-        subtext: "What do users need to know here? Insert that.",
-        options: [
-            {
-                id: 1,
-                text: "Fast",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 2,
-                text: "Medium",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 3,
-                text: "Slower",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            }
-        ]
-    },
-    {
-        id: 10,
-        text: "Have you identified any IP related infringement from someone selling on any of the following online marketplaces?",
-        subtext: "Some online marketplaces have ways to alert them to infringement happening on their platform, which can be used in conjunction with other enforcement strategies. (Select all which apply)",
-        options: [
-            {
-                id: 1,
-                text: "None",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 2,
-                text: "Amazon",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 3,
-                text: "Ebay",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 4,
-                text: "Meta (Facebook, Instagram)",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 5,
-                text: "Alibaba/AliExpress",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 6,
-                text: "Etsy",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 7,
-                text: "TikTok",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 8,
-                text: "Another, not listed here",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            }
-        ]
-    },
-    {
-        id: 11,
-        text: "Are allegedly infringing products being imported into Australia?",
-        subtext: "Are you trying to stop products that infringe your trade marks or copyright entering Australia?",
-        options: [
-            {
-                id: 1,
-                text: "Yes",
-                explanation: "",
-                scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 2,
-                text: "No",
-                explanation: "",
-                scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
-                skipQuestions: []
-            }
-        ]
-    },
-
-    {
         id: 13,
         text: "Which of the following has been attempted so far?",
         subtext: "We will not suggest something you've already done, eg, and also we will make sure we suggest options that are the right escalation",
@@ -838,74 +847,74 @@ const questions = [
                 id: 1,
                 text: "Alternative dispute resolution (mediation, arbitration, negotiation)",
                 explanation: "",
-                scores: [],
-                markNotApplicable: [],
+                scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,1,1,1,1,1,1,1,1,1,1,0,1,1,0,0,0,0,0,0,0,0],
+                markNotApplicable: [45,46],
                 skipQuestions: []
             },
             {
                 id: 2,
                 text: "I have responded to a letter of demand/cease & desist",
                 explanation: "",
-                scores: [],
-                markNotApplicable: [],
+                scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,0,-1,0,0,1,1,1,1,1,1,1,1,1,0,0,1,1,0,0,0,0,0,0,0,0],
+                markNotApplicable: [45,46],
                 skipQuestions: []
             },
             {
                 id: 3,
                 text: "I have sent a letter of demand/cease & desist",
                 explanation: "",
-                scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
+                scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,-1,-1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,0,0,0,0,0,0,0,0],
+                markNotApplicable: [45],
                 skipQuestions: []
             },
             {
                 id: 4,
                 text: "Informal communication between parties",
                 explanation: "",
-                scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
+                scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0],
+                markNotApplicable: [46],
                 skipQuestions: []
             },
             {
                 id: 5,
                 text: "Engagement with regulatory bodies (eg ASBFEO, TGA)",
                 explanation: "",
-                scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
+                scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,3,0,1,1,1,1,1,1,1,1,1,1,-1,0,0,1,1,1,1,1,1,1,1,1,1,-1,1,1,1,0,1,0,0,0,0,0],
+                markNotApplicable: [57,59],
                 skipQuestions: []
             },
             {
                 id: 6,
-                text: "None",
+                text: "Reporting to online platforms",
                 explanation: "",
-                scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
+                scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,0,1,0,0,0,0,0],
+                markNotApplicable: [49],
                 skipQuestions: []
             },
             {
                 id: 7,
-                text: "Reporting to online platforms",
+                text: "Engaged a lawyer or attorney",
                 explanation: "",
-                scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                markNotApplicable: [],   
                 skipQuestions: []
             },
             {
                 id: 8,
-                text: "engaged a lawyer or attorney",
+                text: "IP Australia Oppositions and hearings procedures",
                 explanation: "",
-                scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
+                scores: [-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,-1,-1,0,0,1,1,1,1,1,1,1,1,-1,-1,-1,1,0,0,0,1,0,0,0,0,0],
+                markNotApplicable: [1,18],
                 skipQuestions: []
             },
             {
                 id: 9,
-                text: "IP Australia Oppositions and hearings procedures",
+                text: "None of these",
                 explanation: "",
-                scores: [1,0,1,0,1,2],
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,-1,1,1,1,1,1,0,1,0,0,5,0,0,0,1,1,1,1,1,1,1,1,0,0,1,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
-            }
+            },
         ]
     },
     {
@@ -917,7 +926,7 @@ const questions = [
                 id: 1,
                 text: "Yes",
                 explanation: "",
-                scores: [1,0,1,0,1,1],
+                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,0,-1,-1,-1,3,3,3,3,3,3,3,3,3,3,0,0,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
             },
@@ -925,7 +934,7 @@ const questions = [
                 id: 2,
                 text: "No / not sure",
                 explanation: "",
-                scores: [1,0,1,0,1,1],
+                scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
             }
@@ -940,7 +949,7 @@ const questions = [
                 id: 1,
                 text: "There is an ongoing relationship which is likely to continue.",
                 explanation: "",
-                scores: [],
+                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,3,3,3,3,3,3,3,3,3,3,3,3,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
             },
@@ -948,7 +957,7 @@ const questions = [
                 id: 2,
                 text: "There was a previous relationship.",
                 explanation: "",
-                scores: [],
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,-1,3,3,3,3,3,3,3,3,3,3,1,2,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
             },
@@ -956,7 +965,7 @@ const questions = [
                 id: 3,
                 text: "Open to establishing a relationship",
                 explanation: "",
-                scores: [],
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,-1,3,3,3,3,3,3,3,3,3,3,1,0,2,0,0,0,0,0,0,0,0,-1,-1,-1,1,1,1,1,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
             },
@@ -964,7 +973,7 @@ const questions = [
                 id: 4,
                 text: "No relationship now, and no expectation of one in the future.",
                 explanation: "",
-                scores: [],
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,-3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
             }
@@ -979,7 +988,7 @@ const questions = [
                 id: 1,
                 text: "Likely",
                 explanation: "",
-                scores: [],
+                scores: [0,0,0,0,0,0,0,0,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,1,3,3,3,3,3,3,3,3,1,1,3,5,0,0,0,0,0,0,0,0,-1,0,0,1,1,-1,1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
             },
@@ -987,7 +996,7 @@ const questions = [
                 id: 2,
                 text: "Unlikely",
                 explanation: "",
-                scores: [],
+                scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,-1,-1,-2,-2,1,-1,-2,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
             }
