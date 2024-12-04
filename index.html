@@ -211,7 +211,7 @@ const questions = [
                 explanation: "",
                 scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,-5,1,0,1,0,0,0,0,0],
                 markNotApplicable: [],
-                skipQuestions: [11]
+                skipQuestions: [11]  //Skipping 11 for all answers because not currently needed
             },
             {
                 id: 2,
@@ -249,7 +249,7 @@ const questions = [
                 text: "Registered with foreign IP offices",
                 explanation: "",
                 scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
+                markNotApplicable: [0,1,2,3,4,5,6,7,8,17,24,31],
                 skipQuestions: [11]
             },
             {
@@ -265,7 +265,7 @@ const questions = [
                 text: "The IP is not formally registered.",
                 explanation: "",
                 scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
+                markNotApplicable: [0,8,16,17,24,31,32],
                 skipQuestions: [11]
             }
         ]
@@ -280,7 +280,7 @@ const questions = [
                 text: "Trade mark",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [8],
+                markNotApplicable: [0,8,16,65,66,67,68],
                 skipQuestions: [7]
             },
             {
@@ -288,7 +288,7 @@ const questions = [
                 text: "Patent",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [7],
+                markNotApplicable: [17,24,31,32,46,57,62,65,66,67,68],
                 skipQuestions: [6]
             },
             {
@@ -296,7 +296,7 @@ const questions = [
                 text: "Registered Design",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [7,8],
+                markNotApplicable: [0,8,16,17,24,31,32,33,34,41,42,43,44,45,46,47,48,56,57,58,59,60,61,62,63,64,66,67,68],
                 skipQuestions: [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
             },
             {
@@ -304,7 +304,7 @@ const questions = [
                 text: "Plant Breeders Right",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [7,8],
+                markNotApplicable: [0,8,16,17,24,31,32,33,34,41,42,43,44,45,46,47,48,56,57,58,59,60,61,62,63,64,65,67,68],
                skipQuestions: [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
             },
             {
@@ -312,24 +312,24 @@ const questions = [
                 text: "Uncertain",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
+                markNotApplicable: [0,8,16,17,24,31,32,33,34,41,42,43,44,45,46,47,48,56,57,58,59,60,61,62,63,64,65,66,67,68],
+                skipQuestions: [6,7]
             },
             {
                 id: 6,
-                text: "Unregistered Rights (i.e. unregistered trade marks,.)",
+                text: "Unregistered Rights (i.e. unregistered trade marks, copyright)",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
+                markNotApplicable: [0,8,16,17,24,31,32,33,34,41,42,43,44,45,46,47,48,56,57,58,59,60,61,62,63,64,65,66,67,68],
+                skipQuestions: [6,7]
             },
             {
                 id: 7,
                 text: "Other",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
+                markNotApplicable: [0,8,16,17,24,31,32,33,34,41,42,43,44,45,46,47,48,56,57,58,59,60,61,62,63,64,65,66,67],
+                skipQuestions: [6,7]
             }
         ]
     },
@@ -359,8 +359,8 @@ const questions = [
                 text: "No longer registered",
                 explanation: "",
                 scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
-                skipQuestions: []
+                markNotApplicable: [0,8,17,24,31],
+                skipQuestions: [6,7]
             },
             {
                 id: 4,
@@ -398,7 +398,7 @@ const questions = [
                 text: "All parties are Australian entities",
                 explanation: "",
                 scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
+                markNotApplicable: [60],
                 skipQuestions: [12]
             },
             {
@@ -476,7 +476,7 @@ const questions = [
                 text: "The trade mark unfairly stops others from using words, images or signs that everyone should be able to use in relation to the claimed goods and services",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [],
+                markNotApplicable: [65,66,67,68],
                 skipQuestions: []
             },
             {
@@ -484,7 +484,7 @@ const questions = [
                 text: "The trade mark is too similar to another trade mark that is registered, or has been operating in the market",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [],
+              markNotApplicable: [65,66,67,68],
                 skipQuestions: []
             },
             {
@@ -492,7 +492,7 @@ const questions = [
                 text: "The trade mark hasn't been used for the goods/services it's listed for.",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [],
+               markNotApplicable: [65,66,67,68],
                 skipQuestions: []
             },
             {
@@ -500,7 +500,7 @@ const questions = [
                 text: "The trade mark hasn't been used at all.",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [],
+              markNotApplicable: [65,66,67,68],
                 skipQuestions: []
             },
             {
@@ -508,7 +508,7 @@ const questions = [
                 text: "The trade mark has a connotation that might confuse or mislead customers in relation to the goods/services claimed",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [],
+                markNotApplicable: [65,66,67,68],
                 skipQuestions: []
             },
             {
@@ -516,7 +516,7 @@ const questions = [
                 text: "The trade mark is against Australian law, or contains prescribed signs",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [],
+                  markNotApplicable: [65,66,67,68],
                 skipQuestions: []
             },
             {
@@ -524,7 +524,7 @@ const questions = [
                 text: "The words or images used in the trade mark are offensive or inappropriate.",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [],
+                 markNotApplicable: [65,66,67,68],
                 skipQuestions: []
             },
             {
@@ -532,7 +532,7 @@ const questions = [
                 text: "The trade mark was filed in bad faith",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [],
+              markNotApplicable: [65,66,67,68],
                 skipQuestions: []
             },
             {
@@ -540,7 +540,7 @@ const questions = [
                 text: "None of these apply",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [],
+                markNotApplicable: [0,8,16,65,66,67,68],
                 skipQuestions: []
             }
         ]
@@ -555,7 +555,7 @@ const questions = [
                 text: "It's not new or inventive",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [],
+                markNotApplicable: [65,66,67,68],
                 skipQuestions: []
             },
             {
@@ -563,7 +563,7 @@ const questions = [
                 text: "The invention is not patentable subject matter",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [],
+                markNotApplicable: [65,66,67,68],
                 skipQuestions: []
             },
             {
@@ -571,7 +571,7 @@ const questions = [
                 text: "The details aren't clear or complete",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [],
+                markNotApplicable: [65,66,67,68],
                 skipQuestions: []
             },
             {
@@ -579,7 +579,7 @@ const questions = [
                 text: "It's misleading or not theirs",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [],
+                markNotApplicable: [65,66,67,68],
                 skipQuestions: []
             },
             {
@@ -587,7 +587,7 @@ const questions = [
                 text: "None of these.",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [],
+                markNotApplicable: [0,8,16,65,66,67,68],
                 skipQuestions: []
             }
         ]
@@ -633,7 +633,7 @@ const questions = [
                 text: "None",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [],
+                markNotApplicable: [48],
                 skipQuestions: []
             },
             {
@@ -712,7 +712,7 @@ const questions = [
                 text: "No",
                 explanation: "",
                 scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
+                markNotApplicable: [57],
                 skipQuestions: []
             }
         ]
@@ -838,7 +838,7 @@ const questions = [
                 text: "Alternative dispute resolution (mediation, arbitration, negotiation)",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [],
+                markNotApplicable: [44,45],
                 skipQuestions: []
             },
             {
@@ -846,7 +846,7 @@ const questions = [
                 text: "I have responded to a letter of demand/cease & desist",
                 explanation: "",
                 scores: [],
-                markNotApplicable: [],
+                markNotApplicable: [44,45],
                 skipQuestions: []
             },
             {
@@ -854,7 +854,7 @@ const questions = [
                 text: "I have sent a letter of demand/cease & desist",
                 explanation: "",
                 scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
+                markNotApplicable: [44],
                 skipQuestions: []
             },
             {
@@ -862,7 +862,7 @@ const questions = [
                 text: "Informal communication between parties",
                 explanation: "",
                 scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
+                markNotApplicable: [45],
                 skipQuestions: []
             },
             {
@@ -870,7 +870,7 @@ const questions = [
                 text: "Engagement with regulatory bodies (eg ASBFEO, TGA)",
                 explanation: "",
                 scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
+                markNotApplicable: [56,58],
                 skipQuestions: []
             },
             {
@@ -886,15 +886,15 @@ const questions = [
                 text: "Reporting to online platforms",
                 explanation: "",
                 scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
+                markNotApplicable: [48],
                 skipQuestions: []
             },
             {
                 id: 8,
-                text: "engaged a lawyer or attorney",
+                text: "Engaged a lawyer or attorney",
                 explanation: "",
                 scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
+                markNotApplicable: [],  //Even though they have a lawyer, we will keep 'get a lawyer' as an option.
                 skipQuestions: []
             },
             {
@@ -902,7 +902,7 @@ const questions = [
                 text: "IP Australia Oppositions and hearings procedures",
                 explanation: "",
                 scores: [1,0,1,0,1,2],
-                markNotApplicable: [],
+                markNotApplicable: [0,17],
                 skipQuestions: []
             }
         ]
