@@ -1013,7 +1013,7 @@ let state = {
     skipQuestions: new Set(),
     showNotApplicable: false,
     showAllOptions: false,
-    state.showAdditionalOptions = false,
+   showAdditionalOptions: false
 };
         
 
@@ -1892,45 +1892,7 @@ function toggleNotApplicable() {
     showResults();
 }
 
-    
-    // Get valid options (not hidden, not N/A)
-    const validOptions = options.filter(option => 
-        !option.hidden && 
-        option.resolution !== "N/A"
-    );
 
-    // Sort by score to identify options beyond top 6
-    const sortedOptions = validOptions.sort((a, b) => 
-        scores[b.id - 1] - scores[a.id - 1]
-    );
-
-    const additionalOptions = sortedOptions.slice(6);
-    
-    if (isShowingAdditional) {
-        // Show the additional options
-        let content = '';
-        additionalOptions.forEach(option => {
-            content += `
-                <div class="option-box">
-                    <h3>${option.text}</h3>
-                    <p>Cost: ${option.cost}</p>
-                    <p>Effort: ${option.effort}</p>
-                    <p>Resolution: ${option.resolution}</p>
-                </div>
-            `;
-        });
-        
-        button.insertAdjacentHTML('beforebegin', content);
-        button.textContent = 'Hide Additional Options';
-    } else {
-        // Hide the additional options
-        const boxes = document.querySelectorAll('.option-box');
-        for (let i = 6; i < boxes.length; i++) {
-            boxes[i].remove();
-        }
-        button.textContent = `Show ${additionalOptions.length} Additional Options`;
-    }
-}
 
 // Start the application
 init();
