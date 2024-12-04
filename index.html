@@ -208,7 +208,7 @@ const questions = [
             {
                 id: 1,
                 text: "Obtain financial compensation related to the infringement.",
-                explanation: "Making this choice will prioritise more confrontational actions that directly engage with the other party. The aim of these processes are to seek financial compensation for losses incurred.",
+                explanation: "",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,1,1,0,1,1,0,0,1,1,1,1,0,1,0,0,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,1,1,0,-1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: [11]  
@@ -216,7 +216,7 @@ const questions = [
             {
                 id: 2,
                 text: "Stop the current infringement from continuing.",
-                explanation: "Making this choice will not reduce the number of options but will prioritise actions which most effectively (cheaply and quickly) reduce future infringement.",
+                explanation: "",
                 scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: [11]
@@ -224,8 +224,7 @@ const questions = [
             {
                 id: 3,
                 text: "Raising concern over a potential infringement.",
-                explanation: "This option could refer to situations where you believe that a pending or granted IP right is/will adversely affect your business, or where it is not clear if infringement is occurring. Selecting this option will prioritise options to oppose the IP right in question.
-",
+                explanation: "",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,2,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: [11]
@@ -240,7 +239,7 @@ const questions = [
             {
                 id: 1,
                 text: "Registered with IP Australia.",
-                explanation: "Making this choice will prioritise actions which can be applied within Australia.",
+                explanation: "",
                 scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,-5,0,0,0,0,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,-1,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: [11]
@@ -248,7 +247,7 @@ const questions = [
             {
                 id: 2,
                 text: "Registered with foreign IP offices",
-                explanation: "(e.g., US, Korean IP office, EU) D",
+                explanation: "",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,-1,-1,1,1,1,1,1,1,1,1,-1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,1,0,0,0,0,0],
                 markNotApplicable: [1,2,3,4,5,6,7,8,9,18,25,32],
                 skipQuestions: [11]
@@ -256,7 +255,7 @@ const questions = [
             {
                 id: 3,
                 text: "Registered in both Australia and foreign IP offices.",
-                explanation: "Selecting this options will prioritise actions that can have international outreach.",
+                explanation: "",
                 scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,-1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,-1,1,1,1,0,-1,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: [11]
@@ -264,10 +263,10 @@ const questions = [
             {
                 id: 4,
                 text: "The IP is not formally registered.",
-                explanation: "There are Common Law rights for IP in some situations, but with no registered IP rights, several possible options will not be applicable to your situation.",
+                explanation: "",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,1,-1,1,1,1,1,1,1,1,3,1,1,1,0,0,-1,1,1,1,1,1,1,1,1,1,-1,0,0,1,0,1,3,1,0,0,0,0],
                 markNotApplicable: [1,9,17,18,25,32,33],
-                skipQuestions: [3,6,7,11]
+                skipQuestions: [11]
             }
         ]
     },
@@ -282,6 +281,7 @@ const questions = [
                 explanation: "",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-10,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,-10,-10,-10,-10],
                   markNotApplicable: [1,9,17,33,66,67,68,69],
+
                 skipQuestions: [7]
             },
             {
@@ -290,7 +290,8 @@ const questions = [
                 explanation: "",
                 scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,-1,-1,0,1,1,1,0,1,1,-10,-10,-10,-10],
                 markNotApplicable: [18,25,32,33,47,58,63,66,67,68,69],
-                skipQuestions: [6,10]
+
+                skipQuestions: [6]
             },
             {
                 id: 3,
@@ -311,7 +312,7 @@ const questions = [
             {
                 id: 5,
                 text: "Uncertain",
-                explanation: "Selecting this option will make it difficult to provide specific suggestions, as some enforcement options are specific to only certain rights.",
+                explanation: "",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-10,-10,-10,10],
                 markNotApplicable: [1,9,17,18,25,32,33,34,35,42,43,44,45,46,47,48,49,57,58,59,60,61,62,63,64,65,66,67,68,69],
                 skipQuestions: [6,7]
@@ -322,15 +323,15 @@ const questions = [
                 explanation: "",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,-10,-10,1,-10],
                 markNotApplicable: [1,9,17,18,25,32,33,34,35,42,43,44,45,46,47,48,49,57,58,59,60,61,62,63,64,65,66,67,68,69],
-                skipQuestions: [3,6,7,10]
+                skipQuestions: [6,7]
             },
             {
                 id: 7,
                 text: "Other",
-                explanation: "Circult layout rights, geographic indicators, portrait rights, copyright, etc.",
+                explanation: "",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,-1,-1,-1,1,0,0,0,0,0,-10,-10,-10,10],
                 markNotApplicable: [1,9,17,18,25,32,33,34,35,42,43,44,45,46,47,48,49,57,58,59,60,61,62,63,64,65,66,67,68],
-                skipQuestions: [6,7,10]
+                skipQuestions: [6,7]
             }
         ]
     },
@@ -342,7 +343,7 @@ const questions = [
             {
                 id: 1,
                 text: "Registered",
-                explanation: "Your registration is in good standing and fully protecting your IP",
+                explanation: "",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,0,1,1,0,0,0,0],
                 markNotApplicable: [0,17],
                 skipQuestions: []
@@ -350,7 +351,7 @@ const questions = [
             {
                 id: 2,
                 text: "Getting close to expiry date",
-                explanation: "Your registration will need to be renewed soon to keep your protection. Note TM = renewable, but other rights end.",
+                explanation: "",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,1,1,1,1,1,1,1,1,-1,-1,0,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [0,17],
                 skipQuestions: []
@@ -358,7 +359,7 @@ const questions = [
             {
                 id: 3,
                 text: "No longer registered",
-                explanation: "The registration has expired, ceased or has been removed",
+                explanation: "",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,-1,1,1,1,1,1,1,1,1,-1,-1,0,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [1,9,18,25,32,48],
                 skipQuestions: [6,7]
@@ -366,7 +367,7 @@ const questions = [
             {
                 id: 4,
                 text: "Approved, but not yet registered",
-                explanation: "Your IP right is in its opposition window (2 months for trademarks, 3 months for patents, 6 months for PBR, none for designs) – find more details here.",
+                explanation: "",
                 scores: [8,8,8,8,8,8,8,8,1,1,1,1,1,1,1,1,1,8,8,8,8,8,8,8,1,1,1,1,1,1,1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,0,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -374,7 +375,7 @@ const questions = [
             {
                 id: 5,
                 text: "Under examination",
-                explanation: "Your application is being examined but isn't fully registered yet.",
+                explanation: "",
                 scores: [1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,0,0,-1,1,1,1,1,1,1,1,1,1,-1,0,1,1,1,0,1,5,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -382,7 +383,7 @@ const questions = [
             {
                 id: 6,
                 text: "Being challenged by someone",
-                explanation: "Another party has filed an opposition to your right or the matter is being heard",
+                explanation: "",
                 scores: [1,0,1,0,1,2],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -397,7 +398,7 @@ const questions = [
             {
                 id: 1,
                 text: "All parties are Australian entities",
-                explanation: "Domestic enforcement options will be prioritised as all parties involved are operating in Australia",
+                explanation: "",
                 scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,-5,1,0,1,0,0,0,0,0],
                 markNotApplicable: [61],
                 skipQuestions: [12]
@@ -405,7 +406,7 @@ const questions = [
             {
                 id: 2,
                 text: "Parties involved are a mix of Australian and international",
-                explanation: "Enforcement options with international outreach or actions to stop infringing products to enter Australia will be proritised",
+                explanation: "",
                 scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,1,1,1,-1,0,0,1,1,1,1,1,1,1,1,1,-1,1,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -413,7 +414,7 @@ const questions = [
             {
                 id: 3,
                 text: "All parties operate outside of Australia",
-                explanation: "Enforcement options with international outreach or actions to stop infringing products to enter Australia will be proritised",
+                explanation: "",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,-1,-1,1,1,1,1,1,-1,-1,-1,-1,1,-1,0,0,1,1,1,1,1,1,1,1,-1,1,-1,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -475,7 +476,7 @@ const questions = [
             {
                 id: 1,
                 text: "The trade mark unfairly stops others from using words, images or signs that everyone should be able to use in relation to the claimed goods and services",
-                explanation: "(e.g., it's too generic or descriptive). ",
+                explanation: "",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,1,1,1,1,1,1,5,1,1,1,1,1,1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0],
                 markNotApplicable: [66,67,68,69],
                 skipQuestions: []
@@ -483,7 +484,7 @@ const questions = [
             {
                 id: 2,
                 text: "The trade mark is too similar to another trade mark that is registered, or has been operating in the market",
-                explanation: "This can include TMs that are being applied for.",
+                explanation: "",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,1,1,1,1,1,1,5,1,1,1,1,1,1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,0,-1,1,1,1,1,1,1,1,1,0,0,0,1,1,0,0,0,0,0,0,0,0],
                 markNotApplicable: [66,67,68,69],
                 skipQuestions: []
@@ -507,7 +508,7 @@ const questions = [
             {
                 id: 5,
                 text: "The trade mark has a connotation that might confuse or mislead customers in relation to the goods/services claimed",
-                explanation: "(e.g., it wrongly suggests the goods/services come from a specific place).",
+                explanation: "",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,5,1,1,1,1,1,1,5,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0],
                 markNotApplicable: [66,67,68,69],
                 skipQuestions: []
@@ -515,7 +516,7 @@ const questions = [
             {
                 id: 6,
                 text: "The trade mark is against Australian law, or contains prescribed signs",
-                explanation: "(e.g., it uses terms like Red Cross, ANZAC, or the term BANK without qualification to do so).",
+                explanation: "",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,5,1,1,1,1,1,1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0],
                 markNotApplicable: [66,67,68,69],
                 skipQuestions: []
@@ -531,7 +532,7 @@ const questions = [
             {
                 id: 8,
                 text: "The trade mark was filed in bad faith",
-                explanation: "(e.g., they applied to take a name they knew someone else was using).",
+                explanation: "",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,5,1,1,1,1,1,1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0],
                 markNotApplicable: [66,67,68,69],
                 skipQuestions: []
@@ -554,7 +555,7 @@ const questions = [
             {
                 id: 1,
                 text: "It's not new or inventive",
-                explanation: "I’ve seen this idea before, and the invention either already exists or would be obvious to someone skilled in the field. ",
+                explanation: "",
                 scores: [5,3,3,0,0,0,0,0,5,3,3,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],
                 markNotApplicable: [66,67,68,69],
                 skipQuestions: []
@@ -562,7 +563,7 @@ const questions = [
             {
                 id: 2,
                 text: "The invention is not patentable subject matter",
-                explanation: "The invention doesn’t meet the legal requirements to be patented under Australian law. X The invention falls into a category that can’t be patented, such as human beings, biological processes, or perpetual motion.",
+                explanation: "",
                 scores: [1,0,0,2,0,1,0,0,1,0,0,2,0,1,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0],
                 markNotApplicable: [66,67,68,69],
                 skipQuestions: []
@@ -570,7 +571,7 @@ const questions = [
             {
                 id: 3,
                 text: "The details aren't clear or complete",
-                explanation: "The application doesn’t properly explain the invention or share the best method for performing it, making it impossible for others to fully understand or replicate.",
+                explanation: "",
                 scores: [1,0,0,0,2,0,0,0,1,0,0,0,2,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0],
                 markNotApplicable: [66,67,68,69],
                 skipQuestions: []
@@ -578,7 +579,7 @@ const questions = [
             {
                 id: 4,
                 text: "It's misleading or not theirs",
-                explanation: "The application contains false information, or the applicant isn’t the rightful owner of the invention because someone else created it.",
+                explanation: "",
                 scores: [1,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,1,1,1,1,1,1,1,1,1,3,2,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0],
                 markNotApplicable: [66,67,68,69],
                 skipQuestions: []
@@ -632,7 +633,7 @@ const questions = [
             {
                 id: 1,
                 text: "None",
-                explanation: "Options relating to these online platforms will not be surfaced.",
+                explanation: "",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-10,-10,-10,-10,-10,-10,-10,-10,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 markNotApplicable: [49],
                 skipQuestions: []
@@ -640,7 +641,7 @@ const questions = [
             {
                 id: 2,
                 text: "Amazon",
-                explanation: "Options include; Brand Registry program for registered trademark owners, Report a Violation tool in Seller Central, Infringement Report form for non-Brand Registry members",
+                explanation: "",
                 scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,0,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -648,7 +649,7 @@ const questions = [
             {
                 id: 3,
                 text: "Ebay",
-                explanation: "Options include; Verified Rights Owner (VeRO) program",
+                explanation: "",
                 scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,10,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -656,7 +657,7 @@ const questions = [
             {
                 id: 4,
                 text: "Meta (Facebook, Instagram)",
-                explanation: "Options include; Commerce & Ads IP Tool for registered trademarks, Online intellectual property report form, Content reporting system in-platform",
+                explanation: "",
                 scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,10,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -664,7 +665,7 @@ const questions = [
             {
                 id: 5,
                 text: "Alibaba/AliExpress",
-                explanation: "Options include; Intellectual Property Protection Platform (IPP Platform), Online takedown request system",
+                explanation: "",
                 scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,0,10,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -672,7 +673,7 @@ const questions = [
             {
                 id: 6,
                 text: "Etsy",
-                explanation: "Options include; Intellectual Property Infringement Report form, Trademark Policy enforcement team",
+                explanation: "",
                 scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,0,0,10,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -680,7 +681,7 @@ const questions = [
             {
                 id: 7,
                 text: "TikTok",
-                explanation: "Options include; Intellectual Property Policy portal, Online reporting system for trademark violations",
+                explanation: "",
                 scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,0,0,0,10,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -696,7 +697,7 @@ const questions = [
             {
                 id: 9,
                 text: "Yes, an online marketplace.",
-                explanation: "This is a generic placeholder for any marketplace.",
+                explanation: "",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,10,10,10,10,10,10,10,0,0,1,1,1,0,1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -711,7 +712,7 @@ const questions = [
             {
                 id: 1,
                 text: "Yes",
-                explanation: "Choosing this option will prioritise options that are targeted at stopping the movement of goods to prevent infringing products entering Australia",
+                explanation: "",
                 scores: [0,0,0,0,0,0,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,10,1,1,1,0,1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -719,7 +720,7 @@ const questions = [
             {
                 id: 2,
                 text: "No",
-                explanation: "Choosing this option will deprioritise options that are targeted at stopping the movement of goods to prevent infringing products entering Australia",
+                explanation: "",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 markNotApplicable: [58],
                 skipQuestions: []
@@ -844,10 +845,10 @@ const questions = [
         options: [
             {
                 id: 1,
-                text: "Alternative dispute resolution ",
-                explanation: "Such as mediation, arbitration, negotiation ",
+                text: "Alternative dispute resolution (mediation, arbitration, negotiation)",
+                explanation: "",
                 scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,1,1,1,1,1,1,1,1,1,1,0,1,1,0,0,0,0,0,0,0,0],
-                markNotApplicable: [42,43,44,45,46],
+                markNotApplicable: [45,46],
                 skipQuestions: []
             },
             {
@@ -876,8 +877,8 @@ const questions = [
             },
             {
                 id: 5,
-                text: "Engagement with regulatory bodies ",
-                explanation: "(eg ASBFEO - Australian Small Business & Family Enterprise Ombudsman, TGA - Theraputic Goods Administration)",
+                text: "Engagement with regulatory bodies (eg ASBFEO, TGA)",
+                explanation: "",
                 scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,3,0,1,1,1,1,1,1,1,1,1,1,-1,0,0,1,1,1,1,1,1,1,1,1,1,-1,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [57,59],
                 skipQuestions: []
@@ -908,20 +909,12 @@ const questions = [
             },
             {
                 id: 9,
-                text: "Lodged a Notice of Objection iwth ABF",
-                explanation: "",
-                scores: [],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 10,
                 text: "None of these",
                 explanation: "",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,-1,1,1,1,1,1,0,1,0,0,5,0,0,0,1,1,1,1,1,1,1,1,0,0,1,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
-            }
+            },
         ]
     },
     {
@@ -932,7 +925,7 @@ const questions = [
             {
                 id: 1,
                 text: "Yes",
-                explanation: "By requiring confidentiality, several possible options will be deprioritised as their processes are public and could reveal confidential information.",
+                explanation: "",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,0,-1,-1,-1,3,3,3,3,3,3,3,3,3,3,0,0,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -940,7 +933,7 @@ const questions = [
             {
                 id: 2,
                 text: "No / not sure",
-                explanation: "By selecting this option, a wide number of possible actions can be considered.",
+                explanation: "",
                 scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -955,7 +948,7 @@ const questions = [
             {
                 id: 1,
                 text: "There is an ongoing relationship which is likely to continue.",
-                explanation: "Selecting this option will prioritise less aggressive options, which allow more room for continued business dealings.",
+                explanation: "",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,3,3,3,3,3,3,3,3,3,3,3,3,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -963,7 +956,7 @@ const questions = [
             {
                 id: 2,
                 text: "There was a previous relationship.",
-                explanation: "This option prioritises options which can consider more complex situations (such as issues about ownership, contracts, and other b-to-b disputes) (also can include options to license….) By choosing this option…",
+                explanation: "",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,-1,3,3,3,3,3,3,3,3,3,3,1,2,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -971,7 +964,7 @@ const questions = [
             {
                 id: 3,
                 text: "Open to establishing a relationship",
-                explanation: "Things like considering co-existence with rule, licensing, or other options can be included.",
+                explanation: "",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,-1,3,3,3,3,3,3,3,3,3,3,1,0,2,0,0,0,0,0,0,0,0,-1,-1,-1,1,1,1,1,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -979,7 +972,7 @@ const questions = [
             {
                 id: 4,
                 text: "No relationship now, and no expectation of one in the future.",
-                explanation: "This option does not de-prioritise options which may be seen as aggressive, and prioritises options which have stronger powers to compel the other party to engage.",
+                explanation: "",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,-3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -994,7 +987,7 @@ const questions = [
             {
                 id: 1,
                 text: "Likely",
-                explanation: "Selecting this option maintains flexibility in the resolution process and preserves all available enforcement pathways, including the ability to pursue stronger measures if initial negotiations prove unsuccessful.",
+                explanation: "",
                 scores: [0,0,0,0,0,0,0,0,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,1,3,3,3,3,3,3,3,3,1,1,3,5,0,0,0,0,0,0,0,0,-1,0,0,1,1,-1,1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -1002,7 +995,7 @@ const questions = [
             {
                 id: 2,
                 text: "Unlikely",
-                explanation: "This approach typically involves more resource-intensive processes with longer timeframes. Experience shows that once formal enforcement actions begin, opportunities for negotiated solutions often diminish significantly. A common regret expressed by businesses who pursued formal action is the lost opportunity for more efficient, negotiated resolutions that could have preserved business relationships and reduced costs.",
+                explanation: "",
                 scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,-1,-1,-2,-2,1,-1,-2,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
