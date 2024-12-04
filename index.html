@@ -1013,6 +1013,7 @@ let state = {
     skipQuestions: new Set(),
     showNotApplicable: false,
     showAllOptions: false
+    state.showAdditionalOptions = false;
 };
         
 
@@ -1824,17 +1825,42 @@ const naOptions = visibleOptions.filter(opt => opt.notApplicable);
                 `).join('')}
             </div>
 
-            <div class="toggle-buttons">
-                <button 
-                    class="toggle-button" 
-                    onclick="toggleNotApplicable()"
-                >
-                    ${naOptions.length > 0 ? 
-                        `Show ${naOptions.length} Not Applicable Options` : 
-                        'No Not Applicable Options'}
-                </button>
-            </div>
-
+<div class="toggle-buttons">
+    <button 
+        class="toggle-button" 
+        onclick="toggleAdditionalOptions()"
+    >
+        ${filtered.length > 6 ? 
+            `Show ${filtered.length - 6} Additional Options` : 
+            'No Additional Options'}
+    </button>
+    <button 
+        class="toggle-button" 
+        onclick="toggleNotApplicable()"
+    >
+        ${naOptions.length > 0 ? 
+            `Show ${naOptions.length} Not Applicable Options` : 
+            'No Not Applicable Options'}
+    </button>
+</div>
+${state.showAdditionalOptions && filtered.length > 6 ? `
+    <div style="margin-top: 20px;">
+        <h3 style="color: #30AEB6">Additional Options</h3>
+        <div class="results-grid">
+            ${filtered.slice(6).map(option => `
+                <div class="result-card">
+                    <p class="option-title">${option.text}</p>
+                    <div class="option-details">
+                        <div class="detail-item">Cost: ${option.cost}</div>
+                        <div class="detail-item">Effort: ${option.effort}</div>
+                        <div class="detail-item">Rate of resolution: ${option.resolution}</div>
+                    </div>
+                    <span style="color: #E5E8EC">${option.score}</span>
+                </div>
+            `).join('')}
+        </div>
+    </div>
+` : ''}
             ${state.showNotApplicable && naOptions.length > 0 ? `
                 <div style="margin-top: 20px;">
                     <h3 style="color: #9DA3A8">Not Applicable Options</h3>
@@ -1861,10 +1887,11 @@ function toggleNotApplicable() {
     state.showNotApplicable = !state.showNotApplicable;
     showResults();
 }
-        // Function to get the count of additional valid options (not in top 6, not hidden, not N/A)
-function toggleAdditionalOptions() {
-    const button = document.getElementById('showAdditionalBtn');
-    const isShowingAdditional = button.textContent.includes('Show');
+        function toggleAdditionalOptions() {
+    state.showAdditionalOptions = !state.showAdditionalOptions;
+    showResults();
+}
+
     
     // Get valid options (not hidden, not N/A)
     const validOptions = options.filter(option => 
