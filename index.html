@@ -957,7 +957,9 @@ let state = {
     skipQuestions: new Set(),
     showNotApplicable: false,
     showAllOptions: false,
-   showAdditionalOptions: false
+   showAdditionalOptions: false,
+        currentSelection: null  // Add this new property
+
 };
         
 
@@ -1043,46 +1045,52 @@ function selectOption(optionIndex) {
     document.querySelectorAll('.option-button')[optionIndex].classList.add('selected');
     document.querySelectorAll('.explanation')[optionIndex].style.display = 'block';
     
-    // Update scores
-    option.scores.forEach((score, index) => {
-        state.scores[index] += score;
-    });
-    
-    // Handle not applicable options
-    if (option.markNotApplicable) {
-        option.markNotApplicable.forEach(optionId => {
-            state.notApplicableOptions.add(optionId);
-        });
-    }
-
-    // Add skip questions to state Set
-    if (option.skipQuestions) {
-        option.skipQuestions.forEach(questionNum => {
-            state.skipQuestions.add(questionNum);
-        });
-    }
+    // Store the selection instead of updating scores
+    state.currentSelection = {
+        optionIndex: optionIndex,
+        option: option
+    };
 }
 
 function navigate(direction) {
+    // Only update scores when moving forward and if there's a selection
+    if (direction > 0 && state.currentSelection) {
+        const option = state.currentSelection.option;
+        
+        // Update scores
+        option.scores.forEach((score, index) => {
+            state.scores[index] += score;
+        });
+        
+        // Handle not applicable options
+        if (option.markNotApplicable) {
+            option.markNotApplicable.forEach(optionId => {
+                state.notApplicableOptions.add(optionId);
+            });
+        }
+
+        // Add skip questions to state Set
+        if (option.skipQuestions) {
+            option.skipQuestions.forEach(questionNum => {
+                state.skipQuestions.add(questionNum);
+            });
+        }
+        
+        // Clear the current selection after processing
+        state.currentSelection = null;
+    }
+
     let nextIndex = state.currentQuestion + direction;
     
-    // Get the currently selected option
-    const currentQuestion = questions[state.currentQuestion];
-    const selectedOptionIndex = Array.from(document.querySelectorAll('.option-button'))
-        .findIndex(btn => btn.classList.contains('selected'));
-    
-    if (selectedOptionIndex !== -1 && direction > 0) {
-        // Keep skipping while the next question is in the skip set
-        while (state.skipQuestions.has(nextIndex) && nextIndex < questions.length) {
-            nextIndex++;
-        }
+    // Handle skip questions
+    while (state.skipQuestions.has(nextIndex) && nextIndex < questions.length) {
+        nextIndex++;
     }
     
     // Ensure we're within bounds
     if (nextIndex >= 0 && nextIndex < questions.length) {
         showQuestion(nextIndex);
     } else if (nextIndex >= questions.length) {
-        // Handle end of quiz/show results
         showResults();
     }
 }
