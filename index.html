@@ -861,8 +861,7 @@ const questions = [
             }
        ]
     },
-
-    {
+ {
         id: 14,
         text: "Would you require confidentiality when resolving this issue?",
         subtext: "Businesses sometimes need to keep certain actions confidential to protect intellectual property, maintain a competitive advantage, or manage public perception effectively. This can involve safeguarding trade secrets, pending patents, or sensitive business information that, if prematurely disclosed, could harm the company's interests.",
@@ -870,7 +869,7 @@ const questions = [
             {
                 id: 1,
                 text: "Yes",
-                explanation: "",
+                explanation: "By requiring confidentiality, several possible options will be deprioritised as their processes are public and could reveal confidential information.",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,0,-1,-1,-1,3,3,3,3,3,3,3,3,3,3,0,0,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -878,7 +877,7 @@ const questions = [
             {
                 id: 2,
                 text: "No / not sure",
-                explanation: "",
+                explanation: "By selecting this option, a wide number of possible actions can be considered.",
                 scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -893,7 +892,7 @@ const questions = [
             {
                 id: 1,
                 text: "There is an ongoing relationship which is likely to continue.",
-                explanation: "",
+                explanation: "Selecting this option will prioritise less aggressive options, which allow more room for continued business dealings.",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,3,3,3,3,3,3,3,3,3,3,3,3,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -901,7 +900,7 @@ const questions = [
             {
                 id: 2,
                 text: "There was a previous relationship.",
-                explanation: "",
+                explanation: "This option prioritises options which can consider more complex situations (such as issues about ownership, contracts, and other b-to-b disputes) (also can include options to license….) By choosing this option…",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,-1,3,3,3,3,3,3,3,3,3,3,1,2,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -909,7 +908,7 @@ const questions = [
             {
                 id: 3,
                 text: "Open to establishing a relationship",
-                explanation: "",
+                explanation: "Things like considering co-existence with rule, licensing, or other options can be included.",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,-1,3,3,3,3,3,3,3,3,3,3,1,0,2,0,0,0,0,0,0,0,0,-1,-1,-1,1,1,1,1,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -917,13 +916,14 @@ const questions = [
             {
                 id: 4,
                 text: "No relationship now, and no expectation of one in the future.",
-                explanation: "",
+                explanation: "This option does not de-prioritise options which may be seen as aggressive, and prioritises options which have stronger powers to compel the other party to engage.",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,-3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
             }
         ]
     },
+
     {
         id: 16,
         text: "Are you likely to consider negotiating in good faith to resolve this issue?",
