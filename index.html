@@ -624,8 +624,7 @@ const questions = [
             }
         ]
     },
-
-    {
+ {
         id: 10,
         text: "Have you identified any IP related infringement from someone selling on any (of the following) online marketplaces?",
         subtext: "Some online marketplaces have ways to alert them to infringement happening on their platform, which can be used in conjunction with other enforcement strategies.(Select all that apply - currently only able ot select one option)",
@@ -633,7 +632,7 @@ const questions = [
             {
                 id: 1,
                 text: "None",
-                explanation: "",
+                explanation: "Options relating to these online platforms will not be surfaced.",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-10,-10,-10,-10,-10,-10,-10,-10,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 markNotApplicable: [49],
                 skipQuestions: []
@@ -641,7 +640,7 @@ const questions = [
             {
                 id: 2,
                 text: "Amazon",
-                explanation: "",
+                explanation: "Options include; Brand Registry program for registered trademark owners, Report a Violation tool in Seller Central, Infringement Report form for non-Brand Registry members",
                 scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,0,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -649,7 +648,7 @@ const questions = [
             {
                 id: 3,
                 text: "Ebay",
-                explanation: "",
+                explanation: "Options include; Verified Rights Owner (VeRO) program",
                 scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,10,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -657,7 +656,7 @@ const questions = [
             {
                 id: 4,
                 text: "Meta (Facebook, Instagram)",
-                explanation: "",
+                explanation: "Options include; Commerce & Ads IP Tool for registered trademarks, Online intellectual property report form, Content reporting system in-platform",
                 scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,10,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -665,7 +664,7 @@ const questions = [
             {
                 id: 5,
                 text: "Alibaba/AliExpress",
-                explanation: "",
+                explanation: "Options include; Intellectual Property Protection Platform (IPP Platform), Online takedown request system",
                 scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,0,10,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -673,7 +672,7 @@ const questions = [
             {
                 id: 6,
                 text: "Etsy",
-                explanation: "",
+                explanation: "Options include; Intellectual Property Infringement Report form, Trademark Policy enforcement team",
                 scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,0,0,10,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -681,7 +680,7 @@ const questions = [
             {
                 id: 7,
                 text: "TikTok",
-                explanation: "",
+                explanation: "Options include; Intellectual Property Policy portal, Online reporting system for trademark violations",
                 scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,0,0,0,10,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -697,7 +696,7 @@ const questions = [
             {
                 id: 9,
                 text: "Yes, an online marketplace.",
-                explanation: "",
+                explanation: "This is a generic placeholder for any marketplace.",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,10,10,10,10,10,10,10,0,0,1,1,1,0,1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -712,7 +711,7 @@ const questions = [
             {
                 id: 1,
                 text: "Yes",
-                explanation: "",
+                explanation: "Choosing this option will prioritise options that are targeted at stopping the movement of goods to prevent infringing products entering Australia",
                 scores: [0,0,0,0,0,0,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,10,1,1,1,0,1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -720,13 +719,14 @@ const questions = [
             {
                 id: 2,
                 text: "No",
-                explanation: "",
+                explanation: "Choosing this option will deprioritise options that are targeted at stopping the movement of goods to prevent infringing products entering Australia",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 markNotApplicable: [58],
                 skipQuestions: []
             }
         ]
     },
+
    {
         id: 12,
         text: "In which region do the parties primarily operate? (Select all which apply)?",
