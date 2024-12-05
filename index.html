@@ -334,8 +334,7 @@ const questions = [
             }
         ]
     },
-
-    {
+  {
         id: 4,
         text: "Please indicate the current status of the registered right.",
         subtext: "The lifecycle of you're your registered rights will affect the best options available to you.",
@@ -343,7 +342,7 @@ const questions = [
             {
                 id: 1,
                 text: "Registered",
-                explanation: "",
+                explanation: "Your registration is in good standing and fully protecting your IP",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,0,1,1,0,0,0,0],
                 markNotApplicable: [0,17],
                 skipQuestions: []
@@ -351,7 +350,7 @@ const questions = [
             {
                 id: 2,
                 text: "Getting close to expiry date",
-                explanation: "",
+                explanation: "Your registration will need to be renewed soon to keep your protection. Note TM = renewable, but other rights end.",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,1,1,1,1,1,1,1,1,-1,-1,0,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [0,17],
                 skipQuestions: []
@@ -359,15 +358,15 @@ const questions = [
             {
                 id: 3,
                 text: "No longer registered",
-                explanation: "",
+                explanation: "The registration has expired, ceased or has been removed",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,-1,1,1,1,1,1,1,1,1,-1,-1,0,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [1,9,18,25,32,48],
                 skipQuestions: [6,7]
             },
             {
                 id: 4,
-                text: "Approved, but not yet registered",
-                explanation: "",
+                text: "Accepted, but not yet registered",
+                explanation: "Your IP right is in its opposition window (2 months for trademarks, 3 months for patents, 6 months for PBR, none for designs) – find more details here.",
                 scores: [8,8,8,8,8,8,8,8,1,1,1,1,1,1,1,1,1,8,8,8,8,8,8,8,1,1,1,1,1,1,1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,0,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -375,7 +374,7 @@ const questions = [
             {
                 id: 5,
                 text: "Under examination",
-                explanation: "",
+                explanation: "Your application is being examined but isn't fully registered yet.",
                 scores: [1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,0,0,-1,1,1,1,1,1,1,1,1,1,-1,0,1,1,1,0,1,5,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -383,7 +382,7 @@ const questions = [
             {
                 id: 6,
                 text: "Being challenged by someone",
-                explanation: "",
+                explanation: "Another party has filed an opposition to your right or the matter is being heard",
                 scores: [1,0,1,0,1,2],
                 markNotApplicable: [],
                 skipQuestions: []
