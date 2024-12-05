@@ -1045,15 +1045,18 @@ function selectOption(optionIndex) {
     document.querySelectorAll('.option-button')[optionIndex].classList.add('selected');
     document.querySelectorAll('.explanation')[optionIndex].style.display = 'block';
     
-    // Store the selection instead of updating scores
+    // Store everything that needs to be updated in currentSelection
     state.currentSelection = {
         optionIndex: optionIndex,
-        option: option
+        option: option,
+        skipQuestions: option.skipQuestions || [], // Store skip questions here
+        notApplicableOptions: option.markNotApplicable || []
     };
 }
 
+
 function navigate(direction) {
-    // Only update scores when moving forward and if there's a selection
+    // Only update when moving forward and if there's a selection
     if (direction > 0 && state.currentSelection) {
         const option = state.currentSelection.option;
         
@@ -1062,27 +1065,27 @@ function navigate(direction) {
             state.scores[index] += score;
         });
         
-        // Handle not applicable options
-        if (option.markNotApplicable) {
-            option.markNotApplicable.forEach(optionId => {
-                state.notApplicableOptions.add(optionId);
-            });
-        }
-
-        // Add skip questions to state Set
-        if (option.skipQuestions) {
-            option.skipQuestions.forEach(questionNum => {
+        // Now update skip questions from stored selection
+        if (state.currentSelection.skipQuestions.length > 0) {
+            state.currentSelection.skipQuestions.forEach(questionNum => {
                 state.skipQuestions.add(questionNum);
             });
         }
+
+        // Update not applicable options from stored selection
+        if (state.currentSelection.notApplicableOptions.length > 0) {
+            state.currentSelection.notApplicableOptions.forEach(optionId => {
+                state.notApplicableOptions.add(optionId);
+            });
+        }
         
-        // Clear the current selection after processing
+        // Clear the current selection after processing everything
         state.currentSelection = null;
     }
 
     let nextIndex = state.currentQuestion + direction;
     
-    // Handle skip questions
+    // Now process skip questions for navigation
     while (state.skipQuestions.has(nextIndex) && nextIndex < questions.length) {
         nextIndex++;
     }
