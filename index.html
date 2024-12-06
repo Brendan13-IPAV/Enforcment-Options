@@ -242,7 +242,7 @@ const questions = [
                 explanation: "Selecting this will render 8 options as not-applicable as they relate to other registered rights.",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-10,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,-10,-10,-10,-10],
                   markNotApplicable: [1,9,17,33,66,67,68,69],
-                skipQuestions: [7]
+                skipQuestions: [7,11]
             },
             {
                 id: 2,
@@ -250,7 +250,7 @@ const questions = [
                 explanation: "Selecting this will render 11 options as not-applicable as they relate to other registered rights.",
                 scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,-1,-1,0,1,1,1,0,1,1,-10,-10,-10,-10],
                 markNotApplicable: [18,25,32,33,47,58,63,66,67,68,69],
-                skipQuestions: [6,10]
+                skipQuestions: [6,10,11]
             },
                    {
                 id: 3,
@@ -274,12 +274,13 @@ const questions = [
                 explanation: "Selecting this option will make it difficult to provide specific suggestions, as some enforcement options are specific to only certain rights.",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-10,-10,-10,10],
                 markNotApplicable: [],
-                skipQuestions: [6,7]
+                skipQuestions: [6,7,11]
             },
             {
                 id: 6,
                 text: "Unregistered / not formally registered IP",
-                explanation: "(e.g. unregistered trade marks, copyright) There can be Common Law rights in rare situations, but owning no registered IP rights. <br>Selecting this will render 11 options as not-applicable.",
+                explanation: "Selting this indicates that you have intellectual property rights without formal registration, such as distinctive branding which may act as a Common Law Right in rare situations.<br>
+However, please note that this system specifically excludes copyright matters. <br>Selecting this will render 11 options as not-applicable.",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,1,-1,1,1,1,1,1,1,1,3,1,1,1,0,0,-1,1,1,1,1,1,1,1,1,1,-1,0,1,1,1,1,3,1,0,0,1,1],
                 markNotApplicable: [1,9,17,18,25,32,33,48,58,66,67],
                 skipQuestions: [2,3,6,7,10,11]
@@ -290,7 +291,7 @@ const questions = [
                 explanation: "Circult layout rights, geographic indicators, portrait rights, copyright, etc. <br>Selecting this will render 15 options as not-applicable.",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,-1,-1,-1,1,0,0,0,0,0,-10,-10,-10,10],
                 markNotApplicable: [1,9,17,18,25,32,33,42,43,44,47,58,66,67,68],
-                skipQuestions: [6,7,10]
+                skipQuestions: [6,7,10,11]
             }
         ]
     },
@@ -341,16 +342,16 @@ const questions = [
             },
             {
                 id: 2,
-                text: "Getting close to expiry date. Selecting this will render 2 options as not-applicable.",
-                explanation: "Your registration will need to be renewed soon to keep your protection. <br>Note TM = renewable, but other rights end.",
+                text: "Getting close to expiry date.",
+                explanation: "Your registration will need to be renewed soon to keep your protection. <br>Note trademarks are renewable, but other rights expire.<br>Selecting this will render 2 options as not-applicable.",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,1,1,1,1,1,1,1,1,-1,-1,0,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [1,18],
                 skipQuestions: []
             },
             {
                 id: 3,
-                text: "No longer registered. <br>Selecting this will render 6 options as not-applicable.",
-                explanation: "The registration has expired, ceased or has been removed",
+                text: "No longer registered."
+                explanation: "The registration has expired, ceased or has been removed <br>Selecting this will render 6 options as not-applicable.",",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,-1,1,1,1,1,1,1,1,1,-1,-1,0,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [1,9,18,25,32,48],
                 skipQuestions: [6,7]
@@ -374,7 +375,7 @@ const questions = [
             {
                 id: 6,
                 text: "Being challenged by someone",
-                explanation: "Another party has filed an opposition to your right or the matter is being heard",
+                explanation: "Another party has filed an opposition to your right or the matter is being heard.",
                 scores: [8,0,0,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -451,8 +452,8 @@ const questions = [
             },
             {
                 id: 5,
-                text: "Value cannot be determined at this time",
-                explanation: "",
+                text: "Unsure / Hard to approximate",
+                explanation: "While estimating IP value can be challenging, providing even a rough estimate helps us tailor proportionate responses for your consideration. <br>For guidance on valuing your IP, please visit IP Australia's website, which offers helpful resources and estimation methods.",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -462,11 +463,11 @@ const questions = [
     {
         id: 7,
         text: "Do you believe any of the following are true about the trade mark in question?",
-        subtext: "This question primarily applies to situations when the other party holds a trade mark (in addition to yours) In some rare situations, the validity (the right to be registered) can be challenged.",
+        subtext: "This question primarily applies to situations when the infringing party holds a trade mark (in addition to yours). In some rare situations, the validity (the right to be registered) can be challenged.",
         options: [
             {
                 id: 1,
-                text: "The trade mark unfairly stops others from using words, images or signs that everyone should be able to use in relation to the claimed goods and services",
+                text: "The trade mark unfairly stops others from using words, images or signs that everyone should be able to use in relation to the claimed goods and services.",
                 explanation: "(e.g., it's too generic or descriptive). ",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,1,1,1,1,1,1,5,1,1,1,1,1,1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0],
                 markNotApplicable: [66,67,68,69],
@@ -474,7 +475,7 @@ const questions = [
             },
             {
                 id: 2,
-                text: "The trade mark is too similar to another trade mark that is registered, or has been operating in the market",
+                text: "The trade mark is too similar to another trade mark that is registered, or has been operating in the market.",
                 explanation: "This can include TMs that are being applied for.",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,1,1,1,1,1,1,5,1,1,1,1,1,1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,0,-1,1,1,1,1,1,1,1,1,0,0,0,1,1,0,0,0,0,0,0,0,0],
                 markNotApplicable: [66,67,68,69],
@@ -498,7 +499,7 @@ const questions = [
             },
             {
                 id: 5,
-                text: "The trade mark has a connotation that might confuse or mislead customers in relation to the goods/services claimed",
+                text: "The trade mark has a connotation that might confuse or mislead customers in relation to the goods/services claimed.",
                 explanation: "(e.g., it wrongly suggests the goods/services come from a specific place).",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,5,1,1,1,1,1,1,5,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0],
                 markNotApplicable: [66,67,68,69],
@@ -506,7 +507,7 @@ const questions = [
             },
             {
                 id: 6,
-                text: "The trade mark is against Australian law, or contains prescribed signs",
+                text: "The trade mark is against Australian law, or contains prescribed signs.",
                 explanation: "(e.g., it uses terms like “Red Cross,” “ANZAC,” or the term BANK without qualification to do so).",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,5,1,1,1,1,1,1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0],
                 markNotApplicable: [66,67,68,69],
@@ -522,18 +523,18 @@ const questions = [
             },
             {
                 id: 8,
-                text: "The trade mark was filed in bad faith",
-                explanation: "(e.g., they applied to take a name they knew someone else was using).",
+                text: "The trade mark was filed in bad faith.",
+                explanation: "e.g., they applied to take a name they knew someone else was using.",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,5,1,1,1,1,1,1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0],
                 markNotApplicable: [66,67,68,69],
                 skipQuestions: []
             },
             {
                 id: 9,
-                text: "None of these apply",
-                explanation: "",
+                text: "None of these apply.",
+                explanation: "This indicates that the existance of a trade mark (other than yours) is not a primary concern. <br>Selecting this will render 4 options, which dispute the registration of a trade mark, as not-applicable.",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,0,0,0,0,0],
-                markNotApplicable: [1,9,17,66,67,68,69],
+                markNotApplicable: [18,25,32,33],
                 skipQuestions: []
             }
         ]
@@ -545,7 +546,7 @@ const questions = [
         options: [
             {
                 id: 1,
-                text: "It's not new or inventive",
+                text: "It is not new or inventive.",
                 explanation: "I’ve seen this idea before, and the invention either already exists or would be obvious to someone skilled in the field. ",
                 scores: [5,3,3,0,0,0,0,0,5,3,3,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],
                 markNotApplicable: [66,67,68,69],
@@ -553,15 +554,15 @@ const questions = [
             },
             {
                 id: 2,
-                text: "The invention is not patentable subject matter",
-                explanation: "The invention doesn’t meet the legal requirements to be patented under Australian law. X The invention falls into a category that can’t be patented, such as human beings, biological processes, or perpetual motion.",
+                text: "The invention is not patentable subject matter.",
+                explanation: "The invention doesn’t meet the legal requirements to be patented under Australian law, or the invention falls into a category that can’t be patented, such as human beings, biological processes, or perpetual motion.",
                 scores: [1,0,0,2,0,1,0,0,1,0,0,2,0,1,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0],
                 markNotApplicable: [66,67,68,69],
                 skipQuestions: []
             },
             {
                 id: 3,
-                text: "The details aren't clear or complete",
+                text: "The details are not clear or complete.",
                 explanation: "The application doesn’t properly explain the invention or share the best method for performing it, making it impossible for others to fully understand or replicate.",
                 scores: [1,0,0,0,2,0,0,0,1,0,0,0,2,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0],
                 markNotApplicable: [66,67,68,69],
@@ -569,7 +570,7 @@ const questions = [
             },
             {
                 id: 4,
-                text: "It's misleading or not theirs",
+                text: "It's misleading or not theirs.",
                 explanation: "The application contains false information, or the applicant isn’t the rightful owner of the invention because someone else created it.",
                 scores: [1,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,1,1,1,1,1,1,1,1,1,3,2,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0],
                 markNotApplicable: [66,67,68,69],
@@ -578,7 +579,7 @@ const questions = [
             {
                 id: 5,
                 text: "None of these.",
-                explanation: "",
+                explanation: "This indicates that the existance of a patent (other than yours) is not a primary concern. <br>Selecting this will render 3 options, which dispute the validity of a patent, as not-applicable.",
                 scores: [1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0],
                 markNotApplicable: [1,9,17,66,67,68,69],
                 skipQuestions: []
@@ -587,13 +588,13 @@ const questions = [
     },
   {
         id: 9,
-        text: "How quickly is action required?",
-        subtext: "What do users need to know here? Insert that.",
+        text: "How quickly do you believe action is required?",
+        subtext: "While a quick resolution is always desired, the speed must be weighted agasint other factors. <br>[NOTES: What do users need to know here? Further research needed.]",
         options: [
             {
                 id: 1,
                 text: "Fast resolution is imperative, not just desired",
-                explanation: "(eg delay will cause irrevocable harm) Examples; a seizure by the ABF which must be acted upon within 10 days, or a significant commercial event in which infringement will take place. <br>Selecting this prioritises fast speed options, though may de-prioritise more permanent and binding options. ",
+                explanation: "Select this if there is tangible evidence that a delay will cause irrevocable harm. Examples might include a significant commercial event in which infringement will take place, or a seizure by the Australian Boarder Force which must be acted upon within 10 days. <br>Selecting this prioritises fast options, though may de-prioritise more permanent, effective and binding options.",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-3,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,-1,-1,5,1,-1,-1,-1,-1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,-1,1,0,0,-1,-1,-1,-1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -601,7 +602,7 @@ const questions = [
             {
                 id: 2,
                 text: "Efficient resolution preferred",
-                explanation: "Typical resolves in under 12 months",
+                explanation: "Selecting this option will prioritise options which resolve in under 12 months, though will still present slower options to consdier.",
                 scores: [3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,-2,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,-1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,0,1,0,1,0,0,0,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -609,7 +610,7 @@ const questions = [
             {
                 id: 3,
                 text: "Slower resolutions are acceptable",
-                explanation: "Typical resolves longer than 12 months",
+                explanation: "Includes all options, only some which require longer than 12 months to resolve.",
                 scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,3,-1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -618,33 +619,33 @@ const questions = [
     },
     {
         id: 10,
-        text: "Have you identified any IP related infringement from someone selling on any (of the following) online marketplaces?",
-        subtext: "Some online marketplaces have ways to alert them to infringement happening on their platform, which can be used in conjunction with other enforcement strategies.(Select all that apply - currently only able to select one option)",
+        text: "Have you identified any IP related infringement from someone selling on any online marketplaces?",
+        subtext: "Some online marketplaces have ways to alert them to infringement happening on their platform, which can be used in conjunction with other enforcement strategies.<br>Examples of online marketplace which have ways to encorce your IP right include; Amazon, Ebay, Meta (Facebook and Instagram),Alibaba/AliExpress, and TikTok",
         options: [
             {
                 id: 1,
-                text: "None",
+                text: "No",
                 explanation: "Options relating to these online platforms will not be surfaced. <br>Selecting this will render 1 option as not-applicable.",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-10,-10,-10,-10,-10,-10,-10,-10,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 markNotApplicable: [49],
                 skipQuestions: []
             },
-            {
-                id: 2,
-                text: "Amazon",
-                explanation: "Options include; Brand Registry program for registered trademark owners, Report a Violation tool in Seller Central, Infringement Report form for non-Brand Registry members",
-                scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,0,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
-            {
-                id: 3,
-                text: "Ebay",
-                explanation: "Options include; Verified Rights Owner (VeRO) program",
-                scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,10,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
+ //            {
+  //               id: 2,
+  //               text: "Specific market place: Amazon",
+   //              explanation: "Options include; Brand Registry program for registered trademark owners, Report a Violation tool in Seller Central, Infringement Report form for non-Brand Registry members",
+   //              scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,0,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
+   //              markNotApplicable: [],
+   //              skipQuestions: []
+    //         },
+  //           {
+ //                id: 3,
+ //                text: "Ebay",
+ //                explanation: "Options include; Verified Rights Owner (VeRO) program",
+ //                scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,10,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
+  //               markNotApplicable: [],
+  //               skipQuestions: []
+  //           },
  //           {
 //                id: 4,
 //                text: "Meta (Facebook, Instagram)",
@@ -677,18 +678,18 @@ const questions = [
 //                markNotApplicable: [],
 //                skipQuestions: []
 //            },
-              {
-                id: 8,
-                text: "Another, not listed here",
-                explanation: "",
-                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,10,10,10,10,10,10,10,0,0,1,1,1,0,1,0,0,0,0,0,0],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
+//              {
+ //               id: 8,
+  //              text: "Another, not listed here",
+  //              explanation: "",
+ //               scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,10,10,10,10,10,10,10,0,0,1,1,1,0,1,0,0,0,0,0,0],
+//                markNotApplicable: [],
+ //               skipQuestions: []
+  //          },
             {
                 id: 9,
-                text: "Yes, an online marketplace.",
-                explanation: "This is a generic placeholder for any marketplace.",
+                text: "Yes",
+                explanation: "Someone is infringing my IP by selling on an online marketplace.",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,10,10,10,10,10,10,10,0,0,1,1,1,0,1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -698,12 +699,12 @@ const questions = [
     {
         id: 11,
         text: "Are allegedly infringing products being imported into Australia?",
-        subtext: "Are you trying to stop products that infringe your trade marks or copyright entering Australia?",
+        subtext: "Are you trying to stop products that infringe your trade mark(s) entering Australia?",
         options: [
             {
                 id: 1,
                 text: "Yes",
-                explanation: "Choosing this option will prioritise options that are targeted at stopping the movement of goods to prevent infringing products entering Australia",
+                explanation: "Choosing this option will prioritise options that are targeted at stopping the movement of goods at the border to prevent infringing products entering Australia",
                 scores: [0,0,0,0,0,0,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,10,1,1,1,0,1,0,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: []
@@ -711,7 +712,7 @@ const questions = [
             {
                 id: 2,
                 text: "No",
-                explanation: "Choosing this option will deprioritise options that are targeted at stopping the movement of goods to prevent infringing products entering Australia. <br>Selecting this will render 1 option as not-applicable.",
+                explanation: "Selecting this will render 1 option relating to border control as not-applicable.",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 markNotApplicable: [58],
                 skipQuestions: []
@@ -720,7 +721,7 @@ const questions = [
     },
    {
         id: 12,
-        text: "In which region do the parties primarily operate? (Select all which apply)?",
+        text: "THIS QUESTION SHOULD NOT COME UP: In which region do the parties primarily operate? (Select all which apply)?",
         subtext: "Some words go here",
         options: [
             {
@@ -776,7 +777,7 @@ const questions = [
     {
         id: 13,
         text: "Which of the following has been attempted so far?",
-        subtext: "We will not suggest something you've already done, eg, and also we will make sure we suggest options that are the right escalation",
+        subtext: "By understanding what steps you've already taken, we can recommend new, appropriate next steps that build on your previous actions. This helps avoid duplicate suggestions and ensures our recommendations follow a suitable escalation path.<br> [NOTE: This will be multiple choice in future, but for now pick the most recent action taken.]",
         options: [
             {
                 id: 1,
@@ -813,7 +814,7 @@ const questions = [
             {
                 id: 5,
                 text: "Engagement with regulatory bodies ",
-                explanation: "(eg ASBFEO - Australian Small Business & Family Enterprise Ombudsman, TGA - Theraputic Goods Administration)",
+                explanation: "eg ASBFEO - Australian Small Business & Family Enterprise Ombudsman, TGA - Theraputic Goods Administration",
                 scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,3,0,1,1,1,1,1,1,1,1,1,1,-1,0,0,1,1,1,1,1,1,1,1,1,1,-1,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [57,59],
                 skipQuestions: []
@@ -836,15 +837,15 @@ const questions = [
             },
             {
                 id: 8,
-                text: "IP Australia Oppositions and hearings procedures",
-                explanation: "",
+                text: "IP Australia Oppositions and Hearings procedures",
+                explanation: "Selecting this will render 2 option as not-applicable.",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,-1,-1,0,0,1,1,1,1,1,1,1,1,-1,-1,-1,1,0,0,0,1,0,0,0,0,0],
                 markNotApplicable: [1,18],
                 skipQuestions: []
             },
             {
                 id: 9,
-                text: "Lodged a NOO with the ABF",
+                text: "Lodged a Notice of Objection with the Australian Border Force",
                 explanation: "Selecting this will render 1 option as not-applicable.",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,1,1,-2,-2,-2,3,0,0,0,0],
                 markNotApplicable: [58],
@@ -886,7 +887,7 @@ const questions = [
     },
     {
         id: 15,
-        text: "How important to preserve a relationship with the other party?",
+        text: "How important is it to preserve a relationship with the other party?",
         subtext: "The relationship you have with the alleged infringer helps determine options to consider which are most effective and help maintain good business relations.",
         options: [
             {
@@ -907,7 +908,7 @@ const questions = [
             },
             {
                 id: 3,
-                text: "Open to establishing a relationship",
+                text: "Open to establishing a relationship.",
                 explanation: "Things like considering co-existence with rule, licensing, or other options can be included.",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,-1,3,3,3,3,3,3,3,3,3,3,1,0,2,0,0,0,0,0,0,0,0,-1,-1,-1,1,1,1,1,1,0,0,0,0,0],
                 markNotApplicable: [],
