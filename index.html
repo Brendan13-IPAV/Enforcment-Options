@@ -206,12 +206,12 @@ const questions = [
         subtext: "To help prioritise options which align with your needs, we would like to know what your goal is. Please select your MAIN goal, noting that multiple aims may be achieved (to varying degrees) by pursuing suggested actions.",
         options: [
             {
-                id: 3,
-                text: "Obtain financial compensation related to the infringement.",
-                explanation: "Making this choice will prioritise more confrontational actions that directly engage with the other party. The aim of these processes are to seek financial compensation for losses incurred.",
-                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,1,1,0,1,1,0,0,1,1,1,1,0,1,0,0,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,1,1,0,-1,0,0,0,0,0,0],
+                id: 1,
+                    text: "Raising concern over a potential infringement.",
+                explanation: "This option could refer to situations where you believe that a pending or granted IP right is/will adversely affect your business, or where it is not clear if infringement is occurring. <br>Selecting this option will prioritise options to oppose the IP right in question.",
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,2,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,0,0,0,0,0],
                 markNotApplicable: [],
-                skipQuestions: [11]  
+                skipQuestions: [11]
             },
             {
                 id: 2,
@@ -222,17 +222,81 @@ const questions = [
                 skipQuestions: [11]
             },
             {
-                id: 1,
-                text: "Raising concern over a potential infringement.",
-                explanation: "This option could refer to situations where you believe that a pending or granted IP right is/will adversely affect your business, or where it is not clear if infringement is occurring. Selecting this option will prioritise options to oppose the IP right in question.",
-                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,2,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,0,0,0,0,0],
+                id: 3,
+             text: "Obtain financial compensation related to the infringement.",
+                explanation: "Making this choice will prioritise more confrontational actions that directly engage with the other party. The aim of these processes are to seek financial compensation for losses incurred.",
+                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,1,1,0,1,1,0,0,1,1,1,1,0,1,0,0,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,1,1,0,-1,0,0,0,0,0,0],
                 markNotApplicable: [],
-                skipQuestions: [11]
+                skipQuestions: [11]  
             }
         ]
     },
     {
         id: 2,
+        text: "Which intellectual property rights are being infringed?",
+        subtext: "If multiple apply, we suggest that you repeat this and treat each matter separately to understand how the options differ depending on the right. The processes and resolutions recommended will vary significantly for each right for some situations.",
+        options: [
+            {
+                id: 1,
+                text: "Trade mark",
+                explanation: "Selecting this will render 8 options as not-applicable as they relate to other registered rights.",
+                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-10,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,-10,-10,-10,-10],
+                  markNotApplicable: [1,9,17,33,66,67,68,69],
+                skipQuestions: [7]
+            },
+            {
+                id: 2,
+                text: "Patent",
+                explanation: "Selecting this will render 11 options as not-applicable as they relate to other registered rights.",
+                scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,-1,-1,0,1,1,1,0,1,1,-10,-10,-10,-10],
+                markNotApplicable: [18,25,32,33,47,58,63,66,67,68,69],
+                skipQuestions: [6,10]
+            },
+                   {
+                id: 3,
+                text: "Registered Design",
+                explanation: "",
+                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-10,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,-1,1,0,1,1,1,0,1,1,10,-10,10,-10],
+                markNotApplicable: [1,9,17,18,25,32,33,34,35,41,42,43,44,45,46,47,48,49,57,58,59,60,61,62,63,64,65,67,68,69],
+                skipQuestions: [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
+            },
+            {
+                id: 4,
+                text: "Plant Breeders Right",
+                explanation: "",
+                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-10,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,-1,-1,0,1,1,1,0,1,1,-10,10,-10,-10],
+                markNotApplicable: [1,9,17,18,25,32,33,34,35,41,42,43,44,45,46,47,48,49,57,58,59,60,61,62,63,64,65,66,68,69],
+               skipQuestions: [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
+            },
+            {
+                id: 5,
+                text: "Uncertain",
+                explanation: "Selecting this option will make it difficult to provide specific suggestions, as some enforcement options are specific to only certain rights.",
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-10,-10,-10,10],
+                markNotApplicable: [],
+                skipQuestions: [6,7]
+            },
+            {
+                id: 6,
+                text: "Unregistered / not formally registered IP",
+                explanation: "(e.g. unregistered trade marks, copyright) There can be Common Law rights in rare situations, but owning no registered IP rights. <br>Selecting this will render 11 options as not-applicable.",
+                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,1,-1,1,1,1,1,1,1,1,3,1,1,1,0,0,-1,1,1,1,1,1,1,1,1,1,-1,0,1,1,1,1,3,1,0,0,1,1],
+                markNotApplicable: [1,9,17,18,25,32,33,48,58,66,67],
+                skipQuestions: [2,3,6,7,10,11]
+            },
+            {
+                id: 7,
+                text: "Other",
+                explanation: "Circult layout rights, geographic indicators, portrait rights, copyright, etc. <br>Selecting this will render 15 options as not-applicable.",
+                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,-1,-1,-1,1,0,0,0,0,0,-10,-10,-10,10],
+                markNotApplicable: [1,9,17,18,25,32,33,42,43,44,47,58,66,67,68],
+                skipQuestions: [6,7,10]
+            }
+        ]
+    },
+
+    {
+        id: 3,
         text: "Which country is the IP right being breached registered in?",
         subtext: "IP exists globally, but is made up of a patchwork of cooperating systems. Some actions are only available with rights registered in certain jurisdictions. This includes IP rights which are pending.",
         options: [
@@ -259,78 +323,6 @@ const questions = [
                 scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,-1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,-1,1,1,1,0,-1,1,0,0,0,0,0],
                 markNotApplicable: [],
                 skipQuestions: [11]
-            },
-            {
-                id: 4,
-                text: "The IP is not formally registered.",
-                explanation: "There are Common Law rights for IP in some situations, but with no registered IP rights. <br>Selecting this will render 7 options as not-applicable.",
-                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,1,-1,1,1,1,1,1,1,1,3,1,1,1,0,0,-1,1,1,1,1,1,1,1,1,1,-1,0,0,1,0,1,3,1,0,0,0,0],
-                markNotApplicable: [1,9,17,18,25,32,33],
-                skipQuestions: [3,6,7,11]
-            }
-        ]
-    },
-    {
-        id: 3,
-        text: "Which intellectual property rights are being infringed?",
-        subtext: "If multiple apply, we suggest that you repeat this and treat each matter separately to understand how the options differ depending on the right. The processes and resolutions recommended will vary significantly for each right for some situations.",
-        options: [
-            {
-                id: 1,
-                text: "Trade mark",
-                explanation: "Selecting this will render 8 options as not-applicable as they relate to other registered rights.",
-                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-10,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,-10,-10,-10,-10],
-                  markNotApplicable: [1,9,17,33,66,67,68,69],
-
-                skipQuestions: [7]
-            },
-            {
-                id: 2,
-                text: "Patent",
-                explanation: "Selecting this will render 11 options as not-applicable as they relate to other registered rights.",
-                scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,-1,-1,0,1,1,1,0,1,1,-10,-10,-10,-10],
-                markNotApplicable: [18,25,32,33,47,58,63,66,67,68,69],
-                skipQuestions: [6,10]
-            },
-                   {
-                id: 3,
-                text: "Registered Design",
-                explanation: "",
-                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-10,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,-1,1,0,1,1,1,0,1,1,10,-10,10,-10],
-                markNotApplicable: [1,9,17,18,25,32,33,34,35,41,42,43,44,45,46,47,48,49,57,58,59,60,61,62,63,64,65,67,68,69],
-                skipQuestions: [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
-            },
-            {
-                id: 4,
-                text: "Plant Breeders Right",
-                explanation: "",
-                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-10,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,-1,-1,0,1,1,1,0,1,1,-10,10,-10,-10],
-                markNotApplicable: [1,9,17,18,25,32,33,34,35,41,42,43,44,45,46,47,48,49,57,58,59,60,61,62,63,64,65,66,68,69],
-               skipQuestions: [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
-            },
-            {
-                id: 5,
-                text: "Uncertain",
-                explanation: "Selecting this option will make it difficult to provide specific suggestions, as some enforcement options are specific to only certain rights.",
-                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-10,-10,-10,10],
-                markNotApplicable: [],
-                skipQuestions: [6,7]
-            },
-            {
-                id: 6,
-                text: "Unregistered Rights (e.g. unregistered trade marks, copyright)",
-                explanation: "Selecting this will render 13 options as not-applicable.",
-                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,-10,-10,1,-10],
-                markNotApplicable: [1,9,17,18,25,32,33,47,48,58,66,67,68],
-                skipQuestions: [3,6,7,10]
-            },
-            {
-                id: 7,
-                text: "Other",
-                explanation: "Circult layout rights, geographic indicators, portrait rights, copyright, etc. <br>Selecting this will render 15 options as not-applicable.",
-                scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,-1,-1,-1,1,0,0,0,0,0,-10,-10,-10,10],
-                markNotApplicable: [1,9,17,18,25,32,33,42,43,44,47,58,66,67,68],
-                skipQuestions: [6,7,10]
             }
         ]
     },
