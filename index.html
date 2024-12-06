@@ -294,7 +294,6 @@ const questions = [
             }
         ]
     },
-
     {
         id: 3,
         text: "Which country is the IP right being breached registered in?",
@@ -621,6 +620,14 @@ const questions = [
         text: "Have you identified any IP related infringement from someone selling on any online marketplaces?",
         subtext: "Some online marketplaces have ways to alert them to infringement happening on their platform, which can be used in conjunction with other enforcement strategies.<br>Examples of online marketplace which have ways to encorce your IP right include; Amazon, Ebay, Meta (Facebook and Instagram),Alibaba/AliExpress, and TikTok",
         options: [
+                       {
+                id: 2,
+                text: "Yes",
+                explanation: "Someone is infringing my IP by selling on an online marketplace.",
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,10,10,10,10,10,10,10,0,0,1,1,1,0,1,0,0,0,0,0,0],
+                markNotApplicable: [],
+                skipQuestions: []
+            },
             {
                 id: 1,
                 text: "No",
@@ -628,71 +635,63 @@ const questions = [
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-10,-10,-10,-10,-10,-10,-10,-10,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 markNotApplicable: [49],
                 skipQuestions: []
-            },
- //            {
-  //               id: 2,
-  //               text: "Specific market place: Amazon",
-   //              explanation: "Options include; Brand Registry program for registered trademark owners, Report a Violation tool in Seller Central, Infringement Report form for non-Brand Registry members",
-   //              scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,0,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
-   //              markNotApplicable: [],
-   //              skipQuestions: []
-    //         },
-  //           {
- //                id: 3,
- //                text: "Ebay",
- //                explanation: "Options include; Verified Rights Owner (VeRO) program",
- //                scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,10,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
-  //               markNotApplicable: [],
-  //               skipQuestions: []
-  //           },
- //           {
-//                id: 4,
-//                text: "Meta (Facebook, Instagram)",
-//                explanation: "Options include; Commerce & Ads IP Tool for registered trademarks, Online intellectual property report form, Content reporting system in-platform",
-//                scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,10,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
-//                markNotApplicable: [],
-//                skipQuestions: []
-//            },
-//            {
-//                id: 5,
-//                text: "Alibaba/AliExpress",
-//                explanation: "Options include; Intellectual Property Protection Platform (IPP Platform), Online takedown request system",
-//                scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,0,10,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
-//                markNotApplicable: [],
-//                skipQuestions: []
-//            },
-//            {
-//                id: 6,
-//                text: "Etsy",
-//                explanation: "Options include; Intellectual Property Infringement Report form, Trademark Policy enforcement team",
-//                scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,0,0,10,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
-//                markNotApplicable: [],
-//                skipQuestions: []
-//            },
-//            {
-//                id: 7,
-//                text: "TikTok",
-//                explanation: "Options include; Intellectual Property Policy portal, Online reporting system for trademark violations",
-//                scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,0,0,0,10,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
-//                markNotApplicable: [],
-//                skipQuestions: []
-//            },
-//              {
- //               id: 8,
-  //              text: "Another, not listed here",
-  //              explanation: "",
- //               scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,10,10,10,10,10,10,10,0,0,1,1,1,0,1,0,0,0,0,0,0],
-//                markNotApplicable: [],
- //               skipQuestions: []
-  //          },
-            {
-                id: 9,
-                text: "Yes",
-                explanation: "Someone is infringing my IP by selling on an online marketplace.",
-                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,10,10,10,10,10,10,10,0,0,1,1,1,0,1,0,0,0,0,0,0],
-                markNotApplicable: [],
-                skipQuestions: []
             }
+           //  {
+           //      id: 2,
+           //      text: "Specific market place: Amazon",
+           //      explanation: "Options include; Brand Registry program for registered trademark owners, Report a Violation tool in Seller Central, Infringement Report form for non-Brand Registry members",
+           //      scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,0,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
+           //      markNotApplicable: [],
+           //      skipQuestions: []
+           //  },
+           //  {
+           //      id: 3,
+           //      text: "Ebay",
+           //      explanation: "Options include; Verified Rights Owner (VeRO) program",
+           //      scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,10,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
+           //      markNotApplicable: [],
+           //      skipQuestions: []
+           //  },
+           // {
+           //     id: 4,
+           //     text: "Meta (Facebook, Instagram)",
+           //     explanation: "Options include; Commerce & Ads IP Tool for registered trademarks, Online intellectual property report form, Content reporting system in-platform",
+           //     scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,10,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
+           //     markNotApplicable: [],
+           //     skipQuestions: []
+           // },
+           // {
+           //     id: 5,
+           //     text: "Alibaba/AliExpress",
+           //     explanation: "Options include; Intellectual Property Protection Platform (IPP Platform), Online takedown request system",
+           //     scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,0,10,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
+           //     markNotApplicable: [],
+           //     skipQuestions: []
+           // },
+           // {
+           //     id: 6,
+           //     text: "Etsy",
+           //     explanation: "Options include; Intellectual Property Infringement Report form, Trademark Policy enforcement team",
+           //     scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,0,0,10,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
+           //     markNotApplicable: [],
+           //     skipQuestions: []
+           // },
+           // {
+           //     id: 7,
+           //     text: "TikTok",
+           //     explanation: "Options include; Intellectual Property Policy portal, Online reporting system for trademark violations",
+           //     scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,0,0,0,10,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
+           //     markNotApplicable: [],
+           //     skipQuestions: []
+           // },
+           //   {
+           //     id: 8,
+           //     text: "Another, not listed here",
+           //     explanation: "",
+           //     scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,10,10,10,10,10,10,10,0,0,1,1,1,0,1,0,0,0,0,0,0],
+           //     markNotApplicable: [],
+           //     skipQuestions: []
+           // },
         ]
     },
     {
