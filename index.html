@@ -255,7 +255,7 @@ const questions = [
                    {
                 id: 3,
                 text: "Registered Design",
-                explanation: "",
+                explanation: "Selecting this will render 27 options as not-applicable.",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-10,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,-1,1,0,1,1,1,0,1,1,10,-10,10,-10],
                 markNotApplicable: [1,9,17,18,25,32,33,34,35,41,42,43,44,45,46,47,48,49,57,58,59,60,61,62,63,64,65,67,68,69],
                 skipQuestions: [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
@@ -263,7 +263,7 @@ const questions = [
             {
                 id: 4,
                 text: "Plant Breeders Right",
-                explanation: "",
+                explanation: "Selecting this will render 27 options as not-applicable.",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-10,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,-1,-1,0,1,1,1,0,1,1,-10,10,-10,-10],
                 markNotApplicable: [1,9,17,18,25,32,33,34,35,41,42,43,44,45,46,47,48,49,57,58,59,60,61,62,63,64,65,66,68,69],
                skipQuestions: [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
@@ -279,7 +279,7 @@ const questions = [
             {
                 id: 6,
                 text: "Unregistered / not formally registered IP",
-                explanation: "Selting this indicates that you have intellectual property rights without formal registration, such as distinctive branding which may act as a Common Law Right in rare situations.<br>Please note that this system specifically excludes copyright matters. <br>Selecting this will render 11 options as not-applicable.",
+                explanation: "Selting this indicates that you have intellectual property rights without formal registration, such as distinctive branding which may act as a Common Law Right in rare situations.<br> Please note that this system specifically excludes copyright matters. <br>Selecting this will render 11 options as not-applicable.",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,1,-1,1,1,1,1,1,1,1,3,1,1,1,0,0,-1,1,1,1,1,1,1,1,1,1,-1,0,1,1,1,1,3,1,0,0,1,1],
                 markNotApplicable: [1,9,17,18,25,32,33,48,58,66,67],
                 skipQuestions: [2,3,6,7,10,11]
@@ -287,13 +287,14 @@ const questions = [
             {
                 id: 7,
                 text: "Other",
-                explanation: "Circult layout rights, geographic indicators, portrait rights, copyright, etc. <br>Selecting this will render 15 options as not-applicable.",
+                explanation: "Circult layout rights, geographic indicators, portrait rights, copyright, etc. <br>Selecting this will render 12 options as not-applicable.",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,-1,-1,-1,1,0,0,0,0,0,-10,-10,-10,10],
                 markNotApplicable: [1,9,17,18,25,32,33,42,43,44,47,58,66,67,68],
                 skipQuestions: [6,7,10,11]
             }
         ]
     },
+
     {
         id: 3,
         text: "Which country is the IP right being breached registered in?",
@@ -310,7 +311,7 @@ const questions = [
             {
                 id: 2,
                 text: "Registered with foreign IP offices",
-                explanation: "(e.g., US, Korean IP office, EU) <br>Selecting this will render 12 options as not-applicable.",
+                explanation: "e.g.Rights registered with USPO, Korean IP office, EU etc) <br>Selecting this will render 5 options as not-applicable.",
                 scores: [-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,-1,-1,1,1,1,1,1,1,1,1,-1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,1,0,0,0,0,0],
                 markNotApplicable: [1,2,3,4,5,6,7,8,9,18,25,32],
                 skipQuestions: [11]
@@ -460,8 +461,8 @@ const questions = [
     },
     {
         id: 7,
-        text: "Do you believe any of the following are true about the trade mark in question?",
-        subtext: "This question primarily applies to situations when the infringing party holds a trade mark (in addition to yours). In some rare situations, the validity (the right to be registered) can be challenged.",
+        text: "If the infringing party owns a trade mark (in addition to your trademark), do you believe any of the following are true about the other party's trade mark?",
+        subtext: "In some rare situations, the validity of an opponents trade mark (the right to be registered) can be challenged.",
         options: [
             {
                 id: 1,
@@ -618,80 +619,80 @@ const questions = [
     {
         id: 10,
         text: "Have you identified any IP related infringement from someone selling on any online marketplaces?",
-        subtext: "Some online marketplaces have ways to alert them to infringement happening on their platform, which can be used in conjunction with other enforcement strategies.<br>Examples of online marketplace which have ways to encorce your IP right include; Amazon, Ebay, Meta (Facebook and Instagram),Alibaba/AliExpress, and TikTok ",
+        subtext: "Some online marketplaces have ways to alert them to infringement happening on their platform, which can be used in conjunction with other enforcement strategies.<br>Examples of online marketplace which have ways to encorce your IP right include; Amazon, Ebay, Meta (Facebook and Instagram),Alibaba/AliExpress, and TikTok",
         options: [
-                       {
-                id: 1,
-                text: "Yes",
-                explanation: "Someone is infringing my IP by selling on an online marketplace.",
-                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,10,10,10,10,10,10,10,0,0,1,1,1,0,1,0,0,0,0,0,0],
-                markNotApplicable: [],
-                skipQuestions: []
-            },
             {
-                id: 2,
+                id: 1,
                 text: "No",
                 explanation: "Options relating to these online platforms will not be surfaced. <br>Selecting this will render 1 option as not-applicable.",
                 scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-10,-10,-10,-10,-10,-10,-10,-10,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 markNotApplicable: [49],
                 skipQuestions: []
+            },
+ //            {
+  //               id: 2,
+  //               text: "Specific market place: Amazon",
+   //              explanation: "Options include; Brand Registry program for registered trademark owners, Report a Violation tool in Seller Central, Infringement Report form for non-Brand Registry members",
+   //              scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,0,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
+   //              markNotApplicable: [],
+   //              skipQuestions: []
+    //         },
+  //           {
+ //                id: 3,
+ //                text: "Ebay",
+ //                explanation: "Options include; Verified Rights Owner (VeRO) program",
+ //                scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,10,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
+  //               markNotApplicable: [],
+  //               skipQuestions: []
+  //           },
+ //           {
+//                id: 4,
+//                text: "Meta (Facebook, Instagram)",
+//                explanation: "Options include; Commerce & Ads IP Tool for registered trademarks, Online intellectual property report form, Content reporting system in-platform",
+//                scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,10,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
+//                markNotApplicable: [],
+//                skipQuestions: []
+//            },
+//            {
+//                id: 5,
+//                text: "Alibaba/AliExpress",
+//                explanation: "Options include; Intellectual Property Protection Platform (IPP Platform), Online takedown request system",
+//                scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,0,10,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
+//                markNotApplicable: [],
+//                skipQuestions: []
+//            },
+//            {
+//                id: 6,
+//                text: "Etsy",
+//                explanation: "Options include; Intellectual Property Infringement Report form, Trademark Policy enforcement team",
+//                scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,0,0,10,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
+//                markNotApplicable: [],
+//                skipQuestions: []
+//            },
+//            {
+//                id: 7,
+//                text: "TikTok",
+//                explanation: "Options include; Intellectual Property Policy portal, Online reporting system for trademark violations",
+//                scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,0,0,0,10,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
+//                markNotApplicable: [],
+//                skipQuestions: []
+//            },
+//              {
+ //               id: 8,
+  //              text: "Another, not listed here",
+  //              explanation: "",
+ //               scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,10,10,10,10,10,10,10,0,0,1,1,1,0,1,0,0,0,0,0,0],
+//                markNotApplicable: [],
+ //               skipQuestions: []
+  //          },
+            {
+                id: 9,
+                text: "Yes",
+                explanation: "Someone is infringing my IP by selling on an online marketplace.",
+                scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,10,10,10,10,10,10,10,0,0,1,1,1,0,1,0,0,0,0,0,0],
+                markNotApplicable: [],
+                skipQuestions: []
             }
-           //  {
-           //      id: 2,
-           //      text: "Specific market place: Amazon",
-           //      explanation: "Options include; Brand Registry program for registered trademark owners, Report a Violation tool in Seller Central, Infringement Report form for non-Brand Registry members",
-           //      scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,0,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
-           //      markNotApplicable: [],
-           //      skipQuestions: []
-           //  },
-           //  {
-           //      id: 3,
-           //      text: "Ebay",
-           //      explanation: "Options include; Verified Rights Owner (VeRO) program",
-           //      scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,10,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
-           //      markNotApplicable: [],
-           //      skipQuestions: []
-           //  },
-           // {
-           //     id: 4,
-           //     text: "Meta (Facebook, Instagram)",
-           //     explanation: "Options include; Commerce & Ads IP Tool for registered trademarks, Online intellectual property report form, Content reporting system in-platform",
-           //     scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,10,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
-           //     markNotApplicable: [],
-           //     skipQuestions: []
-           // },
-           // {
-           //     id: 5,
-           //     text: "Alibaba/AliExpress",
-           //     explanation: "Options include; Intellectual Property Protection Platform (IPP Platform), Online takedown request system",
-           //     scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,0,10,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
-           //     markNotApplicable: [],
-           //     skipQuestions: []
-           // },
-           // {
-           //     id: 6,
-           //     text: "Etsy",
-           //     explanation: "Options include; Intellectual Property Infringement Report form, Trademark Policy enforcement team",
-           //     scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,0,0,10,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
-           //     markNotApplicable: [],
-           //     skipQuestions: []
-           // },
-           // {
-           //     id: 7,
-           //     text: "TikTok",
-           //     explanation: "Options include; Intellectual Property Policy portal, Online reporting system for trademark violations",
-           //     scores: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,0,0,0,0,0,10,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0],
-           //     markNotApplicable: [],
-           //     skipQuestions: []
-           // },
-           //   {
-           //     id: 8,
-           //     text: "Another, not listed here",
-           //     explanation: "",
-           //     scores: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,1,1,1,1,-1,0,10,10,10,10,10,10,10,10,0,0,1,1,1,0,1,0,0,0,0,0,0],
-           //     markNotApplicable: [],
-           //     skipQuestions: []
-           // },
         ]
     },
     {
@@ -780,7 +781,7 @@ const questions = [
             {
                 id: 1,
                 text: "Alternative dispute resolution ",
-                explanation: "Such as mediation, arbitration, negotiation ",
+                explanation: "Such as mediation, arbitration, negotiation. <br>Selecting this will render 2 options as not-applicable.",
                 scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,1,1,1,1,1,1,1,1,1,1,0,1,1,0,0,0,0,0,0,0,0],
                 markNotApplicable: [42,43,44,45,46],
                 skipQuestions: []
@@ -788,7 +789,7 @@ const questions = [
             {
                 id: 2,
                 text: "I have responded to a letter of demand/cease & desist",
-                explanation: "",
+                explanation: "Selecting this will render 2 options as not-applicable.",
                 scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,0,-1,0,0,1,1,1,1,1,1,1,1,1,0,0,1,1,0,0,0,0,0,0,0,0],
                 markNotApplicable: [45,46],
                 skipQuestions: []
@@ -796,7 +797,7 @@ const questions = [
             {
                 id: 3,
                 text: "I have sent a letter of demand/cease & desist",
-                explanation: "",
+                explanation: "Selecting this will render 1 option as not-applicable.",
                 scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,-1,-1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,0,0,0,0,0,0,0,0],
                 markNotApplicable: [45],
                 skipQuestions: []
@@ -804,7 +805,7 @@ const questions = [
             {
                 id: 4,
                 text: "Informal communication between parties",
-                explanation: "",
+                explanation: "Selecting this will render 1 option as not-applicable.",
                 scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0],
                 markNotApplicable: [46],
                 skipQuestions: []
@@ -812,7 +813,7 @@ const questions = [
             {
                 id: 5,
                 text: "Engagement with regulatory bodies ",
-                explanation: "eg ASBFEO - Australian Small Business & Family Enterprise Ombudsman, TGA - Theraputic Goods Administration",
+                explanation: "eg ASBFEO - Australian Small Business & Family Enterprise Ombudsman, TGA - Theraputic Goods Administration. <br>Selecting this will render 2 options as not-applicable.",
                 scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,3,0,1,1,1,1,1,1,1,1,1,1,-1,0,0,1,1,1,1,1,1,1,1,1,1,-1,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [57,59],
                 skipQuestions: []
@@ -820,7 +821,7 @@ const questions = [
             {
                 id: 6,
                 text: "Reporting to online platforms",
-                explanation: "",
+                explanation: "Selecting this will render 1 option as not-applicable.",
                 scores: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,0,1,0,0,0,0,0],
                 markNotApplicable: [49],
                 skipQuestions: []
@@ -970,9 +971,11 @@ function init() {
                 <div class="welcome-content">
                     <h1>My Rights have been infringed</h1>
                     <p class="welcome-text">
-                        This tool is designed to help you narrow down and prioritise potential actions based on the information you provide about your situation. At the conclusion, you will receive a shortlist of options for your consideration, empowering you to make an informed decision.
-                    </p>
-                    V5.2.4 6-Dec-2024 15:30
+                        This tool is designed to help you narrow down and prioritise potential actions based on the information you provide about your situation. 
+            </p>
+                        IP First Response currently considers 24 ways to respond to infringment of your IP rights. At the conclusion, you will receive a shortlist of options for your consideration, empowering you to make an informed decision.
+            </p>
+                    V5.2.5 9-Dec-2024 10:30
                     </p>
                     <button class="button" onclick="startQuiz()">Begin Assessment</button>
                 </div>
